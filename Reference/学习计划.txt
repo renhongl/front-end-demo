@@ -1,15 +1,15 @@
+
 学习计划
 
-1. 再看一遍W3School。全部深入理解。（5天）
-2. 做一些技术题，看看哪些是重点。（3天）
-3. 深入了解浏览器差异以及兼容性，深入了解如何优化网页。（3天）
-4. 学习react的redux架构。（3天）
-5. 学习vue组件开发。（3天）
-6. 全面学习原生js，包括emca，dom，bom的所有api，全面学习jquery api（5天）
-7. 全面学习es6+。（3天）
-8. 全面学习Webpack。（2天）
-9. 全面学习gulp或者grunt，使用其中一种加上mongose设计后台架构。（10天）
-10. 总结工作中学到的技能:
+0. 全面学习Webpack/babel。
+1. 学习react和redux架构。
+2. 学习vue组件开发。
+3. 全面学习原生js，包括emca，dom，bom的所有api，全面学习jquery api,使用原生js做jquery的功能。
+4. 全面学习es6+，使用es6+扩展上步的功能。
+5. 做一些技术题，看看哪些是重点。
+6. 深入了解浏览器差异以及兼容性，深入了解如何优化网页。
+7. 全面学习gulp或者grunt，使用其中一种加上mongose设计后台架构。
+8. 总结工作中学到的技能:
 	requirejs, jqxwidgets, bootstrap, tipsy, toastr, jquery, jquery fileupload, websocket, leaflet, arcgis, keylines, c3.
 	处理IE浏览器date不兼容问题。
 	封装ajax，统一发送前，发送后风格。
