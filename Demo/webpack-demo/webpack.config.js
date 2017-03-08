@@ -1,3 +1,7 @@
+
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     devtool: 'eval-source-map',
 
@@ -17,9 +21,24 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel'
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!css?modules!postcss'
             }
         ]
     },
+
+    postcss: [
+        require('autoprefixer')
+    ],
+
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: __dirname + '/app/index.html'
+        }),
+        new webpack.HotModuleReplacementPlugin()
+    ],
 
     devServer: {
         contentBase: './public',//本地服务器所加载的页面所在的目录
