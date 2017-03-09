@@ -1,0 +1,36 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\renhongl\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'start' ]
+2 info using npm@4.0.5
+3 info using node@v6.9.5
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle react-demo@1.0.0~prestart: react-demo@1.0.0
+6 silly lifecycle react-demo@1.0.0~prestart: no script for prestart, continuing
+7 info lifecycle react-demo@1.0.0~start: react-demo@1.0.0
+8 verbose lifecycle react-demo@1.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle react-demo@1.0.0~start: PATH: C:\Users\renhongl\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;C:\Users\renhongl\Documents\A-Documents\Summary\demo\react-demo\node_modules\.bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\renhongl\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Security Innovation\SI TSS\bin;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\TortoiseSVN\bin;D:\apache-maven-3.3.3\bin;C:\Program Files\Java\jre7\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\UsefulData\apache-tomcat-7.0.63\bin;D:\Program Files\nodejs;D:\Program Files\nodejs;D:\Program Files\Java\jdk1.8.0_73\bin;C:\Users\renhongl\Downloads\phantomjs-2.1.1-windows\phantomjs-2.1.1-windows\bin;C:\C;C:\Program Files\Git\Program Files\Git\cmd;C:\Program Files (x86)\Tencent\QQ\Bin;C:\Program Files\Sublime Text 2;D:\links\apps\applicationPlatform\AP-win32-x64;C:\Program Files (x86)\Google\Chrome\Application;D:\UsefulData\apache-tomcat-7.0.63\apache-tomcat-7.0.63\bin;C:\Program Files\MongoDB\Server\3.2\bin;C:\Users\renhongl\Downloads\jx_win64v8\jx_win64v8;C:\cmder;C:\Program Files\Git\cmd;D:\Vim\vim80;D:\Program Files\nodejs;C:\Users\renhongl\AppData\Local\Programs\Python\Python35-32\Scripts;C:\Users\renhongl\AppData\Local\Programs\Python\Python35-32;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\renhongl\AppData\Roaming\npm
+10 verbose lifecycle react-demo@1.0.0~start: CWD: C:\Users\renhongl\Documents\A-Documents\Summary\demo\react-demo
+11 silly lifecycle react-demo@1.0.0~start: Args: [ '/d /s /c', 'webpack-dev-server --open' ]
+12 verbose stack Error: kill ENOSYS
+12 verbose stack     at exports._errnoException (util.js:1022:11)
+12 verbose stack     at process.kill (internal/process.js:172:13)
+12 verbose stack     at process.listener (C:\Users\renhongl\AppData\Roaming\npm\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:86:15)
+12 verbose stack     at emitNone (events.js:91:20)
+12 verbose stack     at process.emit (events.js:185:7)
+12 verbose stack     at processEmit (C:\Users\renhongl\AppData\Roaming\npm\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+12 verbose stack     at processEmit (C:\Users\renhongl\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+12 verbose stack     at Signal.wrap.onsignal (internal/process.js:199:44)
+13 verbose cwd C:\Users\renhongl\Documents\A-Documents\Summary\demo\react-demo
+14 error Windows_NT 6.1.7601
+15 error argv "D:\\Program Files\\nodejs\\node.exe" "C:\\Users\\renhongl\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "run" "start"
+16 error node v6.9.5
+17 error npm  v4.0.5
+18 error code ENOSYS
+19 error errno ENOSYS
+20 error syscall kill
+21 error kill ENOSYS
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]
