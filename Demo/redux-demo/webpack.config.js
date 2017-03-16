@@ -30,6 +30,10 @@ module.exports = {
             {
                 test: /\.(png|jpg)$/,
                 use: ['url-loader?limit=10000&name=[name].[ext]&outputPath=app/images/&publicPath=app/images/']
+            },
+            {
+                test: /\.html$/,
+                use: ['html-loader']
             }
         ]
     }

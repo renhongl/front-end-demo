@@ -1,10 +1,11 @@
-import todoList from './todoReducer';
+import todoList from './todoList';
+import time from './time';
 import { combineReducers } from 'redux';
 import Tool from '../core/Tool';
-import { defaultState } from '../store/store';
 
 const reducer =  combineReducers({
-    todoList
+    todoList,
+    time
 });
 
 export default reducer;

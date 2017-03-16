@@ -1,6 +1,7 @@
 
 
 const ADD_TODO = 'ADD_TODO';
+const REMOVE_TODO = 'REMOVE_TODO';
 
 export function addTodo(text) {
     return {
@@ -8,3 +9,10 @@ export function addTodo(text) {
         payload: text
     };
 } 
+
+export function removeTodo(text) {
+    return {
+        type: REMOVE_TODO,
+        payload: text
+    }
+}

@@ -13,10 +13,6 @@ ul, li{
     padding: 0;
 }
 
-.logo{
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    margin: 5px;
+.todo-section{
+    padding-left: 20px;
 }
-
