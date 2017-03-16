@@ -1,0 +1,22 @@
+.addOneTodo{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+li{
+    list-style-type: none;
+    height: 30px;
+}
+
+ul, li{
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 5px;
+}
+

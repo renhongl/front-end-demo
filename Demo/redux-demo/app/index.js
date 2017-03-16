@@ -2,32 +2,39 @@
  * 将模块分为各个文件，学习redux依赖关系。
  */
 
-import {todoListStore, todoList} from './store/todoListStore';
+import {store, defaultState} from './store/store';
 import {addTodo}  from './action/todoListAction';
+import './style/index.css';
+import kios from './images/kios.png';
 
 function main() {
-    let unsubscribe = todoListStore.subscribe(() => {
-        render(todoListStore.getState());
+    document.querySelector('.logo').setAttribute('src', kios);
+    render(defaultState);
+    let unsubscribe = store.subscribe(() => {
+        render(store.getState());
     });
 
     let addButton = document.querySelector('.addOneTodo');
     addButton.onclick = function() {
-        let text = document.querySelector('.newTodo').value;
-        todoListStore.dispatch(addTodo(text));
+        const input = document.querySelector('.newTodo');
+        let text = input.value;
+        store.dispatch(addTodo(text));
+        input.value = '';
     };
 }
 
-function render(todoList) {
-    let ul = document.querySelector('ul');
-    if(ul){
-        ul.remove();
-    }
-    ul = document.createElement('ul');
-    document.body.appendChild(ul);
-    for(let todo of todoList) {
-        let li = document.createElement('li');
-        li.innerHTML = todo;
-        ul.appendChild(li);
+function render(defaultState) {
+    let ul = document.querySelector('.todoList');
+    let liGroup = document.querySelectorAll('li');
+    [...liGroup].forEach(function(li) {
+        ul.removeChild(li);
+    });
+    if(defaultState.todoList){
+        for(let [i, todo] of defaultState.todoList.entries()) {
+            let li = document.createElement('li');
+            li.innerText = i + ': ' + todo;
+            ul.appendChild(li);
+        }
     }
 }
 
