@@ -4,7 +4,8 @@ const todoList = function (state = [], action) {
     let list = state.concat([]);
     switch (action.type) {
         case 'ADD_TODO':
-            return list.push(action.payload);
+            list.push(action.payload);
+            return list;
         case 'REMOVE_TODO':
             let index = Number(action.payload);
             list.splice(index, 1);

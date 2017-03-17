@@ -4,7 +4,7 @@
 import kios from '../images/logo.jpg';
 import '../style/header.css';
 import headerHTML from '../template/header.html';
-import { updateTime } from '../action/headerAction';
+import { updateTime, fetchDetail } from '../action/headerAction';
 import { store, state } from '../store/store';
 
 export default class Header {
@@ -24,10 +24,15 @@ export default class Header {
         setInterval(() => {
             store.dispatch(updateTime('update'));
         }, 1000);
+
+        store.dispatch(fetchDetail('detail')).then(() => {
+            this._render(store.getState());
+        })
     }
 
     _render(state) {
         let headerTime = document.querySelector('.header-time');
         headerTime.innerText = state.time.toTimeString().split(' ')[0];
+        document.querySelector('.header-name').innerText = ' - ' + state.detail.name;
     }
 }
