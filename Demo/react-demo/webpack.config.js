@@ -1,37 +1,42 @@
+
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    filename: 'bundle.js',
-    // 输出的打包文件
-    path: path.resolve(__dirname, 'dist'),
-  },
+    entry: './app/index.js',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist/bundle.js')
+    },
 
-  devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
-    compress: true,
-    port: 9000
-  },
+    devtool: 'inline-source-map',
 
-  module: {
-    rules: [
-      {
-        test: /\.js|jsx$/,
-        use: [
-          'babel-loader',
-        ],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader?modules',
-          'postcss-loader',
-        ],
-      },
-    ],
-  }
+    devServer: {
+        port: 9090,
+        contentBase: path.resolve(__dirname, 'dist'),
+        compress: true,
+        historyApiFallback: true
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.json$/,
+                use: ['json-loader']
+            },
+            {
+                test: /\.jpg|png$/,
+                use: ['url-loader']
+            },
+            {
+                test: /\.js|jsx/,
+                use: ['babel-loader'],
+                exclude: /node_modules/
+            }
+        ]
+    }
 
 };
