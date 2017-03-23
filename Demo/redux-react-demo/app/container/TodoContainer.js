@@ -6,7 +6,7 @@ import { addTodoAction, removeTodoAction } from '../action/todoAction';
 
 const mapStateToProps = (state) => {
     return {
-        todo: state.todo
+        todo: state.todo,
     };
 };
 

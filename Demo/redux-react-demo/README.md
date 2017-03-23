@@ -19,3 +19,6 @@
 - 带有内部状态
 - 使用redux的API
 
+### React-Router
+
+它是react的路由库，通过管理URL，实现组件的切换和状态的变化。

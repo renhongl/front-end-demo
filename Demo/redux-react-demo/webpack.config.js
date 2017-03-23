@@ -31,6 +31,12 @@ module.exports = {
                 test: /\.jpg|png$/,
                 use: ['url-loader']
             },
+            {   
+                // enforce: 'pre',
+                test: /\.js$/,
+                use: ['eslint-loader'],
+                exclude: /node_modules/
+            },
             {
                 test: /\.js|jsx/,
                 use: ['babel-loader'],

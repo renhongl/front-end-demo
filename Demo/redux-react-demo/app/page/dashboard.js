@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import HeaderContainer from '../container/HeaderContainer';
 import TodoContainer from '../container/TodoContainer';
 
