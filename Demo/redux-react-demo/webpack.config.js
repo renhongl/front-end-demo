@@ -32,7 +32,7 @@ module.exports = {
                 use: ['url-loader']
             },
             {   
-                // enforce: 'pre',
+                // enforce: 'pre',//打包之前使用有些问题
                 test: /\.js$/,
                 use: ['eslint-loader'],
                 exclude: /node_modules/
@@ -41,6 +41,19 @@ module.exports = {
                 test: /\.js|jsx/,
                 use: ['babel-loader'],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    'style-loader', 
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoader: 1
+                        }
+                    },
+                    'less-loader'
+                ]
             }
         ]
     }

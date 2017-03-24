@@ -1,21 +1,6 @@
 {
-	"env": {
-		"browser": true,
-		"commonjs": true,
-		"es6": true,
-		"jest": true,
-		"node": true
-	},
-	"extends": "eslint:recommended",
-	"parserOptions": {
-		"ecmaFeatures": {
-			"experimentalObjectRestSpread": true,
-			"jsx": true
-		},
-		"sourceType": "module"
-	},
-	"plugins": [
-		"react"
+	"extends": [
+		"eslint:recommended"
 	],
 	"rules": {
 		"quotes": [
@@ -25,6 +10,20 @@
 		"semi": [
 			"error",
 			"always"
-		]
+		],
+		"indent": [
+			"error",
+			4
+		],
+		// "comma-dangle": [
+		// 	"error",
+		// 	"always"
+		// ],
+		"comma-dangle": "off",
+		"no-cond-assign": [
+			"error",
+			"always"
+		],
+		"no-console": "off"
 	}
 }

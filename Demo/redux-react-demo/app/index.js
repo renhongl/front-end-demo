@@ -10,7 +10,7 @@ import TestPage from './page/test';
 
 const state = {
     time: new Date(),
-    todo: ['test1', 'test2'],
+    todo: ['看电视', '玩游戏'],
 };
 
 const store = createStore(reducer, state);

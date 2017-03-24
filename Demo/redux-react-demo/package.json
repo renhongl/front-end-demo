@@ -1,5 +1,5 @@
 {
-  "name": "react-demo",
+  "name": "react-redux-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,8 +16,9 @@
     "css-loader": "^0.27.3",
     "eslint": "^3.18.0",
     "eslint-loader": "^1.6.3",
-    "eslint-plugin-react": "^6.10.3",
     "json-loader": "^0.5.4",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.2",
     "style-loader": "^0.15.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.3.0",
