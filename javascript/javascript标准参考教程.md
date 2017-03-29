@@ -138,3 +138,29 @@ substring方法用于从原字符串取出子字符串并返回，不改变原�
 如果第二个参数大于第一个参数，substring方法会自动更换两个参数的位置。
 
 如果参数是负数，substring方法会自动将负数转为0。
+
+
+### 对象的拷贝-浅拷贝
+
+确保拷贝后的对象，与原对象具有同样的prototype原型对象。
+确保拷贝后的对象，与原对象具有同样的属性。
+
+    function copyObject(orig) {
+        var copy = Object.create(Object.getPrototypeOf(orig));
+        copyOwnPropertiesFrom(copy, orig);
+        return copy;
+    }
+
+    function copyOwnPropertiesFrom(target, source) {
+        Object
+            .getOwnPropertyNames(source)
+            .forEach(function(propKey) {
+                var desc = Object.getOwnPropertyDescriptor(source, propKey);
+                Object.defineProperty(target, propKey, desc);
+            });
+        return target;
+    }
+
+### 面向对象编程
+
+
