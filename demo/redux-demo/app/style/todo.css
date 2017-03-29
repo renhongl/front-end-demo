@@ -1,0 +1,18 @@
+.addOneTodo{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+li{
+    list-style-type: none;
+    height: 30px;
+}
+
+ul, li{
+    margin: 0;
+    padding: 0;
+}
+
+.todo-section{
+    padding-left: 20px;
+}

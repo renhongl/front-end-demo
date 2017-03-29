@@ -1,0 +1,25 @@
+.header-logo{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+header{
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.header-time{
+    margin-left: 20px;
+}
+
+.header-title{
+    margin-left: 20px
+}
+
+.header-name{
+    margin-left: 20px;
+}

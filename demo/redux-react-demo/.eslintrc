@@ -1,0 +1,29 @@
+{
+	"extends": [
+		"eslint:recommended"
+	],
+	"rules": {
+		"quotes": [
+			"error",
+			"single"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"indent": [
+			"error",
+			4
+		],
+		// "comma-dangle": [
+		// 	"error",
+		// 	"always"
+		// ],
+		"comma-dangle": "off",
+		"no-cond-assign": [
+			"error",
+			"always"
+		],
+		"no-console": "off"
+	}
+}
