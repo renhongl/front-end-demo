@@ -158,6 +158,7 @@ substring方法用于从原字符串取出子字符串并返回，不改变原�
                 var desc = Object.getOwnPropertyDescriptor(source, propKey);
                 Object.defineProperty(target, propKey, desc);
             });
+            
         return target;
     }
 
