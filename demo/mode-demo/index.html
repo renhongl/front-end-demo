@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>设计模式</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="./style.css"/>
+    </head>
+
+    <body>
+        <div id="app">
+            <header>
+                <img class="logo">
+            </header>
+            <form>
+                User Name: <input name="userName"/>
+                <input type="submit" value="submit"/>
+            </form>
+        </div>
+        <script>
+            (function() {
+                var scripts = ['prototype.js', 'singleton.js', 'strategy.js', 'proxy.js'];
+                for(var i = 0, len = scripts.length; i < len; i++) {
+                    var script = document.createElement('script');
+                    script.src = './' + scripts[i];
+                    document.querySelector('body').appendChild(script);
+                }
+            })();
+        </script>
+    </body>
+</html>
