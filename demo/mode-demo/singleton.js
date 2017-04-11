@@ -8,8 +8,12 @@
         var div;
         div = document.createElement('div');
         div.setAttribute('class', 'login');
-        div.innerText = 'Login';
         document.querySelector('#app').appendChild(div);
+        
+        var child = document.createElement('div');
+        child.setAttribute('class', 'login-child');
+        child.innerText = 'Login Dialog';
+        div.appendChild(child);
         return div;
     };
 
@@ -18,7 +22,8 @@
         button = document.createElement('input');
         button.type = 'button';
         button.value = 'login';
-        button.addEventListener('click', loginButtonClicked);
+        button.setAttribute('class', 'loginBtn');
+        
         document.querySelector('#app').appendChild(button);
         return button;
     };
@@ -30,16 +35,24 @@
         }
     };
 
+    var loginButtonClicked = function () {
+        var loginDiv = createSingleLogin();
+        loginDiv.addEventListener('click', loginMaskClicked);
+        document.querySelector('.login').style.display = 'flex';
+    };
+
+    var loginMaskClicked = function (e) {
+        if (e.target.getAttribute('class') !== 'login-child') {
+            this.style.display = 'none';
+        }
+    }
+
     var createSingleLogin = getSingle(createLoginDiv);
     var createSingleLoginButton = getSingle(createLoginButton);
 
-    var loginButtonClicked = function () {
-        var loginDiv = createSingleLogin();
-        document.querySelector('.login').style.display = 'block';
-    };
-
     var init = function () {
-        createSingleLoginButton();
+        var loginButton = createSingleLoginButton();
+        loginButton.addEventListener('click', loginButtonClicked);
     };
 
     init();

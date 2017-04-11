@@ -31,10 +31,10 @@
     Validator.prototype.add = function (dom, rule, errorMsg) {
         var arr = rule.split(':');
         this.cache.push(function () {
-            var stragegy = arr.shift();
+            var strategy = arr.shift();
             arr.unshift(dom.value);
             arr.push(errorMsg);
-            return strategies[stragegy].apply(dom, arr)
+            return strategies[strategy].apply(dom, arr)
         });
     };
 
@@ -50,6 +50,7 @@
     var validataFunc = function () {
         var validator = new Validator();
         validator.add(registerForm.userName, 'isNotEmpty', '用户名不能为空');
+        validator.add(registerForm.userName, 'minLength:6', '用户名至少要6位字符');
         var errorMsg = validator.start();
         return errorMsg;
     };
