@@ -3,14 +3,13 @@
  */
 
 (function () {
-
     var Event = (function () {
         var clientList = {},
             offline = {},
             listen,
             trigger,
             remove;
-
+            
         listen = function (key, fn) {
             if (!clientList[key]) {
                 clientList[key] = [];

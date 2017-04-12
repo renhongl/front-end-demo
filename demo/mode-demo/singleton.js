@@ -1,5 +1,6 @@
 /**
  * 使用单例模式实现一个登陆框。
+ * 包含一个智能命令模式，即可以直接实现请求的命令，不需要接收者的存在。
  */
 
 (function () {
@@ -35,24 +36,74 @@
         }
     };
 
-    var loginButtonClicked = function () {
-        var loginDiv = createSingleLogin();
-        loginDiv.addEventListener('click', loginMaskClicked);
-        document.querySelector('.login').style.display = 'flex';
-    };
-
-    var loginMaskClicked = function (e) {
-        if (e.target.getAttribute('class') !== 'login-child') {
-            this.style.display = 'none';
-        }
-    }
-
     var createSingleLogin = getSingle(createLoginDiv);
     var createSingleLoginButton = getSingle(createLoginButton);
 
+    var openLoginDivCommand = (function () {
+        var loginDiv = createSingleLogin();
+        return {
+            excute: function () {
+                loginDiv.addEventListener('click', function (e) {
+                    if (e.target.getAttribute('class') !== 'login-child') {
+                        macroCommand.undo();
+                    }
+                });
+                loginDiv.style.display = 'flex';
+            },
+            undo: function () {
+                loginDiv.style.display = 'none';
+            }
+        }
+    })();
+
+    var clearInputCommand = (function () {
+        var input = document.querySelector('input');
+        var cache;
+        return {
+            excute: function () {
+                cache = input.value;
+                input.value = '';
+            },
+            undo: function () {
+                input.value = cache;
+            }
+        }
+    })();
+
+    var macroCommand = (function () {
+        var commandList = [];
+        return {
+            add: function (command) {
+                commandList.push(command);
+            },
+            excute: function () {
+                for (var i = 0, len = commandList.length; i < len; i++) {
+                    commandList[i].excute();
+                }
+            },
+            undo: function () {
+                for (var i = 0, len = commandList.length; i < len; i++) {
+                    commandList[i].undo();
+                }
+            },
+            redo: function () {
+                macroCommand.excute();
+            }
+        }
+    })();
+
+    macroCommand.add(openLoginDivCommand);
+    macroCommand.add(clearInputCommand);
+
     var init = function () {
         var loginButton = createSingleLoginButton();
-        loginButton.addEventListener('click', loginButtonClicked);
+        loginButton.addEventListener('click', function () {
+            macroCommand.excute();
+        });
+
+        setTimeout(function () {
+            macroCommand.redo();
+        }, 10000);
     };
 
     init();
