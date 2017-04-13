@@ -19,6 +19,11 @@
             if (!/(^1[3|5|8][0-9]{9}$)/.test(value)) {
                 return errorMsg;
             }
+        },
+        isNumber: function (value, errorMsg) {
+            if (isNaN(Number(value))) {
+                return errorMsg;
+            }
         }
     };
 
@@ -49,18 +54,20 @@
 
     var validataFunc = function () {
         var validator = new Validator();
-        validator.add(registerForm.userName, 'isNotEmpty', '用户名不能为空');
-        validator.add(registerForm.userName, 'minLength:6', '用户名至少要6位字符');
+        validator.add(registerForm.number, 'isNotEmpty', '数量不能为空');
+        validator.add(registerForm.number, 'isNumber', '请输入数字');
+        validator.add(registerForm.number, 'minLength:2', '数量至少要2位字符');
         var errorMsg = validator.start();
         return errorMsg;
     };
 
     var init = function () {
-        registerForm.onsubmit = function () {
+        document.querySelector('.submitBtn').onclick = function () {
             var errorMsg = validataFunc();
             if (errorMsg) {
                 alert(errorMsg);
-                return false;
+            } else {
+                Event.trigger('draw-circle', {number: registerForm.number.value});
             }
         };
     };

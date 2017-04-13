@@ -3,7 +3,7 @@
  */
 
 (function () {
-    var Event = (function () {
+    window.Event = (function () {
         var clientList = {},
             offline = {},
             listen,

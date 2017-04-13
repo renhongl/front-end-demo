@@ -49,3 +49,20 @@ form {
     height: 200px;
     background: #009688;
 }
+
+.flyweight-body {
+    height: 400px;
+    width: 100%;
+    background: #009688;
+    opacity: 0.3;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.flyweight-child {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 25px;
+    background: black;
+}

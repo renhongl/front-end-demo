@@ -12,13 +12,24 @@
                 <img class="logo">
             </header>
             <form>
-                User Name: <input name="userName"/>
-                <input type="submit" value="submit" class="input"/>
+                圆的数量: <input name="number"/>
+                <input type="button" value="submit" class="submitBtn"/>
             </form>
+            <div class="flyweight-body">
+
+            </div>
         </div>
         <script>
             (function() {
-                var scripts = ['prototype.js', 'singleton.js', 'strategy.js', 'proxy.js', 'pubsub.js', 'command.js'];
+                var scripts = [
+                    'pubsub.js', 
+                    'singleton.js', 
+                    'strategy.js', 
+                    'proxy.js', 
+                    'prototype.js', 
+                    'command.js',
+                    'flyweight.js'
+                    ];
                 for(var i = 0, len = scripts.length; i < len; i++) {
                     var script = document.createElement('script');
                     script.src = './' + scripts[i];
