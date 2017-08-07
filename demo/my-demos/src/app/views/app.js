@@ -1,13 +1,13 @@
 
-import { view as TodoComp } from '../../todo/';
-import { view as FilterComp } from '../../filter/';
-import { view as NavigationComp } from '../../navigation';
+import { view as DemoListComp } from '../../demoList';
+import { view as DemoFilterComp } from '../../demoFilter';
 import React from 'react';
 
 export default () => {
     return (
         <div>
-        	<NavigationComp />
+        	<DemoFilterComp />
+        	<DemoListComp />
         </div>
     )
 }

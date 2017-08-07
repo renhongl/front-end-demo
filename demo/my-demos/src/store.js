@@ -3,6 +3,8 @@
 import { createStore, combineReducers } from 'redux';
 import { reducer as todoReducer } from './todo/';
 import { reducer as filterReducer } from './filter/';
+import { reducer as demoListReducer } from './demoList';
+import { reducer as demoFilterReducer } from './demoFilter';
 
 const state = {
     todoList: [
@@ -30,18 +32,21 @@ const state = {
         },
         {
             id: 1,
-            title: 'demo1'
+            title: 'test1'
         },
         {
             id: 2,
-            title: 'demo1'
+            title: 'tes2'
         }
-    ]
+    ],
+    demoFilter: ''
 };
 
 const reducer = combineReducers({
     todoList: todoReducer,
-    filter: filterReducer
+    filter: filterReducer,
+    demoList: demoListReducer,
+    demoFilter: demoFilterReducer
 });
 
 export default  createStore(reducer, state);
