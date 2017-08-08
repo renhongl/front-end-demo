@@ -1,13 +1,15 @@
 
-import { view as DemoListComp } from '../../demoList';
-import { view as DemoFilterComp } from '../../demoFilter';
+import { view as DemoList } from '../../demoList';
+import { view as DemoFilter } from '../../demoFilter';
+import { view as Carousel } from '../../carousel';
 import React from 'react';
 
 export default () => {
     return (
         <div>
-        	<DemoFilterComp />
-        	<DemoListComp />
+            <Carousel />
+        	<DemoFilter />
+        	<DemoList />
         </div>
     )
 }

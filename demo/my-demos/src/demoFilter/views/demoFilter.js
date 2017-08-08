@@ -16,7 +16,7 @@ export default class DemoFilter extends React.Component{
 	render() {
 		return (
 			<div>
-				Search By: <input type="text" onKeyUp={this.onFilterChange}/>
+				搜索: <input type="text" onKeyUp={this.onFilterChange}/>
 			</div>
 		)
 	}

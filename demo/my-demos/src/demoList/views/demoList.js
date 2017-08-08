@@ -5,14 +5,14 @@ import DemoItem from './demoItem';
 
 export default ({ demoList }) => {
 	return (
-		<ul>
+		<section>
 			{
 				demoList.map((v, k) => {
 					return (
-						<DemoItem key={k}>{v.title}</DemoItem>
+						<DemoItem key={k} url={v.url}>{v.title}</DemoItem>
 					)
 				})
 			}
-		</ul>
+		</section>
 	)
 }

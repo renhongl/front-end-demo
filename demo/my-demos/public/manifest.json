@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "My Demos",
+  "name": "Collection of my demos",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "panda.jpg",
       "sizes": "192x192",
       "type": "image/png"
     }

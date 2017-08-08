@@ -4,8 +4,8 @@
 
 import React from 'react';
 
-export default ({ children }) => {
+export default ({ children, url }) => {
 	return (
-		<li>{children}</li>
+		<a href={url} target="_blank">{children}</a>
 	)
 }
