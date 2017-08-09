@@ -1,6 +1,8 @@
 
 
 import React from 'react';
+import Input from 'antd/lib/input';
+const Search = Input.Search;
 
 export default class DemoFilter extends React.Component{
 	constructor(props) {
@@ -16,7 +18,7 @@ export default class DemoFilter extends React.Component{
 	render() {
 		return (
 			<div>
-				搜索: <input type="text" onKeyUp={this.onFilterChange}/>
+				<Search placeholder="搜索一个项目" onKeyUp={this.onFilterChange}/>
 			</div>
 		)
 	}

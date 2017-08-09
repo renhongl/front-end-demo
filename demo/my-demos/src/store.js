@@ -10,50 +10,50 @@ const state = {
         {
             id: 0,
             title: '贪吃蛇',
-            url: '/project/snake/'
+            url: '/view/project/snake/'
         },
         {
             id: 1,
             title: '打飞机',
-            url: '/project/plane/'
+            url: '/view/project/plane/'
         },
         {
             id: 2,
             title: '五子棋',
-            url: '/project/chess/'
+            url: '/view/project/chess/'
         },
         {
             id: 3,
             title: '收集星星',
-            url: '/project/collect-star/'
+            url: '/view/project/collect-star/'
         }
     ],
     demoFilter: '',
     carouselList: [
         {
             className: 'img-1',
-            src: '/assets/demoImages/snake.png',
-            link: '/project/snake/'
+            src: '/view/assets/demoImages/snake.png',
+            link: '/view/project/snake/'
         },
         {
             className: 'img-2',
-            src: '/assets/demoImages/plane.png',
-            link: '/project/plane/'
+            src: '/view/assets/demoImages/plane.png',
+            link: '/view/project/plane/'
         },
         {
             className: 'img-3',
-            src: '/assets/demoImages/chess.png',
-            link: '/project/chess/'
+            src: '/view/assets/demoImages/chess.png',
+            link: '/view/project/chess/'
         },
         {
             className: 'img-4',
-            src: '/assets/demoImages/collectStar.png',
-            link: '/project/collect-star/'
+            src: '/view/assets/demoImages/collectStar.png',
+            link: '/view/project/collect-star/'
         },
         {
             className: 'img-5',
-            src: '/assets/demoImages/collectStar.png',
-            link: '/project/collect-star/'
+            src: '/view/assets/demoImages/collectStar.png',
+            link: '/view/project/collect-star/'
         }
     ]
 };
