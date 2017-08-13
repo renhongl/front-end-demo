@@ -4,24 +4,50 @@ body {
   font-family: sans-serif;
 }
 
-html, body,#root{
+html, body,#root, .container{
   height: 100%;
   width: 100%;
 }
 
-.container{
-  height: 100%;
-}
-
-.search {
-  height: 32px;
+.logo {
+  width: 31px;
+  height: 31px;
   background: #333;
   border-radius: 6px;
-  margin: 16px;
+  margin: 16px 28px 16px 0;
+  float: left;
+  background-image: url(https://renhongl.github.io/images/panda.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 iframe{
   height: 100%;
   width: 100%;
   border: none;
+}
+
+.main-content{
+  flex-direction: row !important;
+}
+
+.header{
+  background: #fff !important;
+}
+
+.header ul{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.header li {
+    margin-left: 10px;
+}
+
+.main-content .ant-layout{
+  padding: 0px 24px 0px 24px !important;
+}
+
+.main-content .ant-layout-content{
+  height: 100%;
 }

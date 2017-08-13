@@ -1,3 +1,0 @@
-
-
-export const SHOW_CAROUSEL = 'CAROUSEL/SHOW';

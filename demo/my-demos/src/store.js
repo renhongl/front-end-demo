@@ -3,7 +3,6 @@
 import { createStore, combineReducers } from 'redux';
 import { reducer as demoListReducer } from './demoList';
 import { reducer as demoFilterReducer } from './demoFilter';
-import { reducer as carouselReducer } from './carousel';
 
 const state = {
     demoList: [
@@ -28,40 +27,12 @@ const state = {
             url: '/view/project/collect-star/'
         }
     ],
-    demoFilter: '',
-    carouselList: [
-        {
-            className: 'img-1',
-            src: '/view/assets/demoImages/snake.png',
-            link: '/view/project/snake/'
-        },
-        {
-            className: 'img-2',
-            src: '/view/assets/demoImages/plane.png',
-            link: '/view/project/plane/'
-        },
-        {
-            className: 'img-3',
-            src: '/view/assets/demoImages/chess.png',
-            link: '/view/project/chess/'
-        },
-        {
-            className: 'img-4',
-            src: '/view/assets/demoImages/collectStar.png',
-            link: '/view/project/collect-star/'
-        },
-        {
-            className: 'img-5',
-            src: '/view/assets/demoImages/collectStar.png',
-            link: '/view/project/collect-star/'
-        }
-    ]
+    demoFilter: ''
 };
 
 const reducer = combineReducers({
     demoList: demoListReducer,
-    demoFilter: demoFilterReducer,
-    carouselList: carouselReducer
+    demoFilter: demoFilterReducer
 });
 
 export default  createStore(reducer, state);
