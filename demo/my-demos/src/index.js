@@ -14,9 +14,9 @@ import NotFound from './pages/NotFound';
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <Route path="https://renhongl.github.io/view/" component={Home}/>
-            <Route path="https://renhongl.github.io/view/about" component={About}/>
-            <Route path="*" component={NotFound}/>
+            <Route path="/view" component={Home}/>
+            <Route path="/view/about" component={About}/>
+            <Route path="/view/*" component={NotFound}/>
         </Router>
     </Provider>
     , document.getElementById('root'));

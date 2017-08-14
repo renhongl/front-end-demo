@@ -1,5 +1,6 @@
 
 
-import view from './views/navigation';
+import view from './views/navigationCont';
+import reducer from './reducer';
 
-export { view };
+export { view, reducer };

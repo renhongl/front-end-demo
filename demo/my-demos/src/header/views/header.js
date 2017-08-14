@@ -11,15 +11,15 @@ export default () => {
             <Menu
                 theme="light"
                 mode="horizontal"
-                defaultSelectedKeys={['https://renhongl.github.io/view/']}
+                defaultSelectedKeys={['/view']}
                 style={{ lineHeight: '64px' }}
                 onClick={(item) => {
                     window.location = item.key;
                 }}
             >
-                <Menu.Item key="https://renhongl.github.io/view/demo">演示</Menu.Item>
-                <Menu.Item key="https://renhongl.github.io/view/about">关于</Menu.Item>
-                <Menu.Item key="https://renhongl.github.io/view/">主页</Menu.Item>
+                <Menu.Item key="/view/download">下载</Menu.Item>
+                <Menu.Item key="/view/about">关于</Menu.Item>
+                <Menu.Item key="/view">主页</Menu.Item>
             </Menu>
         </Header>
     )
