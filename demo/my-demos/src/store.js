@@ -4,7 +4,7 @@ import { createStore, combineReducers } from 'redux';
 import { reducer as navigationReducer } from './navigation';
 
 const state = {
-    demo: 'https://renhongl.github.io/view/project/plane/'
+    demo: 'https://renhongl.github.io/view/project/snake/'
 };
 
 const reducer = combineReducers({

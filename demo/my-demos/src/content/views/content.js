@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Layout from 'antd/lib/layout';
+import '../style.css';
+
 const Content = Layout.Content;
 
 export default ({ demo }) => {

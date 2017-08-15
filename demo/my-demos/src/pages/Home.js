@@ -20,9 +20,6 @@ export default () => {
                     <Content />
                 </Layout>
             </Layout>
-            <Footer style={{ textAlign: 'center' }}>
-                React Home ©2016 Created by Liang Ren Hong
-            </Footer>
         </Layout>
     )
 }

@@ -1,0 +1,23 @@
+
+
+.main-content .ant-layout-content{
+    padding: 0 !important;
+    padding-bottom: 20px !important
+}
+
+.main-content{
+  flex-direction: row !important;
+}
+
+.main-content .ant-layout{
+  padding: 0px 24px 0px 24px !important;
+  background: #fff;
+}
+
+.main-content .ant-layout-content{
+  height: 100%;
+}
+
+.main-content .ant-layout-sider{
+  background: #404040;
+}
