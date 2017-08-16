@@ -2,13 +2,16 @@
 
 import { createStore, combineReducers } from 'redux';
 import { reducer as navigationReducer } from './navigation';
+import { reducer as demoFilter } from './demoFilter'
 
 const state = {
-    demo: 'https://renhongl.github.io/view/project/snake/'
+    demo: 'https://renhongl.github.io/view/project/snake/',
+    demoFilter: ''
 };
 
 const reducer = combineReducers({
-    demo: navigationReducer
+    demo: navigationReducer,
+    demoFilter
 });
 
 export default  createStore(reducer, state);

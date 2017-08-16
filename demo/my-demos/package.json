@@ -2,6 +2,7 @@
   "name": "my-demos",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://renhongl.github.io/view/",
   "dependencies": {
     "antd": "^2.12.5",
     "react": "^15.6.1",

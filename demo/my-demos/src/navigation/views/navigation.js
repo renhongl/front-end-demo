@@ -3,40 +3,39 @@ import React from 'react';
 import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
-import Input from 'antd/lib/input';
+import { view as DemoFilter } from '../../demoFilter';
 import '../style.css';
 
-const Search = Input.Search;
 const Sider = Layout.Sider;
 const SubMenu = Menu.SubMenu;
 
 
-export default ({ changeDemo }) => {
+export default ({ changeDemo, demoFilter }) => {
     const gameList = [
         {
             id: 0,
-            title: '贪吃蛇',
-            url: '/view/project/snake/'
+            title: '贪吃蛇-休闲',
+            url: '/project/snake/'
         },
         {
             id: 1,
-            title: '打飞机',
-            url: '/view/project/plane/'
+            title: '打飞机-竞技',
+            url: '/project/plane/'
         },
         {
             id: 2,
-            title: '五子棋',
-            url: '/view/project/chess/'
+            title: '五子棋-休闲',
+            url: '/project/chess/'
         },
         {
             id: 3,
-            title: '收集星星',
-            url: '/view/project/collect-star/'
+            title: '收集星星-竞技',
+            url: '/project/collect-star/'
         }
     ];
     return (
         <Sider width={200}>
-            <Search className="navigation-search" placeholder="搜索项目"/>
+            <DemoFilter />
             <Menu
             mode="inline"
             theme="dark"
@@ -50,20 +49,32 @@ export default ({ changeDemo }) => {
                 <SubMenu key="gameList"  title={<span><Icon type="user"/>我的游戏</span>}>
                     {
                         gameList.map((v, k) => {
-                            return <Menu.Item key={k} link={v.url}>{v.title}</Menu.Item>
+                            if (v.title.indexOf(demoFilter) !== -1) {
+                                return <Menu.Item key={k} link={v.url}>{v.title}</Menu.Item>
+                            }else {
+                                return null;
+                            }
                         })
                     }
                 </SubMenu>
                 <SubMenu key="animateList" title={<span><Icon type="laptop" />我的动画</span>}>
                     {
                         gameList.map((v, k) => {
-                            return <Menu.Item key={k + 5} link={v.url}>{v.title}</Menu.Item>
+                            if (v.title.indexOf(demoFilter) !== -1) {
+                                return <Menu.Item key={k + 4} link={v.url}>{v.title}</Menu.Item>
+                            }else {
+                                return null;
+                            }
                         })
                     }
                 </SubMenu>
                 {
                         gameList.map((v, k) => {
-                            return <Menu.Item key={k + 10} link={v.url}>{v.title}</Menu.Item>
+                            if (v.title.indexOf(demoFilter) !== -1) {
+                                return <Menu.Item key={k + 8} link={v.url}>{v.title}</Menu.Item>
+                            }else {
+                                return null;
+                            }
                         })
                     }
             </Menu>

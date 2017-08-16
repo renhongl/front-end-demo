@@ -7,8 +7,6 @@ import { view as Breadcrumb } from '../breadcrumb';
 import { view as Content } from '../content';
 import Layout from 'antd/lib/layout';
 
-const Footer  = Layout.Footer;
-
 export default () => {
     return (
         <Layout className="container">
