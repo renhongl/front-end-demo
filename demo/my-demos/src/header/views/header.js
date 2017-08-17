@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
 import '../style.css';
+import { browserHistory  } from 'react-router';
 
 const Header = Layout.Header;
 
@@ -13,12 +14,17 @@ export default () => {
             <Menu
                 theme="light"
                 mode="horizontal"
-                defaultSelectedKeys={[window.location.origin + '/view']}
+                defaultSelectedKeys={[window.location.pathname]}
                 style={{ lineHeight: '64px' }}
                 onClick={(item) => {
-                    window.location = item.key;
+                     if (item.key.indexOf('http') !== -1) {
+                        window.location = item.key;
+                     } else {
+                        browserHistory.push(item.key);
+                     }
                 }}
-            >
+            >   
+                <Menu.Item key="https://github.com/renhongl/">Github</Menu.Item>
                 <Menu.Item key="https://renhongl.github.io/">博客</Menu.Item>
                 <Menu.Item key="/view/about">关于</Menu.Item>
                 <Menu.Item key='/view/download'>下载</Menu.Item>

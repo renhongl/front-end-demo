@@ -12,7 +12,7 @@ export default () => {
         <Layout className="container">
             <Header />
             <Layout className="main-content">
-                About coming soon!
+                Download coming soon!
             </Layout>
         </Layout>
     )
