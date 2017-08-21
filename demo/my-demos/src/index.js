@@ -17,9 +17,9 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route path="/">
                 <IndexRoute component={Home} />
-                <Route path='/view' component={Home}/>
-                <Route path='/view/about' component={About}/>
-                <Route path='/view/download' component={Download}/>
+                <Route path='/view/' component={Home}/>
+                <Route path='/view/about/' component={About}/>
+                <Route path='/view/download/' component={Download}/>
                 <Route path='/view/*' component={NotFound}/>
             </Route>
         </Router>

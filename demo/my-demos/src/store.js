@@ -5,7 +5,7 @@ import { reducer as navigationReducer } from './navigation';
 import { reducer as demoFilter } from './demoFilter'
 
 const state = {
-    demo: '/project/snake/',
+    demo: '',
     demoFilter: ''
 };
 

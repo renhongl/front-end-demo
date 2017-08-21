@@ -4,11 +4,8 @@ import { connect } from 'react-redux';
 import Navigation from './navigation';
 import { changeDemo } from '../actions';
 
-
-
 const mapStateToProps = (state) => {
     return {
-        gameList: state.gameList,
         demoFilter: state.demoFilter
     }
 }

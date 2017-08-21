@@ -5,51 +5,11 @@ import Menu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
 import { view as DemoFilter } from '../../demoFilter';
 import '../style.css';
+import $ from 'jquery';
 
 const Sider = Layout.Sider;
 const SubMenu = Menu.SubMenu;
 let index = 0;
-const gameList = [
-    {
-        title: '贪吃蛇-休闲',
-        url: '/project/snake/'
-    },
-    {
-        title: '打飞机-竞技',
-        url: '/project/plane/'
-    },
-    {
-        title: '五子棋-休闲',
-        url: 'https://codepen.io/renhongl/full/owZWzv/'
-    },
-    {
-        title: '收集星星-竞技',
-        url: '/project/collect-star/'
-    }
-];
-
-const animateList = [
-    {
-        title: '滑动导航',
-        url: 'https://codepen.io/renhongl/full/owYvRo/'
-    },
-    {
-        title: 'CSS3 Button',
-        url: 'https://codepen.io/renhongl/full/ZyKjYV/'
-    },
-    {
-        title: 'CSS3 loading',
-        url: 'https://codepen.io/renhongl/full/EXKzrb/'
-    },
-    {
-        title: '卡片',
-        url: 'https://codepen.io/renhongl/full/vZGoJx/'
-    },
-    {
-        title: 'CSS3 Tooltip',
-        url: 'https://codepen.io/renhongl/full/QgKyrr/'
-    }
-]
 
 export default class Navigation extends React.Component{
     constructor(props) {
@@ -58,7 +18,30 @@ export default class Navigation extends React.Component{
         this.changeDemo = this.changeDemo.bind(this);
         this.state = {
             collapsed: false,
+            codePenList: [],
+            animateList: []
         };
+    }
+
+    componentDidMount() {
+        fetch('https://codepen.io/renhongl/pens/public/grid/?_cachebust=1503327056653').then(res=> {
+            res.json().then(json => {
+                let html = document.createElement('html');
+                html.innerHTML = json.page.html;
+                let list = html.querySelectorAll('.iframe-wrap');
+                let tempArr = [];
+                list.forEach((v) => {
+                    let obj = {
+                        url: v.children[0].getAttribute('href').replace('/pen/', '/full/'),
+                        title: v.children[1].getAttribute('title')
+                    }
+                    tempArr.push(obj);
+                })
+                this.setState({
+                    codePenList: tempArr
+                })
+            })
+        })
     }
 
     onCollapse(collapsed) {
@@ -81,15 +64,13 @@ export default class Navigation extends React.Component{
             <Menu
             mode="inline"
             theme="dark"
-            defaultSelectedKeys={['0']}
-            defaultOpenKeys={['gameList']}
             style={{ height: '100%', borderRight: 0 }}
             onClick={this.changeDemo}
             >
-                <SubMenu key="gameList"  title={<span><Icon type="user"/>我的游戏</span>}>
+                <SubMenu key="gameList"  title={<span><Icon type="user"/>Codepen同步</span>}>
                     {
-                        gameList.map((v, k) => {
-                            if (v.title.indexOf(this.props.demoFilter) !== -1) {
+                        this.state.codePenList.map((v, k) => {
+                            if (v.title.toLowerCase().indexOf(this.props.demoFilter.toLowerCase()) !== -1) {
                                 return <Menu.Item key={index++} link={v.url}>{v.title}</Menu.Item>
                             }else {
                                 return null;
@@ -99,8 +80,8 @@ export default class Navigation extends React.Component{
                 </SubMenu>
                 <SubMenu key="animateList" title={<span><Icon type="laptop" />我的动画</span>}>
                     {
-                        animateList.map((v, k) => {
-                            if (v.title.indexOf(this.props.demoFilter) !== -1) {
+                        this.state.animateList.map((v, k) => {
+                            if (v.title.toLowerCase().indexOf(this.props.demoFilter.toLowerCase()) !== -1) {
                                 return <Menu.Item key={index++} link={v.url}>{v.title}</Menu.Item>
                             }else {
                                 return null;

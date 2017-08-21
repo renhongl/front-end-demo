@@ -5,6 +5,7 @@
   "homepage": "https://renhongl.github.io/view/",
   "dependencies": {
     "antd": "^2.12.5",
+    "jquery": "^3.2.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
