@@ -14,7 +14,7 @@ export default () => {
             <Menu
                 theme="light"
                 mode="horizontal"
-                defaultSelectedKeys={[window.location.pathname + '/']}
+                defaultSelectedKeys={[window.location.pathname]}
                 style={{ lineHeight: '64px' }}
                 onClick={(item) => {
                      if (item.key.indexOf('http') !== -1) {

@@ -5,11 +5,48 @@ import Menu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
 import { view as DemoFilter } from '../../demoFilter';
 import '../style.css';
-import $ from 'jquery';
+
 
 const Sider = Layout.Sider;
 const SubMenu = Menu.SubMenu;
 let index = 0;
+const gameList = [
+    {
+        url: '/project/chess',
+        title: '五子棋'
+    },
+    {
+        url: '/project/snake',
+        title: '贪吃蛇'
+    },
+    {
+        url: '/project/plane',
+        title: '打飞机'
+    },
+    {
+        url: '/project/collect-star',
+        title: '收集星星'
+    }
+];
+
+const animationList = [
+    {
+        url: 'https://codepen.io/renhongl/full/QgKyrr',
+        title: '提示框'
+    },
+    {
+        url: 'https://codepen.io/renhongl/full/vZGoJx',
+        title: '卡片展示'
+    },
+    {
+        url: 'https://codepen.io/renhongl/full/owYvRo',
+        title: '滑动翻页'
+    },
+    {
+        url: 'https://codepen.io/renhongl/full/gRwbyX',
+        title: '轮播'
+    }
+]
 
 export default class Navigation extends React.Component{
     constructor(props) {
@@ -18,30 +55,7 @@ export default class Navigation extends React.Component{
         this.changeDemo = this.changeDemo.bind(this);
         this.state = {
             collapsed: false,
-            codePenList: [],
-            animateList: []
         };
-    }
-
-    componentDidMount() {
-        fetch('https://codepen.io/renhongl/pens/public/grid/?_cachebust=1503327056653').then(res=> {
-            res.json().then(json => {
-                let html = document.createElement('html');
-                html.innerHTML = json.page.html;
-                let list = html.querySelectorAll('.iframe-wrap');
-                let tempArr = [];
-                list.forEach((v) => {
-                    let obj = {
-                        url: v.children[0].getAttribute('href').replace('/pen/', '/full/'),
-                        title: v.children[1].getAttribute('title')
-                    }
-                    tempArr.push(obj);
-                })
-                this.setState({
-                    codePenList: tempArr
-                })
-            })
-        })
     }
 
     onCollapse(collapsed) {
@@ -50,6 +64,7 @@ export default class Navigation extends React.Component{
 
     changeDemo(e) {
         this.props.changeDemo(e.item.props.link);
+        this.props.changeBread(e.item.props.bread);
     }
 
     render() {
@@ -67,22 +82,22 @@ export default class Navigation extends React.Component{
             style={{ height: '100%', borderRight: 0 }}
             onClick={this.changeDemo}
             >
-                <SubMenu key="gameList"  title={<span><Icon type="user"/>Codepen同步</span>}>
+                <SubMenu key="gameList"  title={<span><Icon type="user"/><span>游戏</span></span>}>
                     {
-                        this.state.codePenList.map((v, k) => {
+                        gameList.map((v, k) => {
                             if (v.title.toLowerCase().indexOf(this.props.demoFilter.toLowerCase()) !== -1) {
-                                return <Menu.Item key={index++} link={v.url}>{v.title}</Menu.Item>
+                                return <Menu.Item key={index++} link={v.url} bread={'游戏,' + v.title}>{v.title}</Menu.Item>
                             }else {
                                 return null;
                             }
                         })
                     }
                 </SubMenu>
-                <SubMenu key="animateList" title={<span><Icon type="laptop" />我的动画</span>}>
+                <SubMenu key="animateList" title={<span><Icon type="laptop" /><span>动画</span></span>}>
                     {
-                        this.state.animateList.map((v, k) => {
+                        animationList.map((v, k) => {
                             if (v.title.toLowerCase().indexOf(this.props.demoFilter.toLowerCase()) !== -1) {
-                                return <Menu.Item key={index++} link={v.url}>{v.title}</Menu.Item>
+                                return <Menu.Item key={index++} link={v.url} bread={'动画,' + v.title}>{v.title}</Menu.Item>
                             }else {
                                 return null;
                             }

@@ -2,7 +2,8 @@
 
 import { connect } from 'react-redux';
 import Navigation from './navigation';
-import { changeDemo } from '../actions';
+import { changeBread } from '../../breadcrumb';
+import { changeDemo } from '../../content';
 
 const mapStateToProps = (state) => {
     return {
@@ -14,6 +15,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         changeDemo: (url) => {
             dispatch(changeDemo(url));
+        },
+        changeBread: (bread) => {
+            dispatch(changeBread(bread))
         }
     }
 }

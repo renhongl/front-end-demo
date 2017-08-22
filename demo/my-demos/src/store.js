@@ -1,17 +1,20 @@
 
 
 import { createStore, combineReducers } from 'redux';
-import { reducer as navigationReducer } from './navigation';
+import { reducer as contentReducer } from './content';
 import { reducer as demoFilter } from './demoFilter'
+import { reducer as breadReducer } from './breadcrumb';
 
 const state = {
     demo: '',
-    demoFilter: ''
+    demoFilter: '',
+    bread: ''
 };
 
 const reducer = combineReducers({
-    demo: navigationReducer,
-    demoFilter
+    demo: contentReducer,
+    demoFilter,
+    bread: breadReducer,
 });
 
 export default  createStore(reducer, state);

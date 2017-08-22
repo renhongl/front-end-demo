@@ -6,12 +6,14 @@
 }
 
 .main-content{
+  width: 100%;
   flex-direction: row !important;
 }
 
 .main-content .ant-layout{
   padding: 0px 24px 0px 24px !important;
   background: #fff;
+  width: calc(100% - 200px);
 }
 
 .main-content .ant-layout-content{
@@ -22,3 +24,32 @@
   background: #404040;
 }
 
+.ant-carousel, .slick-initialized{
+  height: 100%;
+  width: 100%;
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  background: #fff;
+  overflow: hidden;
+  border: none;
+}
+
+.imageContainer{
+  height: 100%;
+  width: 100%;
+}
+
+.imageContainer img{
+  display: block;
+  margin: 0 auto;
+}
+
+.slick-dots li{
+  background: #404040;
+}
+
+.slick-dots .slick-active button{
+  background: #108ee9 !important;
+}
