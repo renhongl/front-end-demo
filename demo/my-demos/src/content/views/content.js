@@ -9,12 +9,12 @@ import Spin from 'antd/lib/spin';
 const Content = Layout.Content;
 
 const imageList = [
-                    '/assets/demoImages/aiting1.png',
-                    '/assets/demoImages/aiting4.png',
-                    '/assets/demoImages/applicationPlatform.png',
-                    '/assets/demoImages/chatRoom2.png',
-                    '/assets/demoImages/faceAndEmoj.png',
-                    '/assets/demoImages/homeAndRoom.png'
+                    '/view/assets/demoImages/aiting1.png',
+                    '/view/assets/demoImages/aiting4.png',
+                    '/view/assets/demoImages/applicationPlatform.png',
+                    '/view/assets/demoImages/chatRoom2.png',
+                    '/view/assets/demoImages/faceAndEmoj.png',
+                    '/view/assets/demoImages/homeAndRoom.png'
                     ]
 
 export default class ContentComp extends React.Component{
