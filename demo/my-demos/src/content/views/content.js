@@ -4,6 +4,7 @@ import React from 'react';
 import Layout from 'antd/lib/layout';
 import Carousel from 'antd/lib/carousel';
 import '../style.css';
+import Spin from 'antd/lib/spin';
 
 const Content = Layout.Content;
 
@@ -19,29 +20,42 @@ const imageList = [
 export default class ContentComp extends React.Component{
     constructor(props) {
         super(props);
+        this.iframeLoaded = this.iframeLoaded.bind(this);
     }
 
-    render() {
-        let mainContent = 
-            (
+    iframeLoaded() {
+        this.refs.loading.style.display = 'none';
+    }
+
+    componentDidUpdate() {
+        this.refs.loading.style.display = 'block';
+    }
+
+    renderMainContent() {
+        if (this.props.demo.trim() !== '') {
+            return (
+                <iframe src={this.props.demo} title="demo" onLoad={this.iframeLoaded}></iframe>
+            )
+        } else {
+            return (
                 <Carousel autoplay>
                     {
                         imageList.map((v, k) => {
-                            if (this.props.demo.trim() !== '') {
-
-                            } else {
-                                return (
-                                    <div key={k} className="imageContainer"><img src={v} height="100%"/></div>
-                                )
-                            }
+                            return (
+                                <div key={k} className="imageContainer"><img src={v} height="100%"/></div>
+                            )
                         })
                     }
                 </Carousel>
             )
+        }
+    }
 
+    render() {
         return (
             <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                {mainContent}
+                <div ref="loading" className="loading-container"><Spin></Spin></div>
+                {this.renderMainContent()}
             </Content>
         )
     }
