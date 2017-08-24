@@ -6,6 +6,7 @@ import '../style.css';
 import { browserHistory  } from 'react-router';
 import notification from 'antd/lib/notification';
 import Icon from 'antd/lib/icon';
+import Tooltip from 'antd/lib/tooltip';
 
 const Header = Layout.Header;
 
@@ -31,7 +32,7 @@ export default class HeaderComp extends React.Component{
     render() {
         return (
             <Header className="header">
-                <div className="logo"><img alt="logo" src="https://renhongl.github.io/images/panda.jpg"/>我的项目</div>
+                <div className="logo"><img alt="logo" src="https://renhongl.github.io/images/panda.jpg"/>梁仁洪的项目</div>
                 <Menu
                     theme="light"
                     mode="horizontal"
@@ -45,7 +46,7 @@ export default class HeaderComp extends React.Component{
                          }
                     }}
                 >   
-                    <Menu.Item key="https://github.com/renhongl/">Github</Menu.Item>
+                    <Menu.Item key="https://github.com/renhongl/"><Tooltip title="前往Github地址" placement="bottom"><Icon type="github" style={{fontSize: '25px'}}/></Tooltip></Menu.Item>
                     <Menu.Item key="https://renhongl.github.io/">博客</Menu.Item>
                     <Menu.Item key="/view/about/">关于</Menu.Item>
                     <Menu.Item key='/view/download/'>下载</Menu.Item>

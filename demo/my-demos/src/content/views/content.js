@@ -54,7 +54,7 @@ export default class ContentComp extends React.Component{
     render() {
         return (
             <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                <div ref="loading" className="loading-container"><Spin></Spin></div>
+                <div ref="loading" className="loading-container"><Spin tip="Loading..."></Spin></div>
                 {this.renderMainContent()}
             </Content>
         )

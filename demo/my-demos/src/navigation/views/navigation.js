@@ -12,19 +12,19 @@ const SubMenu = Menu.SubMenu;
 let index = 0;
 const gameList = [
     {
-        url: 'https://renhongl.github.io/project/chess',
+        url: 'https://renhongl.github.io/project/chess/',
         title: '五子棋'
     },
     {
-        url: 'https://renhongl.github.io/project/snake',
+        url: 'https://renhongl.github.io/project/snake/',
         title: '贪吃蛇'
     },
     {
-        url: 'https://renhongl.github.io/project/plane',
+        url: 'https://renhongl.github.io/project/plane/',
         title: '打飞机'
     },
     {
-        url: 'https://renhongl.github.io/project/collect-star',
+        url: 'https://renhongl.github.io/project/collect-star/',
         title: '收集星星'
     }
 ];
