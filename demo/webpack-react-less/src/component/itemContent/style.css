@@ -1,0 +1,10 @@
+
+
+.item-valid{
+    margin-left: 5px;
+}
+
+.item-invalid{
+    text-decoration: line-through;
+    margin-left: 5px;
+}
