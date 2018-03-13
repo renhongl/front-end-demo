@@ -4,18 +4,17 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import { Menu } from './component/menu';
-import { Home } from './page/home';
-import { About } from './page/about';
+import {Background} from './component/background';
 
+import './assets/style/global.less';
+
+const Home = () => (
+    <Background />
+)
 
 const App = () => (
     <Router>
-        <div>
-            <Menu />
-            <Route exact path='/' component={Home}></Route>
-            <Route exact path='/about' component={About}></Route>
-        </div>
+        <Route exact path='/' component={Home}></Route>
     </Router>
 )
 
