@@ -12,7 +12,7 @@ export default class Background extends Component{
         super(props);
         this.index = 1;
         this.state = {
-            url: `/assets/image/background/${this.index}.jpg`,
+            url: `./image/${this.index}.jpg`,
             autoPlay: false,
             displaySize: 'cover'
         }

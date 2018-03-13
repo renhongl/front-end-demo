@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import {Background} from './component/background';
 
-import './assets/style/global.less';
+import './share/style/global.less';
 
 const Home = () => (
     <Background />
