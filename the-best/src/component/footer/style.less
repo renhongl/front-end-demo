@@ -10,6 +10,34 @@
     bottom: 0;
     height: 30px;
     width: 100%;
-    background: @third-color;
+    background: @main-color;
     color: #fff;
+
+    .left{
+        height: 100%;
+        display: flex;
+        width: 50%;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 10px;
+        float: left;
+    }
+
+    .right{
+        height: 100%;
+        display: flex;
+        width: 50%;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 10px;
+        float: left;
+
+        .show{
+            display: block;
+        }
+
+        .hide{
+            display: none;
+        }
+    }
 }
