@@ -11,12 +11,11 @@ export default class Footer extends Component{
         super(props);
         this.toggleSetting = this.toggleSetting.bind(this);
         this.state = {
-            showSetting: true
+            showSetting: false
         }
     }
 
     toggleSetting() {
-        debugger;
         this.setState({
             showSetting: !this.state.showSetting
         });
@@ -29,7 +28,7 @@ export default class Footer extends Component{
                     <Icon type="home" />
                 </div>
                 <div className='right'>
-                    <Setting className={this.state.showSetting ? 'show' : 'hide'}/>
+                    <Setting show={this.state.showSetting}/>
                     <Icon type="setting" onClick={this.toggleSetting}/>
                 </div>
             </footer>
