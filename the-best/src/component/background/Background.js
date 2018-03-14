@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 
-import { Setting } from '../setting';
 
 import './style.less';
 // import PropTypes from 'prop-types';
@@ -12,7 +11,7 @@ export default class Background extends Component{
         super(props);
         this.index = 1;
         this.state = {
-            url: `./image/${this.index}.jpg`,
+            url: `./assets/image/${this.index}.jpg`,
             autoPlay: false,
             displaySize: 'cover'
         }
@@ -25,7 +24,6 @@ export default class Background extends Component{
         };
         return (
             <section className='background' style={style}>
-                <Setting />
             </section>
         )
     }

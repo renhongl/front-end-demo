@@ -1,6 +1,8 @@
 
 
 import React, { Component } from 'react';
+import { Icon } from 'antd';
+import './style.less';
 
 export default class Footer extends Component{
     constructor(props) {
@@ -9,8 +11,8 @@ export default class Footer extends Component{
 
     render() {
         return (
-            <footer>
-                footer
+            <footer className='footer'>
+                <Icon type="setting" />
             </footer>
         )
     }
