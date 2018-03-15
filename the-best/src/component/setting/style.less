@@ -1,18 +1,27 @@
 
 
-@main-color: #b3ade9;
-@second-color: #bdd9fc;
-@third-color: #d5c9f9;
-@fourth-color: #b0fefb;
+@import "../../share/style/global.less";
 
 .setting{
-    background: @main-color;
     height: 100%;
     width: 300px;
     position: fixed;
     right: 0;
     top: -30px;
     padding-top: 30px;
+    overflow: auto;
+
+    h4{
+        margin-top: 1px;
+        cursor: pointer;
+        height: 50px;
+        background: #ffffff38;
+        line-height: 50px;
+        padding-left: 10px;
+        &:hover{
+            background: #ffffff7a;
+        }
+    }
 }
 
 .show{
@@ -21,4 +30,13 @@
 
 .hide{
     display: none;
+}
+
+.setting-title{
+    text-align: left;
+    height: 60px;
+    line-height: 60px;
+    font-size: 24px;
+    padding-left: 10px;
+    font-weight: bold;
 }
