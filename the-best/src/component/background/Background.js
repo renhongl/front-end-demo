@@ -17,7 +17,7 @@ export default class Background extends Component{
             backgroundSize: this.props.config.displaySize,
         };
         return (
-            <section className='background' style={style}>
+            <section className='background' style={style} onClick={this.props.closeSetting}>
             </section>
         )
     }

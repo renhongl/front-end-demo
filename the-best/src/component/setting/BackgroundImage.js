@@ -1,9 +1,11 @@
 
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { backgroundImage } from '../../share/config/globalConfig';
 import './style.less';
+import Background from '../background';
 
 export default class BackgroundImage extends Component{
     constructor(props){
@@ -22,7 +24,7 @@ export default class BackgroundImage extends Component{
 
     render() {
         const style = {
-            color: this.props.color
+            color: this.props.config.fontColor
         }
         const bgImageItem = backgroundImage.map((value, index) => {
             return (
@@ -31,11 +33,20 @@ export default class BackgroundImage extends Component{
         })
         return (
             <section className='background-image'>
-                <h4 onClick={this.toggleList} style={style}>Background Image</h4>
+                <h4 onClick={this.toggleList} style={style}>背景图片设置</h4>
                 <ul className={this.state.showList ? 'show' : 'hide'}>
                     {bgImageItem}
                 </ul>
             </section>
         )
     }
+}
+
+BackgroundImage.propTypes = {
+    changeBg: PropTypes.func,
+    color: PropTypes.string,
+}
+
+BackgroundImage.defaultProps = {
+    color: '#fff'
 }

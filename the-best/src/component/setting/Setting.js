@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './style.less';
 
-import { BackgroundImage } from '../backgroundImage';
-import { BackgroundColor } from '../backgroundColor';
+import BackgroundImage from './BackgroundImage';
+import BackgroundColor from './BackgroundColor';
 
 export default class Setting extends Component{
     constructor(props) {
@@ -19,9 +19,14 @@ export default class Setting extends Component{
         }
         return (
             <section className={this.props.show ? 'setting show' : 'setting hide'} style={style}>
-                <h3 className='setting-title' style={style}>The Best Setting</h3>
-                <BackgroundImage changeBg={this.props.changeBg} color={this.props.config.fontColor}/>
-                <BackgroundColor color={this.props.config.fontColor}/>
+                <h3 className='setting-title' style={style}>设置</h3>
+                <BackgroundImage changeBg={this.props.changeBg} config={this.props.config}/>
+                <BackgroundColor 
+                    changeBgColor={this.props.changeBgColor} 
+                    changeBgOpacity={this.props.changeBgOpacity} 
+                    changeFontColor={this.props.changeFontColor}
+                    config={this.props.config}
+                />
             </section>
         )
     }
@@ -30,6 +35,7 @@ export default class Setting extends Component{
 Setting.propTypes = {
     show: PropTypes.bool.isRequired,
     config: PropTypes.object.isRequired,
+    changeBg: PropTypes.func,
 }
 
 Setting.defaultProps = {

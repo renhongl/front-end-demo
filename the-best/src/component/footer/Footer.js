@@ -5,21 +5,9 @@ import PropTypes from 'prop-types';
 import { Icon } from 'antd';
 import './style.less';
 
-import { Setting } from '../setting';
-
 export default class Footer extends Component{
     constructor(props) {
         super(props);
-        this.toggleSetting = this.toggleSetting.bind(this);
-        this.state = {
-            showSetting: false
-        }
-    }
-
-    toggleSetting() {
-        this.setState({
-            showSetting: !this.state.showSetting
-        });
     }
 
     render() {
@@ -33,8 +21,7 @@ export default class Footer extends Component{
                     <Icon type="home" />
                 </div>
                 <div className='right'>
-                    <Setting show={this.state.showSetting} config={this.props.config} changeBg={this.props.changeBg}/>
-                    <Icon type="setting" onClick={this.toggleSetting}/>
+                    <Icon type="setting" onClick={this.props.toggleSetting}/>
                 </div>
             </footer>
         )
@@ -43,6 +30,7 @@ export default class Footer extends Component{
 
 Footer.propTypes = {
     config: PropTypes.object.isRequired,
+    toggleSetting: PropTypes.func,
 }
 
 Footer.defaultProps = {

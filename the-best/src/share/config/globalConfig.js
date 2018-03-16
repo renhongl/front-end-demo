@@ -2,7 +2,8 @@
 
 
 export const defaultTheme = {
-    MAIN_COLOR: '179, 173, 233',
+    MAIN_COLOR: '255, 255, 255',
+    FIRST_COLOR: '179, 173, 233',
     SECOND_COLOR: '189, 217, 252',
     THIRDD_COLOR: '213, 201, 249',
     FOURTH_COLOR: '176, 254, 251'
