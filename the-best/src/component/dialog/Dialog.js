@@ -14,7 +14,6 @@ export default class Dialog extends Component{
     componentDidMount() {
         new Draggable({
             container: this.dialog,
-            dragZone: '.dialog-header'
         });
         new Resizable({
             container: this.dialog
@@ -25,6 +24,8 @@ export default class Dialog extends Component{
         const style = {
             backgroundColor: `rgba(${this.props.config.backgroundColor},${this.props.config.opacity})`,
             color: this.props.config.fontColor,
+            width: this.props.width || 600,
+            height: this.props.height || 500
         }
         const styleHeader = {
             backgroundColor: `rgba(${this.props.config.backgroundColor},${this.props.config.opacity+0.1})`,
@@ -32,7 +33,8 @@ export default class Dialog extends Component{
         }
         return (
             <section ref={dialog => this.dialog = dialog} className='dialog' style={style}>
-                <div className='dialog-header' style={styleHeader}>header</div>
+                <div className='dialog-header' style={styleHeader}>{this.props.title}</div>
+                <div className='dialog-content'>{this.props.children}</div>
             </section>
         )
     }

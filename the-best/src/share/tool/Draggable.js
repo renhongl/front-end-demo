@@ -151,10 +151,12 @@ export default class Draggable {
      * @param {object} e 
      */
     _inDragZone(e) {
-        if (e.layerX > this.options.padding && 
-            e.layerX < this.options.container.clientWidth - this.options.padding &&
-            e.layerY > this.options.padding &&
-            e.layerY < this.options.container.clientHeight - this.options.padding
+        let offsetX = e.offsetX + 0;
+        let offsetY = e.offsetY + 0;
+        if (offsetX> this.options.padding && 
+            offsetX < this.options.container.clientWidth - this.options.padding &&
+            offsetY > this.options.padding &&
+            offsetY < this.options.container.clientHeight - this.options.padding
         ) {
             return true;
         }
@@ -174,7 +176,7 @@ export default class Draggable {
      * @param {object} e 
      */
     _mouseMove(e) {
-        if (this.moving && this.options.enable && this.cursorX !== 0) {
+        if (this.moving && this.options.enable) {
             let offsetX = this.cursorX - e.clientX;
             let offsetY = this.cursorY - e.clientY;
             this._changePosition(offsetX, offsetY);

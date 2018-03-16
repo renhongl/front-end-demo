@@ -5,9 +5,12 @@ import React, { Component } from 'react';
 import { Background } from '../background';
 import { Footer } from '../footer';
 import { Setting } from '../setting';
-import { defaultTheme } from '../../share/config/globalConfig';
+import { defaultTheme, applicationConfig} from '../../share/config/globalConfig';
 import { colorRgb } from '../../share/tool/globalFunc';
 import { Dialog } from '../dialog';
+import { GoogleMap } from '../googleMap';
+import { Blob } from '../blob';
+import { Store } from '../store';
 
 import './style.less';
 
@@ -20,14 +23,16 @@ export default class Home extends Component{
         this.changeFontColor = this.changeFontColor.bind(this);
         this.toggleSetting = this.toggleSetting.bind(this);
         this.closeSetting = this.closeSetting.bind(this);
+        this.toggleStore = this.toggleStore.bind(this);
         this.state = {
             backgroundColor: defaultTheme.MAIN_COLOR,
             fontColor: '#fff',
-            backgroundImage: './assets/image/9.jpg',
+            backgroundImage: './assets/image/3.jpg',
             autoPlay: false,
             displaySize: 'cover',
             opacity: 0.1,
             showSetting: false,
+            showStore: false,
         }
     }
 
@@ -70,6 +75,12 @@ export default class Home extends Component{
         });
     }
 
+    toggleStore() {
+        this.setState({
+            showStore: !this.state.showStore
+        });
+    }
+
     componentDidUpdate() {
         console.log('updated');
     }
@@ -77,9 +88,18 @@ export default class Home extends Component{
     render() {
         return (
             <div className='home'>
-                <Dialog config={this.state}/>
+                <Dialog config={this.state} title='百度地图'>
+                    <GoogleMap />
+                </Dialog>
+                <Dialog config={this.state} title='我的博客'>
+                    <Blob />
+                </Dialog>
                 <Background config={this.state} closeSetting={this.closeSetting}/>
-                <Footer config={this.state} toggleSetting={this.toggleSetting}/>
+                <Footer 
+                    config={this.state} 
+                    toggleSetting={this.toggleSetting}
+                    toggleStore={this.toggleStore}
+                />
                 <Setting 
                     show={this.state.showSetting} 
                     config={this.state} 
@@ -88,6 +108,7 @@ export default class Home extends Component{
                     changeBgOpacity={this.changeBgOpacity}
                     changeFontColor={this.changeFontColor}
                 />
+                <Store show={this.state.showStore} config={this.state}/>
             </div>
         )
     }
