@@ -1,0 +1,134 @@
+
+.mr-message{
+	height: 30px;
+	background: #fff;
+	position: fixed;
+	transition: opacity .5s;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	padding: 5px 10px;
+	line-height: 30px;
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 14px;
+	padding-left: 40px;
+	z-index: 40;
+}
+
+.mr-message-center-top{
+	left: 50%;
+	top: 0;
+	transform: translate(-50%, -100%);
+	animation: mr-go-down .5s ease-in infinite alternate;
+	/* animation-fill-mode: forwards; */
+}
+
+.mr-message-center-bottom{
+	left: 50%;
+	bottom: 0;
+	transform: translate(-50%, 100%);
+	animation: mr-go-up .5s ease-in infinite alternate;
+	animation-fill-mode: forwards;
+}
+
+.mr-message-left-top{
+	left: 0;
+	top: 0;
+	transform: translate(-100%, 50%);
+	animation: mr-go-right .5s ease-in infinite alternate;
+	animation-fill-mode: forwards;
+}
+
+.mr-message-right-top{
+	right: 0;
+	top: 0;
+	transform: translate(100%, 50%);
+	animation: mr-go-left .5s ease-in infinite alternate;
+	animation-fill-mode: forwards;
+}
+
+.mr-message-infor::before{
+	content: "i";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: #177DE6;
+	border-radius: 50%;
+	color: #fff;
+	left: 15px;
+	top: 10px;
+	position: absolute;
+	line-height: 18px;
+	text-align: center;
+}
+
+.mr-message-success::before{
+	content: "√";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: #00B300;
+	border-radius: 50%;
+	color: #fff;
+	left: 15px;
+	top: 10px;
+	position: absolute;
+	line-height: 18px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.mr-message-error::before{
+	content: "×";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: #e85b74;
+	border-radius: 50%;
+	color: #fff;
+	left: 15px;
+	top: 10px;
+	position: absolute;
+	line-height: 18px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.mr-message-warning::before{
+	content: "!";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: rgb(231, 174, 15);
+	border-radius: 50%;
+	color: #fff;
+	left: 15px;
+	top: 10px;
+	position: absolute;
+	line-height: 18px;
+	text-align: center;
+	font-size: 12px;
+}
+
+@keyframes mr-go-down{
+	to{
+		transform: translate(-50%, 50%);
+	}
+}
+
+@keyframes mr-go-up{
+	to{
+		transform: translate(-50%, -50%);
+	}
+}
+	
+@keyframes mr-go-right{
+	to{
+		transform: translate(20px, 50%);
+	}
+}
+
+@keyframes mr-go-left{
+	to{
+		transform: translate(-20px, 50%);
+	}
+}

@@ -1,0 +1,87 @@
+
+.mr-tab{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.mr-tab .mr-tab-ul{
+	list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+	height: 60px;
+	float: right;
+    margin-right: 50px;
+}
+
+.mr-tab .mr-tab-li{
+	height: 100%;
+	margin: 0;
+	display: inline;
+	text-align: center;
+	cursor: pointer;
+	background: #fff;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: grey;
+	box-sizing: border-box;
+    margin-left: 20px;
+    border-bottom: 3px solid #fff;
+	font-size: 13px;
+	position: relative;
+	/* overflow: hidden; */
+}
+
+.mr-tab .mr-tab-li:hover{
+	color: #e85b74;
+}
+
+.mr-tab .mr-tab-active{
+	border-bottom: 3px solid #f3adba;
+	color: #e85b74;
+}
+
+.mr-tab-content{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.mr-tab-content-main{
+	width: 100%;
+    height: calc(100% - 50px);
+    position: relative;
+	transform: translateX(0);
+	transition: all .5s ease-in-out;
+	clear: both;
+}
+
+.mr-tab-li .click{
+    content: "";
+    left: 50%;
+    top: 50%;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: rgb(221, 218, 218);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    animation: mr-tab-click .5s;
+    animation-fill-mode: forwards;
+    opacity: 0.2;
+    border-radius: 50%;
+    opacity: 0.7;
+	pointer-events: none;
+	z-index: 10;
+  }
+  
+  @keyframes mr-tab-click{
+    to{
+      width: 100px;
+      height: 100px;
+      opacity: 0;
+    }
+  }

@@ -5,12 +5,12 @@ import React, { Component } from 'react';
 import { Background } from '../background';
 import { Footer } from '../footer';
 import { Setting } from '../setting';
-import { defaultTheme, applicationConfig} from '../../share/config/globalConfig';
+import { defaultTheme, urlApplication, defaultSetting} from '../../share/config/globalConfig';
 import { colorRgb } from '../../share/tool/globalFunc';
 import { Dialog } from '../dialog';
-import { GoogleMap } from '../googleMap';
-import { Blob } from '../blob';
+import { UrlDialog } from '../UrlDialog';
 import { Store } from '../store';
+import { BackgroundSwitch } from '../backgroundSwitch';
 
 import './style.less';
 
@@ -24,15 +24,12 @@ export default class Home extends Component{
         this.toggleSetting = this.toggleSetting.bind(this);
         this.closeSetting = this.closeSetting.bind(this);
         this.toggleStore = this.toggleStore.bind(this);
-        this.state = {
-            backgroundColor: defaultTheme.MAIN_COLOR,
-            fontColor: '#fff',
-            backgroundImage: './assets/image/3.jpg',
-            autoPlay: false,
-            displaySize: 'cover',
-            opacity: 0.1,
-            showSetting: false,
-            showStore: false,
+        this.closeDialog = this.closeDialog.bind(this);
+        this.showDialog = this.showDialog.bind(this);
+        this.toggleSwitchBg = this.toggleSwitchBg.bind(this);
+        this.state = defaultSetting;
+        for(let app of urlApplication) {
+            this.state[app.id] = app;
         }
     }
 
@@ -85,16 +82,46 @@ export default class Home extends Component{
         console.log('updated');
     }
 
+    closeDialog(name) {
+        let dialog = this.state[name];
+        dialog.show = false;
+        this.setState({
+            [name]: dialog
+        })
+    }
+
+    showDialog(name) {
+        let dialog = this.state[name];
+        dialog.show = true;
+        this.setState({
+            [name]: dialog
+        })
+    }
+
+    toggleSwitchBg() {
+        this.setState({
+            switchBg: !this.state.switchBg
+        });
+    }
+
     render() {
+        const urlDialog = urlApplication.map( (v, k) => (
+            <Dialog 
+                key={k}
+                config={this.state} 
+                options={this.state[v.id]}
+                closeDialog={this.closeDialog}
+            >
+                <UrlDialog src={this.state[v.id].show ? this.state[v.id].src : ''}/>
+            </Dialog>
+        ))
         return (
             <div className='home'>
-                <Dialog config={this.state} title='百度地图'>
-                    <GoogleMap />
-                </Dialog>
-                <Dialog config={this.state} title='我的博客'>
-                    <Blob />
-                </Dialog>
-                <Background config={this.state} closeSetting={this.closeSetting}/>
+                {urlDialog}
+                <Background 
+                    config={this.state} 
+                    closeSetting={this.closeSetting}
+                />
                 <Footer 
                     config={this.state} 
                     toggleSetting={this.toggleSetting}
@@ -107,8 +134,18 @@ export default class Home extends Component{
                     changeBgColor={this.changeBgColor} 
                     changeBgOpacity={this.changeBgOpacity}
                     changeFontColor={this.changeFontColor}
+                    toggleSwitchBg={this.toggleSwitchBg}
                 />
-                <Store show={this.state.showStore} config={this.state}/>
+                <Store 
+                    show={this.state.showStore} 
+                    config={this.state} 
+                    showDialog={this.showDialog}
+                    toggleStore={this.toggleStore}
+                />
+                <BackgroundSwitch 
+                    switchBg={this.state.switchBg}
+                    closeSetting={this.closeSetting}
+                />
             </div>
         )
     }

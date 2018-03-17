@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Home } from './component/home';
 import 'antd/dist/antd.less';
 import './share/style/global.less';
+import './share/mr/mr.css';
 
 const App = () => (
     <Router>

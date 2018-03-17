@@ -1,0 +1,240 @@
+
+
+.mr-loading-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 1;
+	transition: all .5s;
+}
+
+.mr-loading-circle{
+	width: 50px;
+	height: 50px;
+	position: relative;
+}
+
+.mr-loading-circle span:first-child{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	border: 5px dashed transparent;
+	border-top: 5px solid #e85b74;
+	border-bottom: 5px solid #e85b74;
+	border-radius: 50%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) rotate(0);
+	position: absolute;
+	animation: mr-loading-circle-outer 1s linear infinite;
+}
+
+.mr-loading-circle span:last-child{
+	display: inline-block;
+	width: 75%;
+	height: 75%;
+	border: 5px solid transparent;
+	border-left: 5px solid rgb(231, 174, 15);
+	border-right: 5px solid rgb(231, 174, 15);
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) rotate(0);
+	animation: mr-loading-circle-inner 1s linear infinite;
+}
+
+@keyframes mr-loading-circle-outer{
+	to{
+		transform: translate(-50%, -50%) rotate(360deg) ;
+	}
+}
+
+@keyframes mr-loading-circle-inner{
+	to{
+		transform: translate(-50%, -50%) rotate(-360deg);
+	}
+}
+
+
+.mr-loading-rect{
+	width: 50px;
+	height: 50px;
+	position: relative;
+}
+
+.mr-loading-rect span{
+	position: absolute;
+	border-radius: 5px;
+}
+
+.mr-loading-rect span:nth-child(1) {
+	display: inline-block;
+	width: 40%;
+	height: 40%;
+	background: #e85b74;
+	transform: translate(10%, 10%);
+	animation: mr-loading-rect-first 6s infinite ease-in-out -1s;
+}
+
+.mr-loading-rect span:nth-child(2) {
+	display: inline-block;
+	width: 40%;
+	height: 40%;
+	background: rgb(231, 174, 15);
+	transform: translate(10%, 140%);
+	animation: mr-loading-rect-second 6s ease-in-out infinite -0.5s;
+}
+
+.mr-loading-rect span:nth-child(3) {
+	display: inline-block;
+	width: 40%;
+	height: 40%;
+	background: #177DE6;
+	transform: translate(140%, 140%);
+	animation: mr-loading-rect-third 6s ease-in-out infinite;
+}
+
+@keyframes mr-loading-rect-first{
+	0%{
+		transform: translate(10%, 10%);
+	}
+	16.6%{
+		transform: translate(10%, 10%);
+	}
+	24.9%{
+		transform: translate(140%, 10%);
+	}
+	41.6%{
+		transform: translate(140%, 10%);
+	}
+	49.9%{
+		transform: translate(140%, 140%);
+	}
+	66.6%{
+		transform: translate(140%, 140%);
+	}
+	74.9%{
+		transform: translate(10%, 140%);
+	}
+	91.6%{
+		transform: translate(10%, 140%);
+	}
+	100%{
+		transform: translate(10%, 10%);
+	}
+}
+
+@keyframes mr-loading-rect-second{
+	0%{
+		transform: translate(10%, 140%);
+	}
+	16.6%{
+		transform: translate(10%, 140%);
+	}
+	24.9%{
+		transform: translate(10%, 10%);
+	}
+	41.6%{
+		transform: translate(10%, 10%);
+	}
+	49.9%{
+		transform: translate(140%, 10%);
+	}
+	66.6%{
+		transform: translate(140%, 10%);
+	}
+	74.9%{
+		transform: translate(140%, 140%);
+	}
+	91.6%{
+		transform: translate(140%, 140%);
+	}
+	100%{
+		transform: translate(10%, 140%);
+	}
+}
+
+@keyframes mr-loading-rect-third{
+	0%{
+		transform: translate(140%, 140%);
+	}
+	16.6%{
+		transform: translate(140%, 140%);
+	}
+	24.9%{
+		transform: translate(10%, 140%);
+	}
+	41.6%{
+		transform: translate(10%, 140%);
+	}
+	49.9%{
+		transform: translate(10%, 10%);
+	}
+	66.6%{
+		transform: translate(10%, 10%);
+	}
+	74.9%{
+		transform: translate(140%, 10%);
+	}
+	91.6%{
+		transform: translate(140%, 10%);
+	}
+	100%{
+		transform: translate(140%, 140%);
+	}
+}
+
+
+.mr-loading-switch-rect{
+	width:50px;
+	height:50px;
+	background:#53C0f0;
+	animation:mr-loading-switch-rect 1.2s infinite ease-in-out;
+  }
+  @keyframes mr-loading-switch-rect{
+	0%{
+	  transform:perspective(120px);
+	}
+	50%{
+	  transform:perspective(120px) rotateY(180deg);
+	}
+	100%{
+	  transform:perspective(120px) rotateY(180deg) rotateX(180deg) ;
+	}
+  }
+
+  .mr-loading-stretch-rect{
+	width:50px;
+	height:60px;
+	text-align:center;
+	font-size:10px;
+  }
+  .mr-loading-stretch-rect > span{
+	height:100%;
+	width:6px;
+	display:inline-block;
+	background:#73bff3;
+	margin-left: 2px;
+	animation: mr-loading-stretch-rect 1.2s infinite ease-in-out;
+  }
+  .mr-loading-stretch-rect span:nth-child(2){
+	animation-delay:-1.1s;
+  }
+  .mr-loading-stretch-rect span:nth-child(3){
+	animation-delay:-1.0s;
+  }
+  .mr-loading-stretch-rect span:nth-child(4){
+	animation-delay:-0.9s;
+  }
+  .mr-loading-stretch-rect span:nth-child(5){
+	animation-delay:-0.8s;
+  }
+  @keyframes mr-loading-stretch-rect {
+	0%, 40%,100%{
+	  transform:scaleY(0.4);
+	}
+	20%{
+	  transform:scaleY(1.0);
+	} 
+  }

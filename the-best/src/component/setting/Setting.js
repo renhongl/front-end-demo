@@ -6,6 +6,8 @@ import './style.less';
 
 import BackgroundImage from './BackgroundImage';
 import BackgroundColor from './BackgroundColor';
+import { BackgroundSwitch } from '../backgroundSwitch/index';
+import BackgroundSwitchSetting from './BackgroundSwitchSetting';
 
 export default class Setting extends Component{
     constructor(props) {
@@ -27,6 +29,7 @@ export default class Setting extends Component{
                     changeFontColor={this.props.changeFontColor}
                     config={this.props.config}
                 />
+                <BackgroundSwitchSetting toggleSwitchBg={this.props.toggleSwitchBg} config={this.props.config}/>
             </section>
         )
     }

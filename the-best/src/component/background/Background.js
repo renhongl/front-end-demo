@@ -14,7 +14,6 @@ export default class Background extends Component{
     render() {
         const style = {
             backgroundImage: `url(${this.props.config.backgroundImage})`,
-            backgroundSize: this.props.config.displaySize,
         };
         return (
             <section className='background' style={style} onClick={this.props.closeSetting}>

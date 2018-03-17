@@ -4,45 +4,61 @@
 
 .setting{
     height: calc(~"100% - 30px");
-    width: 300px;
     position: fixed;
     right: 0;
     top: 0;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 50;
+    transition: all .5s;
 
     h4{
         margin-top: 1px;
         cursor: pointer;
         height: 50px;
-        background: #ffffff38;
+        background: rgba(255, 255, 255, 0.2);
         line-height: 50px;
         padding-left: 10px;
         &:hover{
-            background: #ffffff7a;
+            background: rgba(255, 255, 255, 0.4);;
         }
     }
 
     .opacity{
         background: #ffffff2b;
         border: none;
+        height: 24px;
+        outline: none;
+    }
+
+    .show{
+        display: block;
+    }
+
+    .hide{
+        display: none;
+    }
+
+    ul{
+        list-style-type: none;
+    }
+
+    .setting-title{
+        text-align: left;
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px;
+        padding-left: 10px;
+        font-weight: bold;
     }
 }
 
-.show{
-    display: block;
+.setting.show{
+    width: 300px;
 }
 
-.hide{
-    display: none;
-}
-
-.setting-title{
-    text-align: left;
-    height: 60px;
-    line-height: 60px;
-    font-size: 24px;
-    padding-left: 10px;
-    font-weight: bold;
+.setting.hide{
+    width: 0;
 }
 
 .bgPreview{
@@ -50,14 +66,17 @@
     height: 200px;
 }
 
-ul{
-    list-style-type: none;
-}
-
-.background-color{
+.common-setting{
     li{
         height: 30px;
         margin-top: 5px;
         padding-left: 20px;
+        font-size: 12px;
+        line-height: 30px;
+        .key{
+            margin-left: 10px;
+            width: 50%;
+            display: inline-block;
+        }
     }
 }
