@@ -9,8 +9,19 @@ export default class UrlDialog extends Component{
         super(props);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.options.show !== nextProps.options.show) {
+            return true;
+        }
+        return false;
+    }
+
     componentDidUpdate() {
-        this.iframe.src = this.props.src;
+        if (this.props.options.show) {
+            this.iframe.src = this.props.options.src;
+        } else {
+            this.iframe.src = '';
+        }
     }
 
     render() {

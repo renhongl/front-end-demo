@@ -18,10 +18,10 @@ export default class Footer extends Component{
         return (
             <footer className='footer' style={style}>
                 <div className='left'>
-                    <Icon type="home" onClick={this.props.toggleStore}/>
+                    <span className='btn'><Icon type="home" onClick={this.props.toggleStore}/></span>
                 </div>
                 <div className='right'>
-                    <Icon type="setting" onClick={this.props.toggleSetting}/>
+                    <span className='btn'><Icon type="setting" onClick={this.props.toggleSetting}/></span>
                 </div>
             </footer>
         )

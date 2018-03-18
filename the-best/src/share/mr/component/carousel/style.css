@@ -7,11 +7,13 @@
 }
 
 .mr-carousel:hover .mr-carousel-btn-before{
-	opacity: 0.4;
+	background: rgba(255, 255, 255, 0.2);
+	color: rgba(255, 255, 255, 0.2);
 }
 
 .mr-carousel:hover .mr-carousel-btn-after{
-	opacity: 0.4;
+	background: rgba(255, 255, 255, 0.2);
+	color: rgba(255, 255, 255, 0.2);
 }
 
 .mr-carousel-btn-before{
@@ -21,25 +23,25 @@
 	position: absolute;
 	left: 10px;
 	top: 50%;
-	background: grey;
-	color: #fff;
+	color: rgba(255, 255, 255, 0);
 	z-index: 30;
 	transform: translateY(-50%);
 	border-radius: 50%;
 	line-height: 30px;
 	text-align: center;
-	opacity: 0;
 	transition: all 1s;
 	cursor: pointer;
 	    font-size: x-small;
 }
 
 .mr-carousel-btn-before:hover{
-	opacity: 0.7 !important;
+	background: rgba(255, 255, 255, 0.4) !important;
+	color: rgba(255, 255, 255, 1) !important;
 }
 
 .mr-carousel-btn-after:hover{
-	opacity: 0.7 !important;
+	background: rgba(255, 255, 255, 0.4) !important;
+	color: rgba(255, 255, 255, 1) !important;
 }
 
 .mr-carousel-btn-after{
@@ -48,15 +50,13 @@
 	display: inline-block;
 	position: absolute;
 	right: 10px;
-	color: #fff;
 	top: 50%;
-	background: grey;
 	z-index: 30;
 	transform: translateY(-50%);
+	color: rgba(255, 255, 255, 0);
 	border-radius: 50%;
 	line-height: 30px;
 	text-align: center;
-	opacity: 0;
 	transition: all 1s;
 	cursor: pointer;
 	    font-size: x-small;

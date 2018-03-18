@@ -83,7 +83,7 @@ export default class Home extends Component{
     }
 
     closeDialog(name) {
-        let dialog = this.state[name];
+        let dialog = {...this.state[name]};
         dialog.show = false;
         this.setState({
             [name]: dialog
@@ -91,7 +91,7 @@ export default class Home extends Component{
     }
 
     showDialog(name) {
-        let dialog = this.state[name];
+        let dialog = {...this.state[name]};
         dialog.show = true;
         this.setState({
             [name]: dialog
@@ -112,7 +112,7 @@ export default class Home extends Component{
                 options={this.state[v.id]}
                 closeDialog={this.closeDialog}
             >
-                <UrlDialog src={this.state[v.id].show ? this.state[v.id].src : ''}/>
+                <UrlDialog options={this.state[v.id]}/>
             </Dialog>
         ))
         return (
