@@ -18,21 +18,24 @@ export const urlApplication = [
         id: 'baiduMap',
         src: 'https://map.baidu.com/',
         title: '百度地图',
-        class: 'dribbble-square'
+        class: 'dribbble-square',
+        status: 'normal'
     },
     {
         show: false,
         id: 'myBlob',
         src: 'https://renhongl.github.io/',
         title: '我的博客',
-        class: 'github'
+        class: 'github',
+        status: 'normal'
     },
     {
         show: false,
         id: 'mrui',
         src: 'https://renhongl.github.io/mr/',
         title: 'MR UI',
-        class: 'smile-o'
+        class: 'smile-o',
+        status: 'normal'
     }
 ]
 

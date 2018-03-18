@@ -12,6 +12,7 @@ export default class Dialog extends Component{
         super(props);
         this.onClick = this.onClick.bind(this);
         this.closeDialog = this.closeDialog.bind(this);
+        this.minDialog = this.minDialog.bind(this);
     }
 
     componentDidMount() {
@@ -35,6 +36,10 @@ export default class Dialog extends Component{
         this.props.closeDialog(this.dialog.id);
     }
 
+    minDialog() {
+        this.props.minDialog(this.dialog.id);
+    }
+
     render() {
         const width = window.innerWidth * 0.5;
         const height = window.innerHeight * 0.7;
@@ -52,10 +57,17 @@ export default class Dialog extends Component{
             color: this.props.config.fontColor,
         }
         return (
-            <section ref={dialog => this.dialog = dialog} className={this.props.options.show ? 'dialog show' : 'dialog hide'} style={style} id={this.props.options.id}>
+            <section 
+                ref={dialog => this.dialog = dialog} 
+                className={this.props.options.show ? 'dialog show' : 'dialog hide'} 
+                style={style} 
+                id={this.props.options.id}
+                status={this.props.options.status}
+            >
                 <div className='dialog-header' style={styleHeader} onClick={this.onClick}>
                     {this.props.options.title}
                     <span className='dialog-close'><Icon type="close" onClick={this.closeDialog}/></span>
+                    <span className='dialog-close'><Icon type="minus" onClick={this.minDialog}/></span>
                 </div>
                 <div className='dialog-content'>{this.props.children}</div>
             </section>

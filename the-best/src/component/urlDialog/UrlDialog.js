@@ -24,6 +24,14 @@ export default class UrlDialog extends Component{
         }
     }
 
+    componentDidMount() {
+        if (this.props.options.show) {
+            this.iframe.src = this.props.options.src;
+        } else {
+            this.iframe.src = '';
+        }
+    }
+
     render() {
         return (
             <iframe ref={iframe => this.iframe =iframe} src=''>

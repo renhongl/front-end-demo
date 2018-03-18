@@ -27,9 +27,16 @@ export default class Home extends Component{
         this.closeDialog = this.closeDialog.bind(this);
         this.showDialog = this.showDialog.bind(this);
         this.toggleSwitchBg = this.toggleSwitchBg.bind(this);
-        this.state = defaultSetting;
-        for(let app of urlApplication) {
-            this.state[app.id] = app;
+        this.minDialog = this.minDialog.bind(this);
+        this.restoreDialog = this.restoreDialog.bind(this);
+        if (window.localStorage.getItem('state')) {
+            this.state = JSON.parse(window.localStorage.getItem('state'));
+        } else {
+            this.state = defaultSetting;
+            for(let app of urlApplication) {
+                this.state[app.id] = app;
+            }
+            window.localStorage.setItem('state', JSON.stringify(this.state));
         }
     }
 
@@ -79,7 +86,7 @@ export default class Home extends Component{
     }
 
     componentDidUpdate() {
-        console.log('updated');
+        window.localStorage.setItem('state', JSON.stringify(this.state));
     }
 
     closeDialog(name) {
@@ -98,6 +105,22 @@ export default class Home extends Component{
         })
     }
 
+    minDialog(name) {
+        let dialog = {...this.state[name]};
+        dialog.status = 'min';
+        this.setState({
+            [name]: dialog
+        })
+    }
+
+    restoreDialog(name) {
+        let dialog = {...this.state[name]};
+        dialog.status = 'normal';
+        this.setState({
+            [name]: dialog
+        })
+    }
+
     toggleSwitchBg() {
         this.setState({
             switchBg: !this.state.switchBg
@@ -111,6 +134,7 @@ export default class Home extends Component{
                 config={this.state} 
                 options={this.state[v.id]}
                 closeDialog={this.closeDialog}
+                minDialog={this.minDialog}
             >
                 <UrlDialog options={this.state[v.id]}/>
             </Dialog>
@@ -126,6 +150,7 @@ export default class Home extends Component{
                     config={this.state} 
                     toggleSetting={this.toggleSetting}
                     toggleStore={this.toggleStore}
+                    restoreDialog={this.restoreDialog}
                 />
                 <Setting 
                     show={this.state.showSetting} 
