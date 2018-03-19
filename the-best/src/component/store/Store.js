@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-import { Icon } from 'antd';
+import { Icon, Tooltip } from 'antd';
 import { urlApplication } from '../../share/config/globalConfig';
 import './style.less';
 
@@ -23,9 +23,11 @@ export default class Store extends Component{
             color: this.props.config.fontColor,
         }
         const appList = urlApplication.map( (v, k) => (
-            <span key={k} dialog={v.id} className='iconSpan' onClick={this.showDialog}>
-                <Icon type={v.class}/>
-            </span>
+            <Tooltip title={v.title} key={k}>
+                <span dialog={v.id} className='iconSpan' onClick={this.showDialog}>
+                    <Icon type={v.class}/>
+                </span>
+            </Tooltip>
         ))
         return (
             <section className={this.props.show ? 'store show' : 'store hide'} style={style}>

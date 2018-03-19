@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from 'antd';
+import { Icon, Tooltip } from 'antd';
 import './style.less';
 
 export default class Footer extends Component{
@@ -26,16 +26,20 @@ export default class Footer extends Component{
             color: this.props.config.fontColor,
         }
         const minDialogs = this.getMinDialogs().map( (v, k) => (
-            <span className='btn' key={k} onClick={() => this.props.restoreDialog(v.id)}><Icon type={v.class}/></span>
+            <Tooltip title={v.title} key={k}>
+                <span className='btn' onClick={() => this.props.restoreDialog(v.id)}>
+                    <Icon type={v.class}/>
+                </span>
+            </Tooltip>
         ));
         return (
             <footer className='footer' style={style}>
                 <div className='left'>
-                    <span className='btn'><Icon type="home" onClick={this.props.toggleStore}/></span>
+                    <Tooltip title='应用库'><span className='btn'><Icon type="home" onClick={this.props.toggleStore}/></span></Tooltip>
                     {minDialogs}
                 </div>
                 <div className='right'>
-                    <span className='btn'><Icon type="setting" onClick={this.props.toggleSetting}/></span>
+                    <Tooltip title='设置'><span className='btn'><Icon type="setting" onClick={this.props.toggleSetting}/></span></Tooltip>
                 </div>
             </footer>
         )
