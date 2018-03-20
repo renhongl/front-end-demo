@@ -6,13 +6,12 @@ import PropTypes from 'prop-types';
 export default class BackgroundColor extends Component{
     constructor(props){
         super(props);
-        this.toggleList = this.toggleList.bind(this);
         this.state = {
             showList: false
         }
     }
 
-    toggleList() {
+    toggleList = () => {
         this.setState({
             showList: !this.state.showList
         });

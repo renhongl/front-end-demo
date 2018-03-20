@@ -77,7 +77,7 @@ export default class Draggable {
     _initEvent() {
         if (this.options.dragZone) {
             if (this._getElementBySelector(this.options.dragZone)) {
-                this._addEvents(this._getElementBySelector(this.options.dragZone), ['mousedown', 'mouseover']);
+                this._addEvents(this._getElementBySelector(this.options.dragZone, this.options.container), ['mousedown', 'mouseover']);
             }
         } else {
             this._addEvents(this.options.container, ['mousedown', 'mouseover']);
@@ -230,7 +230,10 @@ export default class Draggable {
      * Get dom object from a selector
      * @param {string} selector 
      */
-    _getElementBySelector(selector) {
+    _getElementBySelector(selector, target) {
+        if(target) {
+            return target.querySelector(selector);
+        }
         return document.querySelector(selector);
     }
 
@@ -239,7 +242,7 @@ export default class Draggable {
      */
     _changeCursor() {
         if (this.options.dragZone) {
-            this._getElementBySelector(this.options.dragZone).style.cursor = this.options.cursor;
+            this._getElementBySelector(this.options.dragZone, this.options.container).style.cursor = this.options.cursor;
         } else {
             this.options.container.style.cursor = this.options.cursor;
         }

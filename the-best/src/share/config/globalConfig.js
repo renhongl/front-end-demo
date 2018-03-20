@@ -12,7 +12,7 @@ export const defaultTheme = {
 export const backgroundImage = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.png','8.jpg' ,'9.jpg', '10.jpg'];
 
 
-export const urlApplication = [
+export const application = [
     {
         show: false,
         id: 'baiduMap',
@@ -36,6 +36,13 @@ export const urlApplication = [
         title: 'MR UI',
         class: 'smile-o',
         status: 'normal'
+    },
+    {
+        show: false,
+        id: 'article',
+        title: '文章',
+        class: 'file-text',
+        status: 'normal'
     }
 ]
 
@@ -48,4 +55,9 @@ export const defaultSetting = {
     showSetting: false,
     showStore: false,
     switchBg: false
+}
+
+export const notificationStyle = {
+    background: 'rgba(255, 255, 255, 0.2)',
+    color: '#fff'
 }

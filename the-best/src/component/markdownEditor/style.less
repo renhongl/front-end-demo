@@ -1,0 +1,57 @@
+
+
+.markdown{
+    width: 100%;
+    height: 100%;
+
+    .list{
+        width: 20%;
+        height: 100%;
+        float: left;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        div{
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            margin-top: 1px;
+            padding-left: 10px;
+            line-height: 30px;
+            transition: all .5s;
+            &:hover{
+                background: rgba(255, 255, 255, 0.4);
+                cursor: pointer;
+            }
+        }
+        .selected{
+            background: rgba(255, 255, 255, 0.4);
+        }
+    }
+
+    .source{
+        width: 50%;
+        float: left;
+        height: 100%;
+        display: none;
+        textarea{
+            width: 100%;
+            height: 100%;
+            background: none;
+            border: none;
+            color: #fff !important;
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    .preview{
+        width: 80%;
+        float: left;
+        height: 100%;
+        padding-left: 20px;
+        color: #fff !important;
+        overflow: auto;
+        padding-top: 20px;
+        h1, h2, h3, h4, h5, h6{
+            color: #fff !important;
+        }
+    }
+}

@@ -10,7 +10,7 @@ export default class Footer extends Component{
         super(props);
     }
 
-    getMinDialogs() {
+    getMinDialogs = () => {
         let minDialogs = [];
         for (let p in this.props.config) {
             if (this.props.config[p].id &&this.props.config[p].status === 'min') {

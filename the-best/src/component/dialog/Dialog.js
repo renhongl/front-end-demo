@@ -10,21 +10,19 @@ import './style.less';
 export default class Dialog extends Component{
     constructor(props) {
         super(props);
-        this.onClick = this.onClick.bind(this);
-        this.closeDialog = this.closeDialog.bind(this);
-        this.minDialog = this.minDialog.bind(this);
     }
 
     componentDidMount() {
         new Draggable({
             container: this.dialog,
+            dragZone: '.dialog-header'
         });
-        new Resizable({
-            container: this.dialog
-        });
+        // new Resizable({
+        //     container: this.dialog
+        // });
     }
 
-    onClick() {
+    onClick = () => {
         let allDialog = document.querySelectorAll('.dialog');
         for(let dialog of allDialog) {
             dialog.style.zIndex = 10;
@@ -32,11 +30,11 @@ export default class Dialog extends Component{
         this.dialog.style.zIndex = 20;
     }
 
-    closeDialog() {
+    closeDialog = () => {
         this.props.closeDialog(this.dialog.id);
     }
 
-    minDialog() {
+    minDialog = () => {
         this.props.minDialog(this.dialog.id);
     }
 

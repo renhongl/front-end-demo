@@ -2,16 +2,15 @@
 
 import React, { Component } from 'react';
 import { Icon, Tooltip } from 'antd';
-import { urlApplication } from '../../share/config/globalConfig';
+import { application } from '../../share/config/globalConfig';
 import './style.less';
 
 export default class Store extends Component{
     constructor(props) {
         super(props);
-        this.showDialog = this.showDialog.bind(this);
     }
 
-    showDialog(e) {
+    showDialog = (e) => {
         let name = e.currentTarget.getAttribute('dialog');
         this.props.showDialog(name);
         this.props.toggleStore();
@@ -22,7 +21,7 @@ export default class Store extends Component{
             backgroundColor: `rgba(${this.props.config.backgroundColor},0.8)`,
             color: this.props.config.fontColor,
         }
-        const appList = urlApplication.map( (v, k) => (
+        const appList = application.map( (v, k) => (
             <Tooltip title={v.title} key={k}>
                 <span dialog={v.id} className='iconSpan' onClick={this.showDialog}>
                     <Icon type={v.class}/>

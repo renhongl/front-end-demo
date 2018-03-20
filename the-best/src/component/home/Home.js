@@ -1,52 +1,41 @@
 
 
 import React, { Component } from 'react';
-
 import { Background } from '../background';
 import { Footer } from '../footer';
 import { Setting } from '../setting';
-import { defaultTheme, urlApplication, defaultSetting} from '../../share/config/globalConfig';
+import { defaultTheme, application, defaultSetting, notificationStyle } from '../../share/config/globalConfig';
+import { welcomeMessage } from '../../share/config/constant';
 import { colorRgb } from '../../share/tool/globalFunc';
 import { Dialog } from '../dialog';
 import { UrlDialog } from '../UrlDialog';
+import { MarkdownEditor } from '../markdownEditor';
 import { Store } from '../store';
 import { BackgroundSwitch } from '../backgroundSwitch';
-
+import { Button, notification, Icon } from 'antd';
 import './style.less';
 
-export default class Home extends Component{
+export default class Home extends Component {
     constructor(props) {
         super(props);
-        this.changeBg = this.changeBg.bind(this);
-        this.changeBgColor = this.changeBgColor.bind(this);
-        this.changeBgOpacity = this.changeBgOpacity.bind(this);
-        this.changeFontColor = this.changeFontColor.bind(this);
-        this.toggleSetting = this.toggleSetting.bind(this);
-        this.closeSetting = this.closeSetting.bind(this);
-        this.toggleStore = this.toggleStore.bind(this);
-        this.closeDialog = this.closeDialog.bind(this);
-        this.showDialog = this.showDialog.bind(this);
-        this.toggleSwitchBg = this.toggleSwitchBg.bind(this);
-        this.minDialog = this.minDialog.bind(this);
-        this.restoreDialog = this.restoreDialog.bind(this);
         if (window.localStorage.getItem('state')) {
             this.state = JSON.parse(window.localStorage.getItem('state'));
         } else {
             this.state = defaultSetting;
-            for(let app of urlApplication) {
+            for (let app of application) {
                 this.state[app.id] = app;
             }
             window.localStorage.setItem('state', JSON.stringify(this.state));
         }
     }
 
-    changeBg(e) {
+    changeBg = (e) => {
         this.setState({
             backgroundImage: e.target.getAttribute('src')
         })
     }
 
-    changeBgColor(e) {
+    changeBgColor = (e) => {
         let color = e.target.value;
         color = colorRgb(color);
         this.setState({
@@ -54,32 +43,32 @@ export default class Home extends Component{
         });
     }
 
-    changeFontColor(e) {
+    changeFontColor = (e) => {
         this.setState({
             fontColor: e.target.value
         })
     }
 
-    changeBgOpacity(e) {
-        let opacity = e.target.value/10;
+    changeBgOpacity = (e) => {
+        let opacity = e.target.value / 10;
         this.setState({
             opacity: opacity
         })
     }
 
-    closeSetting() {
+    closeSetting = () => {
         this.setState({
             showSetting: false
         });
     }
 
-    toggleSetting() {
+    toggleSetting = () => {
         this.setState({
             showSetting: !this.state.showSetting
         });
     }
 
-    toggleStore() {
+    toggleStore = () => {
         this.setState({
             showStore: !this.state.showStore
         });
@@ -89,85 +78,112 @@ export default class Home extends Component{
         window.localStorage.setItem('state', JSON.stringify(this.state));
     }
 
-    closeDialog(name) {
-        let dialog = {...this.state[name]};
+    componentDidMount() {
+        setTimeout(() => {
+            this.openNotification();
+        }, 2000);
+    }
+
+    openNotification = () => {
+        notification.open({
+            message: welcomeMessage.message,
+            description: welcomeMessage.description,
+            icon: <Icon type="smile-circle" style={{ color: '#108ee9' }} />,
+            style: notificationStyle
+        });
+    };
+
+    closeDialog = (name) => {
+        let dialog = { ...this.state[name] };
         dialog.show = false;
         this.setState({
             [name]: dialog
         })
     }
 
-    showDialog(name) {
-        let dialog = {...this.state[name]};
+    showDialog = (name) => {
+        let dialog = { ...this.state[name] };
         dialog.show = true;
         this.setState({
             [name]: dialog
         })
     }
 
-    minDialog(name) {
-        let dialog = {...this.state[name]};
+    minDialog = (name) => {
+        let dialog = { ...this.state[name] };
         dialog.status = 'min';
         this.setState({
             [name]: dialog
         })
     }
 
-    restoreDialog(name) {
-        let dialog = {...this.state[name]};
+    restoreDialog = (name) => {
+        let dialog = { ...this.state[name] };
         dialog.status = 'normal';
         this.setState({
             [name]: dialog
         })
     }
 
-    toggleSwitchBg() {
+    toggleSwitchBg = () => {
         this.setState({
             switchBg: !this.state.switchBg
         });
     }
 
     render() {
-        const urlDialog = urlApplication.map( (v, k) => (
-            <Dialog 
-                key={k}
-                config={this.state} 
-                options={this.state[v.id]}
-                closeDialog={this.closeDialog}
-                minDialog={this.minDialog}
-            >
-                <UrlDialog options={this.state[v.id]}/>
-            </Dialog>
-        ))
+        const urlDialog = application.map((v, k) => {
+            if(v.src) {
+                return (
+                    <Dialog
+                        key={k}
+                        config={this.state}
+                        options={this.state[v.id]}
+                        closeDialog={this.closeDialog}
+                        minDialog={this.minDialog}
+                    >
+                        <UrlDialog options={this.state[v.id]} />
+                    </Dialog>
+                )
+            }
+        })
         return (
             <div className='home'>
                 {urlDialog}
-                <Background 
-                    config={this.state} 
+                <Dialog
+                    config={this.state}
+                    closeDialog={this.closeDialog}
+                    minDialog={this.minDialog}
+                    options={this.state.article}
+                >
+                    <MarkdownEditor options={this.state.article}/>
+                </Dialog>
+                <Background
+                    config={this.state}
                     closeSetting={this.closeSetting}
                 />
-                <Footer 
-                    config={this.state} 
+                <Footer
+                    config={this.state}
                     toggleSetting={this.toggleSetting}
                     toggleStore={this.toggleStore}
                     restoreDialog={this.restoreDialog}
                 />
-                <Setting 
-                    show={this.state.showSetting} 
-                    config={this.state} 
-                    changeBg={this.changeBg} 
-                    changeBgColor={this.changeBgColor} 
+                <Setting
+                    show={this.state.showSetting}
+                    config={this.state}
+                    changeBg={this.changeBg}
+                    changeBgColor={this.changeBgColor}
                     changeBgOpacity={this.changeBgOpacity}
                     changeFontColor={this.changeFontColor}
                     toggleSwitchBg={this.toggleSwitchBg}
                 />
-                <Store 
-                    show={this.state.showStore} 
-                    config={this.state} 
+                <Store
+                    show={this.state.showStore}
+                    config={this.state}
                     showDialog={this.showDialog}
                     toggleStore={this.toggleStore}
                 />
-                <BackgroundSwitch 
+                <BackgroundSwitch
                     switchBg={this.state.switchBg}
                     closeSetting={this.closeSetting}
                 />

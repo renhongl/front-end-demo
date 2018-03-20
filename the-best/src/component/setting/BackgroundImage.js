@@ -10,13 +10,12 @@ import Background from '../background';
 export default class BackgroundImage extends Component{
     constructor(props){
         super(props);
-        this.toggleList = this.toggleList.bind(this);
         this.state = {
             showList: false
         }
     }
 
-    toggleList() {
+    toggleList = () => {
         this.setState({
             showList: !this.state.showList
         });
