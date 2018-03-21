@@ -5,14 +5,15 @@ import { Background } from '../background';
 import { Footer } from '../footer';
 import { Setting } from '../setting';
 import { defaultTheme, application, defaultSetting, notificationStyle } from '../../share/config/globalConfig';
-import { welcomeMessage } from '../../share/config/constant';
 import { colorRgb } from '../../share/tool/globalFunc';
 import { Dialog } from '../dialog';
 import { UrlDialog } from '../UrlDialog';
 import { MarkdownEditor } from '../markdownEditor';
 import { Store } from '../store';
 import { BackgroundSwitch } from '../backgroundSwitch';
+import { AwesomeClock } from '../awesomeClock';
 import { Button, notification, Icon } from 'antd';
+import { lang } from '../../share/config/lang';
 import './style.less';
 
 export default class Home extends Component {
@@ -85,10 +86,14 @@ export default class Home extends Component {
     }
 
     openNotification = () => {
+        notification.config({
+            placement: 'bottomRight',
+            duration: 4.5,
+        });
         notification.open({
-            message: welcomeMessage.message,
-            description: welcomeMessage.description,
-            icon: <Icon type="smile-circle" style={{ color: '#108ee9' }} />,
+            message: lang[this.state.language]['WELCOME-MESSAGE'],
+            description: lang[this.state.language]['WELCOME-DESC'],
+            icon: <Icon type="smile-circle" style={{ color: `rgba(${this.state.backgroundColor},${this.state.opacity+0.1})` }} />,
             style: notificationStyle
         });
     };
@@ -131,6 +136,24 @@ export default class Home extends Component {
         });
     }
 
+    toggleSwitchLang = () => {
+        if(this.state.language) {
+            this.setState({
+                language: 0
+            })
+        } else {
+            this.setState({
+                language: 1
+            })
+        }
+    }
+
+    toggleAwesomeClock = () => {
+        this.setState({
+            showAwesomeClock: !this.state.showAwesomeClock
+        })
+    }
+
     render() {
         const urlDialog = application.map((v, k) => {
             if(v.src) {
@@ -156,7 +179,7 @@ export default class Home extends Component {
                     minDialog={this.minDialog}
                     options={this.state.article}
                 >
-                    <MarkdownEditor options={this.state.article}/>
+                    <MarkdownEditor options={this.state.article} config={this.state}/>
                 </Dialog>
                 <Background
                     config={this.state}
@@ -167,6 +190,7 @@ export default class Home extends Component {
                     toggleSetting={this.toggleSetting}
                     toggleStore={this.toggleStore}
                     restoreDialog={this.restoreDialog}
+                    toggleAwesomeClock={this.toggleAwesomeClock}
                 />
                 <Setting
                     show={this.state.showSetting}
@@ -176,6 +200,7 @@ export default class Home extends Component {
                     changeBgOpacity={this.changeBgOpacity}
                     changeFontColor={this.changeFontColor}
                     toggleSwitchBg={this.toggleSwitchBg}
+                    toggleSwitchLang={this.toggleSwitchLang}
                 />
                 <Store
                     show={this.state.showStore}
@@ -187,6 +212,7 @@ export default class Home extends Component {
                     switchBg={this.state.switchBg}
                     closeSetting={this.closeSetting}
                 />
+                <AwesomeClock config={this.state} />
             </div>
         )
     }

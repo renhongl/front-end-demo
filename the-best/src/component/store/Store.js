@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Icon, Tooltip } from 'antd';
 import { application } from '../../share/config/globalConfig';
+import { lang } from '../../share/config/lang';
 import './style.less';
 
 export default class Store extends Component{
@@ -17,19 +18,21 @@ export default class Store extends Component{
     }
 
     render() {
+        const { config, show } = this.props;
+        const { backgroundColor, fontColor, language, opacity } = config;
         const style = {
-            backgroundColor: `rgba(${this.props.config.backgroundColor},0.8)`,
-            color: this.props.config.fontColor,
+            backgroundColor: `rgba(${backgroundColor},${opacity})`,
+            color: fontColor,
         }
         const appList = application.map( (v, k) => (
-            <Tooltip title={v.title} key={k}>
+            <Tooltip title={lang[language][v.id.toUpperCase()]} key={k}>
                 <span dialog={v.id} className='iconSpan' onClick={this.showDialog}>
                     <Icon type={v.class}/>
                 </span>
             </Tooltip>
         ))
         return (
-            <section className={this.props.show ? 'store show' : 'store hide'} style={style}>
+            <section className={show ? 'store show' : 'store hide'} style={style}>
                 {appList}
             </section>
         )

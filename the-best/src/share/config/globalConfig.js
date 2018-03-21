@@ -17,7 +17,6 @@ export const application = [
         show: false,
         id: 'baiduMap',
         src: 'https://map.baidu.com/',
-        title: '百度地图',
         class: 'dribbble-square',
         status: 'normal'
     },
@@ -25,7 +24,6 @@ export const application = [
         show: false,
         id: 'myBlob',
         src: 'https://renhongl.github.io/',
-        title: '我的博客',
         class: 'github',
         status: 'normal'
     },
@@ -33,14 +31,12 @@ export const application = [
         show: false,
         id: 'mrui',
         src: 'https://renhongl.github.io/mr/',
-        title: 'MR UI',
         class: 'smile-o',
         status: 'normal'
     },
     {
         show: false,
         id: 'article',
-        title: '文章',
         class: 'file-text',
         status: 'normal'
     }
@@ -54,7 +50,9 @@ export const defaultSetting = {
     opacity: 0.1,
     showSetting: false,
     showStore: false,
-    switchBg: false
+    switchBg: false,
+    language: 0,
+    showAwesomeClock: false,
 }
 
 export const notificationStyle = {

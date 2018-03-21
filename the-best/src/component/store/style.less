@@ -6,11 +6,13 @@
 .store{
     position: fixed;
     z-index: 100;
-    left: 0;
-    top: 0;
+    left: 50%;
+    top: 50%;
     transition: .5s;
+    transform: translate(-50%, -50%);
     overflow-x: hidden;
     display: flex;
+    margin-top: -30px;
     align-items: center;
     justify-content: center;
 
@@ -35,7 +37,7 @@
 
 .store.show{
     width: 100%;
-    height: calc(~"100% - 30px");
+    height: 100%;
 }
 
 .store.hide{

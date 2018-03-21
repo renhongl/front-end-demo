@@ -6,6 +6,9 @@
     position: absolute;
     left: 200px;
     top: 200px;
+    overflow:auto;
+    resize:both;
+    transition: transform .5s;
 
     .dialog-header{
         height: 30px;
@@ -28,21 +31,26 @@
     .dialog-content{
         width: 100%;
         height: calc(~"100% - 30px");
+        overflow: hidden;
     }
 }
 
 .dialog.show{
-    display: block;
+    // display: block;
+    transform: scale(1, 1);
 }
 
 .dialog.hide{
-    display: none;
+    // display: none;
+    transform: scale(0, 0);
 }
 
 .dialog.show[status="min"] {
-    display: none;
+    // display: none;
+    transform: scale(0, 0);
 }
 
 .dialog.show[status="normal"] {
-    display: block;
+    // display: block;
+    transform: scale(1, 1);
 }

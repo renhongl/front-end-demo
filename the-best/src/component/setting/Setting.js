@@ -3,11 +3,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './style.less';
+import { lang } from '../../share/config/lang';
 
 import BackgroundImage from './BackgroundImage';
 import BackgroundColor from './BackgroundColor';
 import { BackgroundSwitch } from '../backgroundSwitch/index';
 import BackgroundSwitchSetting from './BackgroundSwitchSetting';
+import LanguageSwitch from './LanguageSwitch';
 
 export default class Setting extends Component{
     constructor(props) {
@@ -15,21 +17,24 @@ export default class Setting extends Component{
     }
 
     render() {
+        const { config, changeBg, changeBgColor, changeBgOpacity, changeFontColor, show, toggleSwitchBg, toggleSwitchLang} = this.props;
+        const { backgroundColor, opacity, fontColor, language } = config;
         const style = {
-            backgroundColor: `rgba(${this.props.config.backgroundColor},${this.props.config.opacity})`,
-            color: this.props.config.fontColor,
+            backgroundColor: `rgba(${backgroundColor},${opacity})`,
+            color: fontColor,
         }
         return (
-            <section className={this.props.show ? 'setting show' : 'setting hide'} style={style}>
-                <h3 className='setting-title' style={style}>设置</h3>
-                <BackgroundImage changeBg={this.props.changeBg} config={this.props.config}/>
+            <section className={show ? 'setting show' : 'setting hide'} style={style}>
+                <h3 className='setting-title' style={style}>{lang[language]['SETTING']}</h3>
+                <BackgroundImage changeBg={changeBg} config={config}/>
                 <BackgroundColor 
-                    changeBgColor={this.props.changeBgColor} 
-                    changeBgOpacity={this.props.changeBgOpacity} 
-                    changeFontColor={this.props.changeFontColor}
-                    config={this.props.config}
+                    changeBgColor={changeBgColor} 
+                    changeBgOpacity={changeBgOpacity} 
+                    changeFontColor={changeFontColor}
+                    config={config}
                 />
-                <BackgroundSwitchSetting toggleSwitchBg={this.props.toggleSwitchBg} config={this.props.config}/>
+                <BackgroundSwitchSetting toggleSwitchBg={toggleSwitchBg} config={config}/>
+                <LanguageSwitch toggleSwitchLang={toggleSwitchLang} config={config}/>
             </section>
         )
     }

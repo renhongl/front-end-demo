@@ -49,7 +49,8 @@ export default class MarkdownEditor extends Component{
     }
 
     render() {
-        if(!this.props.options.show) {
+        const { config, options } = this.props;
+        if(!options.show) {
             return null;
         }
         const list = markdownText.map( (v, k) => (

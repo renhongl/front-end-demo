@@ -3,11 +3,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Tooltip } from 'antd';
+import { lang } from '../../share/config/lang';
 import './style.less';
 
 export default class Footer extends Component{
     constructor(props) {
         super(props);
+        this.state = {
+            now: new Date()
+        }
     }
 
     getMinDialogs = () => {
@@ -20,14 +24,32 @@ export default class Footer extends Component{
         return minDialogs;
     }
 
+    componentDidMount() {
+        this.timer = setInterval( () => {
+            this.setState({
+                nwo: new Date()
+            })
+        }, 1000); 
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
+    getTimeStr = () => {
+        return this.state.now.toTimeString().split(' ')[0];
+    }
+
     render() {
+        const { config, restoreDialog, toggleStore, toggleSetting, toggleAwesomeClock } = this.props;
+        const { backgroundColor, opacity, fontColor, language } = config;
         const style = {
-            backgroundColor: `rgba(${this.props.config.backgroundColor},${this.props.config.opacity})`,
-            color: this.props.config.fontColor,
+            backgroundColor: `rgba(${backgroundColor},${opacity})`,
+            color: fontColor,
         }
         const minDialogs = this.getMinDialogs().map( (v, k) => (
-            <Tooltip title={v.title} key={k}>
-                <span className='btn' onClick={() => this.props.restoreDialog(v.id)}>
+            <Tooltip title={lang[language][v.id.toUpperCase()]} key={k}>
+                <span className='btn' onClick={() => restoreDialog(v.id)}>
                     <Icon type={v.class}/>
                 </span>
             </Tooltip>
@@ -35,11 +57,16 @@ export default class Footer extends Component{
         return (
             <footer className='footer' style={style}>
                 <div className='left'>
-                    <Tooltip title='应用库'><span className='btn'><Icon type="home" onClick={this.props.toggleStore}/></span></Tooltip>
+                    <Tooltip title={lang[language]['APPLICATION']}><span className='btn'><Icon type="home" onClick={toggleStore}/></span></Tooltip>
                     {minDialogs}
                 </div>
                 <div className='right'>
-                    <Tooltip title='设置'><span className='btn'><Icon type="setting" onClick={this.props.toggleSetting}/></span></Tooltip>
+                    <Tooltip title={lang[language]['SETTING']}><span className='btn'><Icon type="setting" onClick={toggleSetting}/></span></Tooltip>
+                    <Tooltip title={this.getTimeStr()} >
+                        <span className='btn time' onClick={toggleAwesomeClock}>
+                            {this.getTimeStr()}
+                        </span>
+                    </Tooltip>
                 </div>
             </footer>
         )

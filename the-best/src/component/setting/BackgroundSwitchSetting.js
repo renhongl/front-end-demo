@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch } from 'antd';
+import { lang } from '../../share/config/lang';
 
 export default class BackgroundSwitchSetting extends Component{
     constructor(props){
@@ -18,22 +19,20 @@ export default class BackgroundSwitchSetting extends Component{
         });
     }
 
-    componentDidMount() {
-        
-    }
-
     render() {
+        const { config, toggleSwitchBg } = this.props;
+        const { fontColor, backgroundColor, opacity, switchBg, language } = config;
         const style = {
-            color: this.props.config.fontColor
+            color: fontColor
         }
         const btnStye = {
-            'backgroundColor': `rgba(${this.props.config.backgroundColor},${this.props.config.opacity})`
+            'backgroundColor': `rgba(${backgroundColor},${opacity})`
         }
         return (
             <section className='background-switch common-setting'>
-                <h4 onClick={this.toggleList} style={style}>背景自动切换</h4>
+                <h4 onClick={this.toggleList} style={style}>{lang[language]['BACKGROUND-AUTO-SWITCH']}</h4>
                 <ul className={this.state.showList ? 'show' : 'hide'}>
-                    <li><span className='key'>背景切换:</span> <Switch onChange={this.props.toggleSwitchBg} style={this.props.config.switchBg ? btnStye : {}}/></li>
+                    <li><span className='key'>{lang[language]['BACKGROUND-SWITCH']}:</span> <Switch onChange={toggleSwitchBg} style={switchBg ? btnStye : {}}/></li>
                 </ul>
             </section>
         )

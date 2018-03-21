@@ -1,3 +1,6 @@
+
+
+
 /**
  * Class Draggable
  * How to create a draggable element:
@@ -27,6 +30,9 @@ export default class Draggable {
      * @param {object} options configuration for draggable element
      */
     constructor(options) {
+        if(!options.container) {
+            return;
+        }
         let params = this._getParameters();
         if (params.draggable === 'false') {
             return;
@@ -46,7 +52,7 @@ export default class Draggable {
             cursor: 'default',
             dragZone: null,
             except: null,
-            margin: 20,
+            margin: 0,
             enable: true,
             padding: 5,
             adjustPosition: true,
@@ -74,7 +80,7 @@ export default class Draggable {
     _initEvent() {
         if (this.options.dragZone) {
             if (this._getElementBySelector(this.options.dragZone)) {
-                this._addEvents(this._getElementBySelector(this.options.dragZone), ['mousedown', 'mouseover']);
+                this._addEvents(this._getElementBySelector(this.options.dragZone, this.options.container), ['mousedown', 'mouseover']);
             }
         } else {
             this._addEvents(this.options.container, ['mousedown', 'mouseover']);
@@ -138,8 +144,8 @@ export default class Draggable {
      */
     _mouseDown(e) {
         if (this.options.enable && this._inDragZone(e)) {
-            this.moving = true;
             this._resetCursor(e);
+            this.moving = true;
         }
     }
 
@@ -148,10 +154,12 @@ export default class Draggable {
      * @param {object} e 
      */
     _inDragZone(e) {
-        if (e.layerX > this.options.padding && 
-            e.layerX < this.options.container.clientWidth - this.options.padding &&
-            e.layerY > this.options.padding &&
-            e.layerY < this.options.container.clientHeight - this.options.padding
+        let offsetX = e.offsetX + 0;
+        let offsetY = e.offsetY + 0;
+        if (offsetX> this.options.padding && 
+            offsetX < this.options.container.clientWidth - this.options.padding &&
+            offsetY > this.options.padding &&
+            offsetY < this.options.container.clientHeight - this.options.padding
         ) {
             return true;
         }
@@ -195,8 +203,8 @@ export default class Draggable {
      * @param {number} offsetY 
      */
     _changePosition(offsetX, offsetY) {
-        let left = this._parseStr(this.options.container.style.left);
-        let top = this._parseStr(this.options.container.style.top);
+        let left = this.options.container.offsetLeft;
+        let top = this.options.container.offsetTop;
         let newLeft = left - offsetX;
         let newTop = top - offsetY;
         this.options.container.style.left = newLeft + 'px';
@@ -225,7 +233,10 @@ export default class Draggable {
      * Get dom object from a selector
      * @param {string} selector 
      */
-    _getElementBySelector(selector) {
+    _getElementBySelector(selector, target) {
+        if(target) {
+            return target.querySelector(selector);
+        }
         return document.querySelector(selector);
     }
 
@@ -234,7 +245,7 @@ export default class Draggable {
      */
     _changeCursor() {
         if (this.options.dragZone) {
-            this._getElementBySelector(this.options.dragZone).style.cursor = this.options.cursor;
+            this._getElementBySelector(this.options.dragZone, this.options.container).style.cursor = this.options.cursor;
         } else {
             this.options.container.style.cursor = this.options.cursor;
         }

@@ -18,6 +18,7 @@ export default class BackgroundSwitch extends Component{
     }
 
     render() {
+        const { switchBg, closeSetting } = this.props;
         const list = backgroundImage.map( (v, k) => {
             const style = {
                 backgroundImage: `url(./assets/image/${v})`,
@@ -28,7 +29,7 @@ export default class BackgroundSwitch extends Component{
             )
         })
         return (
-            <section className={this.props.switchBg ? 'bg-switch show' : 'bg-switch hide'} onClick={this.props.closeSetting}>
+            <section className={switchBg ? 'bg-switch show' : 'bg-switch hide'} onClick={closeSetting}>
                 <div className='switch' ref={bgSwitch => this.bgSwitch = bgSwitch}>
                     {list}
                 </div>

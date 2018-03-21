@@ -2,9 +2,9 @@
 
 import React, { Component } from 'react';
 
-import Draggable from '../../share/tool/Draggable';
-import Resizable from '../../share/tool/Resizable';
+import { Draggable } from '../../share/mr/mr';
 import { Icon } from 'antd';
+import { lang } from '../../share/config/lang';
 import './style.less';
 
 export default class Dialog extends Component{
@@ -17,9 +17,6 @@ export default class Dialog extends Component{
             container: this.dialog,
             dragZone: '.dialog-header'
         });
-        // new Resizable({
-        //     container: this.dialog
-        // });
     }
 
     onClick = () => {
@@ -39,11 +36,14 @@ export default class Dialog extends Component{
     }
 
     render() {
+        const { config, options } = this.props;
+        const { backgroundColor, opacity, fontColor, language } = config;
+        const { show, id, status } = options;
         const width = window.innerWidth * 0.5;
         const height = window.innerHeight * 0.7;
         const style = {
-            backgroundColor: `rgba(${this.props.config.backgroundColor},${this.props.config.opacity})`,
-            color: this.props.config.fontColor,
+            backgroundColor: `rgba(${backgroundColor},${opacity})`,
+            color: fontColor,
             width: width,
             height: height,
             zIndex: 10,
@@ -51,19 +51,20 @@ export default class Dialog extends Component{
             top: (window.innerHeight - height) * 0.5
         }
         const styleHeader = {
-            backgroundColor: `rgba(${this.props.config.backgroundColor},${this.props.config.opacity+0.1})`,
-            color: this.props.config.fontColor,
+            // backgroundColor: `rgba(${backgroundColor},${opacity})`,
+            color: fontColor,
         }
         return (
             <section 
                 ref={dialog => this.dialog = dialog} 
-                className={this.props.options.show ? 'dialog show' : 'dialog hide'} 
+                className={show ? 'dialog show' : 'dialog hide'} 
                 style={style} 
-                id={this.props.options.id}
-                status={this.props.options.status}
+                id={id}
+                status={status}
+                onClick={this.onClick}
             >
-                <div className='dialog-header' style={styleHeader} onClick={this.onClick}>
-                    {this.props.options.title}
+                <div className='dialog-header' style={styleHeader} >
+                    {lang[language][id.toUpperCase()]}
                     <span className='dialog-close'><Icon type="close" onClick={this.closeDialog}/></span>
                     <span className='dialog-close'><Icon type="minus" onClick={this.minDialog}/></span>
                 </div>

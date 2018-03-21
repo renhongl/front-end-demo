@@ -4,6 +4,7 @@
 
 .setting{
     height: calc(~"100% - 30px");
+    width: 300px;
     position: fixed;
     right: 0;
     top: 0;
@@ -11,6 +12,7 @@
     overflow-x: hidden;
     z-index: 50;
     transition: all .5s;
+    transform-origin: 100% 100% 0;
 
     h4{
         margin-top: 1px;
@@ -54,11 +56,13 @@
 }
 
 .setting.show{
-    width: 300px;
+    // width: 300px;
+    transform: scale(1, 1);
 }
 
 .setting.hide{
-    width: 0;
+    // width: 0;
+    transform: scale(0, 0);
 }
 
 .bgPreview{
