@@ -26,6 +26,11 @@
         }
     }
 
+    section{
+        width: calc(~"100% - 10px");
+        margin: 5px auto;
+    }
+
     .opacity{
         background: #ffffff2b;
         border: none;
@@ -43,6 +48,14 @@
 
     ul{
         list-style-type: none;
+        overflow: auto;
+        li{
+            margin: 5px;
+        }
+    }
+
+    .background-image ul{
+        height: 400px;
     }
 
     .setting-title{
@@ -66,8 +79,11 @@
 }
 
 .bgPreview{
-    width: 300px;
+    width: 263px;
     height: 200px;
+    &:hover{
+        border: 2px solid #ffffff;
+    }
 }
 
 .common-setting{

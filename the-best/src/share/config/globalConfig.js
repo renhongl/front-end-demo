@@ -86,19 +86,19 @@ export const markdownText = [
 
 export const videoList = [
     {
-        title: 'Video1',
+        title: '窗口演示',
         src: '1.mp4'
     },
     {
-        title: 'Video2',
+        title: '旧版演示',
         src: '2.mp4'
     },
     {
-        title: 'Video3',
-        src: '1.mp4'
+        title: 'AP_WEB演示',
+        src: '3.mp4'
     },
     {
-        title: 'Video4',
-        src: '2.mp4'
+        title: '英雄联盟视频',
+        src: '4.avi'
     }
 ]
