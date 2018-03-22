@@ -37,7 +37,7 @@ export default class Footer extends Component{
     }
 
     getTimeStr = () => {
-        return this.state.now.toTimeString().split(' ')[0];
+        return this.state.now.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
     }
 
     render() {

@@ -2,7 +2,7 @@
 
 
 export const defaultTheme = {
-    MAIN_COLOR: '0, 0, 0',
+    MAIN_COLOR: '255, 255, 255',
     FIRST_COLOR: '179, 173, 233',
     SECOND_COLOR: '189, 217, 252',
     THIRDD_COLOR: '213, 201, 249',
@@ -10,7 +10,6 @@ export const defaultTheme = {
 }
 
 export const backgroundImage = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.png','8.jpg' ,'9.jpg', '10.jpg'];
-
 
 export const application = [
     {
@@ -39,6 +38,12 @@ export const application = [
         id: 'article',
         class: 'file-text',
         status: 'normal'
+    },
+    {
+        show: false,
+        id: 'videoPlayer',
+        class: 'video-camera',
+        status: 'normal'
     }
 ]
 
@@ -47,7 +52,7 @@ export const defaultSetting = {
     fontColor: '#fff',
     backgroundImage: './assets/image/3.jpg',
     autoPlay: false,
-    opacity: 0.1,
+    opacity: 0,
     showSetting: false,
     showStore: false,
     switchBg: false,
@@ -59,3 +64,41 @@ export const notificationStyle = {
     background: 'rgba(255, 255, 255, 0.2)',
     color: '#fff'
 }
+
+export const markdownText = [
+    {   
+        title: '关雎',
+        content: `## 《关雎》\n ### 关关雎鸠， 在河之洲。\n ### 窈窕淑女， 君子好逑。\n ### 参差荇菜，左右流之。\n ### 窈窕淑女，寤寐求之。\n ### 求之不得，寤寐思服。`
+    },
+    {   
+        title: '蒹葭',
+        content: `## 《蒹葭》\n ### 蒹葭苍苍，白露为霜。\n ### 所谓伊人，在水一方。\n ### 溯洄从之，道阻且长；\n ### 溯游从之，宛在水中央。\n ### 蒹葭凄凄，白露未晞。`
+    },
+    {   
+        title: '采薇',
+        content: `## 《采薇》\n ### 采薇采薇，薇亦作止。\n ### 曰归曰归，岁亦莫止。\n ### 靡家靡室，猃狁之故。\n ### 不遑启居，猃狁之故。\n ### 采薇采薇，薇亦柔止。`
+    },
+    {   
+        title: '静女',
+        content: `## 《静女》\n ### 静女其姝，俟我于城隅。\n ### 爱而不见，搔首踟蹰。\n ### 静女其娈，贻我彤管。\n ### 彤管有炜，说怿女美。\n ### 自牧归荑，洵美且异。`
+    }
+]
+
+export const videoList = [
+    {
+        title: 'Video1',
+        src: '1.mp4'
+    },
+    {
+        title: 'Video2',
+        src: '2.mp4'
+    },
+    {
+        title: 'Video3',
+        src: '1.mp4'
+    },
+    {
+        title: 'Video4',
+        src: '2.mp4'
+    }
+]

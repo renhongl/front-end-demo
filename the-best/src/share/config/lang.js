@@ -21,7 +21,8 @@ export const lang = [
         'ENGLISH': '英文',
         'CHINESE': '中文',
         'WELCOME-MESSAGE': 'The Best',
-        'WELCOME-DESC': '一直在等你。'
+        'WELCOME-DESC': '一直在等你。',
+        'VIDEOPLAYER': '视频播放器',
     },
     {
         'SETTING': 'Setting',
@@ -43,7 +44,8 @@ export const lang = [
         'ENGLISH': 'English',
         'CHINESE': 'Chinese',
         'WELCOME-MESSAGE': 'The Best',
-        'WELCOME-DESC': 'Always waiting for you.'
+        'WELCOME-DESC': 'Always waiting for you.',
+        'VIDEOPLAYER': 'Video Player'
     }
 ]
 

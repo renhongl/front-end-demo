@@ -64,7 +64,7 @@ export default class Dialog extends Component{
                 onClick={this.onClick}
             >
                 <div className='dialog-header' style={styleHeader} >
-                    {lang[language][id.toUpperCase()]}
+                    <span className='title'>{lang[language][id.toUpperCase()]}</span>
                     <span className='dialog-close'><Icon type="close" onClick={this.closeDialog}/></span>
                     <span className='dialog-close'><Icon type="minus" onClick={this.minDialog}/></span>
                 </div>

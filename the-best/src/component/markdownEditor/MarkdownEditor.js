@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import Markdown from 'react-remarkable';
 import { Input } from 'antd';
-import { markdownText } from '../../share/config/constant';
+import { markdownText } from '../../share/config/globalConfig';
 const { TextArea } = Input;
 import './style.less';
 

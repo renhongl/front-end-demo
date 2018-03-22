@@ -3,7 +3,7 @@
 .dialog{
     width: 400px;
     height: 400px;
-    position: absolute;
+    position: fixed;
     left: 200px;
     top: 200px;
     overflow:auto;
@@ -16,12 +16,20 @@
         padding-left: 5px;
         font-weight: bold;
         transition: all .5s;
+        float: left;
+        z-index: 500;
+        position: absolute;
+        width: 100%;
+        &:hover .dialog-close{
+            color: #fff !important;
+        }
 
         .dialog-close{
             float: right;
             width: 30px;
             text-align: center;
-            color: #fff;
+            color: #fff0 !important;
+            transition: all .5s;
             &:hover{
                 background: rgba(255, 255, 255, 0.4);
             }
@@ -30,7 +38,7 @@
 
     .dialog-content{
         width: 100%;
-        height: calc(~"100% - 30px");
+        height: 100%;
         overflow: hidden;
     }
 }

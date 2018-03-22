@@ -10,7 +10,11 @@ export default class AwesomeClock extends Component {
     }
 
     componentDidUpdate() {
-        this.runClock();
+        if(this.props.config.showAwesomeClock) {
+            this.runClock();
+        } else {
+            clearInterval(this.timer);
+        }
     }
 
     componentDidMount() {
@@ -73,9 +77,6 @@ export default class AwesomeClock extends Component {
 
     render() {
         const { config } = this.props;
-        if (!config.showAwesomeClock) {
-            return null;
-        }
         return (
             <div className={config.showAwesomeClock ? "clock-container show" : "clock-container hide"}>
                 <div className="clock-digital">

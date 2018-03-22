@@ -14,6 +14,7 @@ import { BackgroundSwitch } from '../backgroundSwitch';
 import { AwesomeClock } from '../awesomeClock';
 import { Button, notification, Icon } from 'antd';
 import { lang } from '../../share/config/lang';
+import { VideoPlayer } from '../videoPlayer';
 import './style.less';
 
 export default class Home extends Component {
@@ -173,6 +174,14 @@ export default class Home extends Component {
         return (
             <div className='home'>
                 {urlDialog}
+                <Dialog
+                    config={this.state}
+                    closeDialog={this.closeDialog}
+                    minDialog={this.minDialog}
+                    options={this.state.videoPlayer}
+                >
+                    <VideoPlayer options={this.state.videoPlayer} config={this.state}/>
+                </Dialog>
                 <Dialog
                     config={this.state}
                     closeDialog={this.closeDialog}
