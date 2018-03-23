@@ -48,6 +48,38 @@ export default class MarkdownEditor extends Component{
         this.autoType(index);
     }
 
+    componentDidMount() {
+        this.renderRain();
+    }
+
+    renderRain() {
+        let n = Math.ceil(Math.random() * 10) + 5;
+        for (let i = 0; i < n; i++) {
+            let rain = document.createElement('span');
+            rain.setAttribute('class', 'rain');
+            let left = Math.random() * this.preview.clientWidth - 50;
+            let top = Math.random() * this.preview.clientHeight - 50;
+            if(left < 50) {
+                left = 50;
+            }
+            if(top < 50) {
+                top = 50;
+            }
+            rain.style.left = left + 'px';
+            rain.style.top = top + 'px';
+            let delay = Math.random() * 4000 + 1000;
+            setTimeout(() => {
+                this.preview.appendChild(rain);
+            }, delay);
+            setTimeout(() => {
+                this.preview.removeChild(rain);
+            }, 3000 + delay);
+        }
+        setTimeout(() => {
+            this.renderRain();
+        }, 5000);
+    }
+
     render() {
         const { config, options } = this.props;
         if(!options.show) {
@@ -62,7 +94,10 @@ export default class MarkdownEditor extends Component{
                     {list}
                 </div>
                 <div className='source'><TextArea rows={4} value={this.state.source} onChange={this.onType}/></div>
-                <div className='preview'><Markdown options={{html: true}}>{this.state.source}</Markdown></div>
+                <div className='preview' ref={preview => this.preview = preview}>
+                    <div className='cover'></div>
+                    <Markdown options={{html: true}}>{this.state.source}</Markdown>
+                </div>
             </section>
         )
     }
