@@ -1,8 +1,6 @@
 
 
-
 export const defaultTheme = {
-    MAIN_COLOR: '255, 255, 255',
     FIRST_COLOR: '179, 173, 233',
     SECOND_COLOR: '189, 217, 252',
     THIRDD_COLOR: '213, 201, 249',
@@ -48,7 +46,7 @@ export const application = [
 ]
 
 export const defaultSetting = {
-    backgroundColor: defaultTheme.MAIN_COLOR,
+    backgroundColor: defaultTheme.FIRST_COLOR,
     fontColor: '#fff',
     backgroundImage: './assets/image/3.jpg',
     autoPlay: false,
@@ -58,6 +56,7 @@ export const defaultSetting = {
     switchBg: false,
     language: 0,
     showAwesomeClock: false,
+    showBackgroundPicture: true
 }
 
 export const notificationStyle = {
@@ -80,7 +79,7 @@ export const markdownText = [
     },
     {   
         title: '静女',
-        content: `## 静女 \n ### 静女其姝 俟我于城隅 \n ### 爱而不见 搔首踟蹰 \n ### 静女其娈 贻我彤管 \n ### 彤管有炜 说怿女美 \n ### 自牧归荑 洵美且异 `
+        content: `## 静女 \n ### 静女其姝 俟我于城隅 \n ### 爱而不见 搔首踟蹰 \n ### 静女其娈 贻我彤管 \n ### 彤管有炜 说怿女美 \n ### 自牧归荑 洵美且异 \n ### 静女其姝 俟我于城隅 \n ### 爱而不见 搔首踟蹰 \n ### 静女其娈 贻我彤管 \n ### 彤管有炜 说怿女美 \n ### 自牧归荑 洵美且异 `
     }
 ]
 

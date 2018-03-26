@@ -32,7 +32,7 @@ export default class BackgroundSwitchSetting extends Component{
             <section className='background-switch common-setting'>
                 <h4 onClick={this.toggleList} style={style}>{lang[language]['BACKGROUND-AUTO-SWITCH']}</h4>
                 <ul className={this.state.showList ? 'show' : 'hide'}>
-                    <li><span className='key'>{lang[language]['BACKGROUND-SWITCH']}:</span> <Switch onChange={toggleSwitchBg} style={switchBg ? btnStye : {}}/></li>
+                    <li><span className='key'>{lang[language]['BACKGROUND-SWITCH']}:</span> <Switch defaultChecked={switchBg ? true : false}  onChange={toggleSwitchBg} style={switchBg ? btnStye : {}}/></li>
                 </ul>
             </section>
         )

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Background } from '../background';
 import { Footer } from '../footer';
 import { Setting } from '../setting';
-import { defaultTheme, application, defaultSetting, notificationStyle } from '../../share/config/globalConfig';
+import { application, defaultSetting, notificationStyle } from '../../share/config/globalConfig';
 import { colorRgb } from '../../share/tool/globalFunc';
 import { Dialog } from '../dialog';
 import { UrlDialog } from '../UrlDialog';
@@ -155,6 +155,12 @@ export default class Home extends Component {
         })
     }
 
+    toggleBgPicture = () => {
+        this.setState({
+            showBackgroundPicture: !this.state.showBackgroundPicture
+        })
+    }
+
     render() {
         const urlDialog = application.map((v, k) => {
             if(v.src) {
@@ -210,6 +216,7 @@ export default class Home extends Component {
                     changeFontColor={this.changeFontColor}
                     toggleSwitchBg={this.toggleSwitchBg}
                     toggleSwitchLang={this.toggleSwitchLang}
+                    toggleBgPicture={this.toggleBgPicture}
                 />
                 <Store
                     show={this.state.showStore}

@@ -23,6 +23,7 @@ export const lang = [
         'WELCOME-MESSAGE': 'The Best',
         'WELCOME-DESC': '一直在等你。',
         'VIDEOPLAYER': '视频播放器',
+        'SHOW-BACKGROUND-IMAGE': '显示背景图片'
     },
     {
         'SETTING': 'Setting',
@@ -45,7 +46,8 @@ export const lang = [
         'CHINESE': 'Chinese',
         'WELCOME-MESSAGE': 'The Best',
         'WELCOME-DESC': 'Always waiting for you.',
-        'VIDEOPLAYER': 'Video Player'
+        'VIDEOPLAYER': 'Video Player',
+        'SHOW-BACKGROUND-IMAGE': "Background Image"
     }
 ]
 

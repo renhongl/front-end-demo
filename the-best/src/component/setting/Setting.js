@@ -17,7 +17,7 @@ export default class Setting extends Component{
     }
 
     render() {
-        const { config, changeBg, changeBgColor, changeBgOpacity, changeFontColor, show, toggleSwitchBg, toggleSwitchLang} = this.props;
+        const { config, changeBg, changeBgColor, changeBgOpacity, changeFontColor, show, toggleSwitchBg, toggleSwitchLang, toggleBgPicture} = this.props;
         const { backgroundColor, opacity, fontColor, language } = config;
         const style = {
             backgroundColor: `rgba(${backgroundColor},${opacity})`,
@@ -31,6 +31,7 @@ export default class Setting extends Component{
                     changeBgColor={changeBgColor} 
                     changeBgOpacity={changeBgOpacity} 
                     changeFontColor={changeFontColor}
+                    toggleBgPicture={toggleBgPicture}
                     config={config}
                 />
                 <BackgroundSwitchSetting toggleSwitchBg={toggleSwitchBg} config={config}/>

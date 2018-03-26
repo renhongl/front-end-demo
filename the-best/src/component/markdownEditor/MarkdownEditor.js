@@ -12,6 +12,7 @@ import './style.less';
 export default class MarkdownEditor extends Component{
     constructor(props) {
         super(props);
+        this.loadedRain = false;
         this.state = {
             source: '**提示：**点击左边导航选择阅读',
             index: -1
@@ -48,8 +49,15 @@ export default class MarkdownEditor extends Component{
         this.autoType(index);
     }
 
+    componentDidUpdate() {
+        // if (!this.loadedRain) {
+        //     this.renderRain();
+        //     this.loadedRain = true;
+        // }
+    }
+
     componentDidMount() {
-        this.renderRain();
+        // this.renderRain();
     }
 
     renderRain() {

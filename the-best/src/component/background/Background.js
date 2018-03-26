@@ -12,9 +12,12 @@ export default class Background extends Component{
     }
 
     render() {
-        const style = {
-            backgroundImage: `url(${this.props.config.backgroundImage})`,
-        };
+        let style = {};
+        if(this.props.config.showBackgroundPicture) {
+            style.backgroundImage = `url(${this.props.config.backgroundImage})`;
+        } else {
+            style.backgroundColor = `rgba(${this.props.config.backgroundColor},1)`;
+        }
         return (
             <section className='background' style={style} onClick={this.props.closeSetting}>
             </section>
