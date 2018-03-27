@@ -9,6 +9,8 @@ export const defaultTheme = {
 
 export const backgroundImage = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.png','8.jpg' ,'9.jpg', '10.jpg'];
 
+export const switchImage = ['1.jpg', '1.jpg', '1.jpg', '1.jpg', '1.jpg', '1.jpg'];
+
 export const application = [
     {
         show: false,
@@ -56,7 +58,8 @@ export const defaultSetting = {
     switchBg: false,
     language: 0,
     showAwesomeClock: false,
-    showBackgroundPicture: true
+    showBackgroundPicture: true,
+    showHeart: false,
 }
 
 export const notificationStyle = {

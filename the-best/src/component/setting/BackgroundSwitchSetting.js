@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Switch } from 'antd';
+import { Switch, Icon } from 'antd';
 import { lang } from '../../share/config/lang';
 
 export default class BackgroundSwitchSetting extends Component{
@@ -28,9 +28,14 @@ export default class BackgroundSwitchSetting extends Component{
         const btnStye = {
             'backgroundColor': `rgba(${backgroundColor},${opacity})`
         }
+        const arrowStyle = {
+            transform: this.state.showList ? 'rotate(90deg)' : 'rotate(0deg)',
+            transition: 'all .5s ease-in-out',
+            marginRight: '8px'
+        }
         return (
             <section className='background-switch common-setting'>
-                <h4 onClick={this.toggleList} style={style}>{lang[language]['BACKGROUND-AUTO-SWITCH']}</h4>
+                <h4 onClick={this.toggleList} style={style}><Icon type="right" style={arrowStyle}/>{lang[language]['BACKGROUND-AUTO-SWITCH']}</h4>
                 <ul className={this.state.showList ? 'show' : 'hide'}>
                     <li><span className='key'>{lang[language]['BACKGROUND-SWITCH']}:</span> <Switch defaultChecked={switchBg ? true : false}  onChange={toggleSwitchBg} style={switchBg ? btnStye : {}}/></li>
                 </ul>

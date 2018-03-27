@@ -37,24 +37,22 @@ export default class Home extends Component {
         })
     }
 
-    changeBgColor = (e) => {
-        let color = e.target.value;
-        color = colorRgb(color);
+    changeBgColor = (color) => {
+        let c = colorRgb(color);
         this.setState({
-            backgroundColor: color.split('(')[1].split(')')[0]
+            backgroundColor: c.split('(')[1].split(')')[0]
         });
     }
 
-    changeFontColor = (e) => {
+    changeFontColor = (color) => {
         this.setState({
-            fontColor: e.target.value
+            fontColor: color
         })
     }
 
-    changeBgOpacity = (e) => {
-        let opacity = e.target.value / 10;
+    changeBgOpacity = (value) => {
         this.setState({
-            opacity: opacity
+            opacity: value/10
         })
     }
 
@@ -84,6 +82,32 @@ export default class Home extends Component {
         setTimeout(() => {
             this.openNotification();
         }, 2000);
+        if(this.state.showHeart) {
+            document.addEventListener('click', this.renderHeart);
+        }
+    }
+
+    renderHeart(e) {
+        let x = e.clientX;
+        let y = e.clientY;
+        let chest = document.createElement('div');
+        chest.setAttribute('id', 'chest');
+        chest.style.left = x + 'px';
+        chest.style.top = y + 'px';
+        let left = document.createElement('div');
+        left.setAttribute('class', 'heart left side top');
+        let right = document.createElement('div');
+        right.setAttribute('class', 'heart right side');
+        let center = document.createElement('div');
+        center.setAttribute('class', 'heart center');
+        center.innterText = '&hearts;';
+        document.body.appendChild(chest);
+        chest.appendChild(left);
+        chest.appendChild(center);
+        chest.appendChild(right);
+        setTimeout(() => {
+            document.body.removeChild(chest);
+        }, 1000);
     }
 
     openNotification = () => {
@@ -94,7 +118,7 @@ export default class Home extends Component {
         notification.open({
             message: lang[this.state.language]['WELCOME-MESSAGE'],
             description: lang[this.state.language]['WELCOME-DESC'],
-            icon: <Icon type="smile-circle" style={{ color: `rgba(${this.state.backgroundColor},${this.state.opacity+0.1})` }} />,
+            icon: <Icon type="smile-circle" style={{ color: `rgba(${this.state.backgroundColor},1)` }} />,
             style: notificationStyle
         });
     };

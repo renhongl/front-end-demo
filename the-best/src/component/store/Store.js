@@ -24,9 +24,12 @@ export default class Store extends Component{
             backgroundColor: `rgba(${backgroundColor},${opacity})`,
             color: fontColor,
         }
+        const color = {
+            color: fontColor,
+        }
         const appList = application.map( (v, k) => (
             <Tooltip title={lang[language][v.id.toUpperCase()]} key={k}>
-                <span dialog={v.id} className='iconSpan' onClick={this.showDialog}>
+                <span dialog={v.id} className='iconSpan' onClick={this.showDialog} style={color}>
                     <Icon type={v.class}/>
                 </span>
             </Tooltip>

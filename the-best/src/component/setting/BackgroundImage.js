@@ -7,6 +7,7 @@ import { backgroundImage } from '../../share/config/globalConfig';
 import './style.less';
 import Background from '../background';
 import { lang } from '../../share/config/lang';
+import { Icon } from 'antd';
 
 export default class BackgroundImage extends Component{
     constructor(props){
@@ -33,9 +34,14 @@ export default class BackgroundImage extends Component{
                 <li key={index} onClick={changeBg}><img src={`./assets/image/${value}`} className='bgPreview'/></li>
             )
         })
+        const arrowStyle = {
+            transform: this.state.showList ? 'rotate(90deg)' : 'rotate(0deg)',
+            transition: 'all .5s ease-in-out',
+            marginRight: '8px'
+        }
         return (
             <section className='background-image'>
-                <h4 onClick={this.toggleList} style={style}>{lang[language]['BACKGROUND-IMAGE-SETTING']}</h4>
+                <h4 onClick={this.toggleList} style={style}><Icon type="right" style={arrowStyle}/>{lang[language]['BACKGROUND-IMAGE-SETTING']}</h4>
                 <ul className={this.state.showList ? 'show' : 'hide'}>
                     {bgImageItem}
                 </ul>

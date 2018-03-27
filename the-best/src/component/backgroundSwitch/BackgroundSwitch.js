@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { Carousel } from '../../share/mr/mr';
-import { backgroundImage } from '../../share/config/globalConfig';
+import { switchImage } from '../../share/config/globalConfig';
 
 import './style.less';
 
@@ -19,10 +19,12 @@ export default class BackgroundSwitch extends Component{
 
     render() {
         const { switchBg, closeSetting } = this.props;
-        const list = backgroundImage.map( (v, k) => {
+        const list = switchImage.map( (v, k) => {
             const style = {
                 backgroundImage: `url(./assets/image/${v})`,
                 backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center center'
             }
             return (
                 <div key={k} style={style}></div>
