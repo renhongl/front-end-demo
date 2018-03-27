@@ -84,6 +84,8 @@
 	height: 60%;
 	display: block;
 	z-index: 0;
+	-webkit-filter: blur(4px);
+    filter: blur(4px);
 }
 
 .mr-carousel-item-after{
@@ -92,6 +94,8 @@
 	height: 60%;
 	display: block;
 	z-index: 0;
+	-webkit-filter: blur(4px);
+    filter: blur(4px);
 }
 
 .mr-carousel-item-center{
