@@ -58,6 +58,36 @@
     }
 }
 
+#chest-big {
+    position:fixed;
+    width:500px;
+    height:500px;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) scale(1, 1);
+    z-index: 10001;
+    pointer-events: none;
+    animation: smaller 5s ease-in-out;
+}
+
+@keyframes smaller{
+    0%{
+        transform: translate(-50%, -50%) scale(3, 3);
+    }
+    40%{
+        transform: translate(-50%, -50%) scale(1, 1);
+    }
+    60%{
+        transform: translate(-50%, -50%) scale(2, 2);
+    }
+    80%{
+        transform: translate(-50%, -50%) scale(1, 1);
+    }
+    100%{
+        transform: translate(-50%, -50%) scale(1, 1);
+    }
+}
+
 #chest {
     position:fixed;
     width:500px;

@@ -44,6 +44,14 @@ export const application = [
         id: 'videoPlayer',
         class: 'video-camera',
         status: 'normal'
+    },
+    {
+        show: false,
+        id: 'musicPlayer',
+        class: 'video-camera',
+        status: 'normal',
+        width: 400,
+        height: 600
     }
 ]
 
@@ -59,7 +67,9 @@ export const defaultSetting = {
     language: 0,
     showAwesomeClock: false,
     showBackgroundPicture: true,
-    showHeart: false,
+    showHeart: true,
+    bigHeartNumber: 52,
+    currentNumber: 0
 }
 
 export const notificationStyle = {

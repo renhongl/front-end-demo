@@ -492,18 +492,21 @@ article.video .spinner:before {
   float: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-top: 30px;
 
   .item {
     width: 100%;
     float: left;
     height: 30px;
     line-height: 30px;
-    text-align: center;
+    text-align: left;
     position: relative;
     margin-top: 1px;
-    cursor: default;
+    cursor: pointer;
+    padding-left: 12px;
+    font-size: 12px;
     &:hover {
       background: rgba(255, 255, 255, 0.2);
     }

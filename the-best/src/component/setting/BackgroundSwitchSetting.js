@@ -20,8 +20,8 @@ export default class BackgroundSwitchSetting extends Component{
     }
 
     render() {
-        const { config, toggleSwitchBg } = this.props;
-        const { fontColor, backgroundColor, opacity, switchBg, language } = config;
+        const { config, toggleSwitchBg, toggleShowHeart } = this.props;
+        const { fontColor, backgroundColor, opacity, switchBg, language, showHeart } = config;
         const style = {
             color: fontColor
         }
@@ -38,6 +38,7 @@ export default class BackgroundSwitchSetting extends Component{
                 <h4 onClick={this.toggleList} style={style}><Icon type="right" style={arrowStyle}/>{lang[language]['BACKGROUND-AUTO-SWITCH']}</h4>
                 <ul className={this.state.showList ? 'show' : 'hide'}>
                     <li><span className='key'>{lang[language]['BACKGROUND-SWITCH']}:</span> <Switch defaultChecked={switchBg ? true : false}  onChange={toggleSwitchBg} style={switchBg ? btnStye : {}}/></li>
+                    <li><span className='key'>{lang[language]['SHOW-HEART']}:</span> <Switch defaultChecked={showHeart ? true : false}  onChange={toggleShowHeart} style={showHeart ? btnStye : {}}/></li>
                 </ul>
             </section>
         )

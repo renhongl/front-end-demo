@@ -85,22 +85,37 @@ export default class BackgroundColor extends Component {
       },
       popover: {
         position: "absolute",
-        zIndex: "2"
+        zIndex: "2",
+        bottom: '27px'
       },
       cover: {
         position: "fixed",
         top: "0px",
         right: "0px",
-        bottom: "0px",
+        bottom: "27px",
         left: "0px"
       }
     };
-    const fontStyles = {...styles, color: {
+    const fontStyles = {...styles, 
+      color: {
         width: "36px",
         height: "14px",
         borderRadius: "2px",
         background: fontColor
-      }}
+      },
+      popover: {
+        position: "absolute",
+        zIndex: "2",
+        bottom: '-10px'
+      },
+      cover: {
+        position: "fixed",
+        top: "0px",
+        right: "0px",
+        bottom: "-10px",
+        left: "0px"
+      }
+    }
       const arrowStyle = {
         transform: this.state.showList ? 'rotate(90deg)' : 'rotate(0deg)',
         transition: 'all .5s ease-in-out',

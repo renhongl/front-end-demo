@@ -15,11 +15,13 @@ import { AwesomeClock } from '../awesomeClock';
 import { Button, notification, Icon } from 'antd';
 import { lang } from '../../share/config/lang';
 import { VideoPlayer } from '../videoPlayer';
+import { MusicPlayer } from '../musicPlayer';
 import './style.less';
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
+        this.time = 52000;
         if (window.localStorage.getItem('state')) {
             this.state = JSON.parse(window.localStorage.getItem('state'));
         } else {
@@ -39,6 +41,9 @@ export default class Home extends Component {
 
     changeBgColor = (color) => {
         let c = colorRgb(color);
+        if(!c) {
+            return;
+        }
         this.setState({
             backgroundColor: c.split('(')[1].split(')')[0]
         });
@@ -74,6 +79,12 @@ export default class Home extends Component {
         });
     }
 
+    toggleShowHeart = () => {
+        this.setState({
+            showHeart: !this.state.showHeart
+        })
+    }
+
     componentDidUpdate() {
         window.localStorage.setItem('state', JSON.stringify(this.state));
     }
@@ -82,16 +93,30 @@ export default class Home extends Component {
         setTimeout(() => {
             this.openNotification();
         }, 2000);
-        if(this.state.showHeart) {
-            document.addEventListener('click', this.renderHeart);
-        }
+        document.addEventListener('click', this.renderHeart);
     }
 
-    renderHeart(e) {
+    renderHeart = e => {
+        if(!this.state.showHeart) {
+            return;
+        }
+        this.setState({
+            currentNumber: this.state.currentNumber + 1
+        })
         let x = e.clientX;
         let y = e.clientY;
+        let time = 1000;
         let chest = document.createElement('div');
-        chest.setAttribute('id', 'chest');
+        if(this.state.currentNumber < this.state.bigHeartNumber) {
+            chest.setAttribute('id', 'chest');
+        } else {
+            chest.setAttribute('id', 'chest-big');
+            time = this.time;
+            this.setState({
+                currentNumber: 0
+            });
+            this.blink();
+        }
         chest.style.left = x + 'px';
         chest.style.top = y + 'px';
         let left = document.createElement('div');
@@ -107,7 +132,25 @@ export default class Home extends Component {
         chest.appendChild(right);
         setTimeout(() => {
             document.body.removeChild(chest);
-        }, 1000);
+        }, time);
+    }
+
+    blink() {
+        this.blinkTimer = setInterval(() => {
+            let color = this.randomColor();
+            let opacity = Math.ceil(Math.random() * 11 );
+            let fontColor = this.randomColor();
+            this.changeBgColor(color);
+            this.changeFontColor(fontColor);
+            this.changeBgOpacity(opacity);
+        }, 500);
+        setTimeout(() => {
+            clearTimeout(this.blinkTimer);
+        }, this.time);
+    }
+
+    randomColor() {
+        return '#'+Math.floor(Math.random()*16777215).toString(16); 
     }
 
     openNotification = () => {
@@ -208,6 +251,14 @@ export default class Home extends Component {
                     config={this.state}
                     closeDialog={this.closeDialog}
                     minDialog={this.minDialog}
+                    options={this.state.musicPlayer}
+                >
+                    <MusicPlayer options={this.state.musicPlayer} config={this.state}/>
+                </Dialog>
+                <Dialog
+                    config={this.state}
+                    closeDialog={this.closeDialog}
+                    minDialog={this.minDialog}
                     options={this.state.videoPlayer}
                 >
                     <VideoPlayer options={this.state.videoPlayer} config={this.state}/>
@@ -241,6 +292,7 @@ export default class Home extends Component {
                     toggleSwitchBg={this.toggleSwitchBg}
                     toggleSwitchLang={this.toggleSwitchLang}
                     toggleBgPicture={this.toggleBgPicture}
+                    toggleShowHeart={this.toggleShowHeart}
                 />
                 <Store
                     show={this.state.showStore}

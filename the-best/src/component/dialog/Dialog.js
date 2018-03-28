@@ -38,17 +38,17 @@ export default class Dialog extends Component{
     render() {
         const { config, options } = this.props;
         const { backgroundColor, opacity, fontColor, language } = config;
-        const { show, id, status } = options;
-        const width = window.innerWidth * 0.5;
-        const height = window.innerHeight * 0.7;
+        const { show, id, status, width, height, left, top } = options;
+        const w = width || window.innerWidth * 0.5;
+        const h = height || window.innerHeight * 0.7;
         const style = {
             backgroundColor: `rgba(${backgroundColor},${opacity})`,
             color: fontColor,
-            width: width,
-            height: height,
+            width: w,
+            height: h,
             zIndex: 10,
-            left: (window.innerWidth - width) * 0.5,
-            top: (window.innerHeight - height) * 0.5
+            left: left || (window.innerWidth - w) * 0.5,
+            top: top || (window.innerHeight - h) * 0.5
         }
         const styleHeader = {
             // backgroundColor: `rgba(${backgroundColor},${opacity})`,

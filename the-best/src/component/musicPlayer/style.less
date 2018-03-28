@@ -1,0 +1,289 @@
+.music-container {
+  width: 100%;
+  height: 100%;
+}
+
+@import "https://fonts.googleapis.com/css?family=Open+Sans";
+* {
+  outline: none;
+  user-select: none;
+}
+
+.music-box {
+    position: absolute;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    padding: 15px;
+    width: 100%;
+    height: initial;
+    background-color: #463239;
+    box-shadow: 0 0 15px #535353;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.music-box .album {
+  position: relative;
+}
+.music-box .album .photo {
+  background: url("https://zero-space.s3.amazonaws.com/photos/cd69aadc-9775-49fc-8c1a-b80c1c380d4ax840.jpg")
+    no-repeat 100% 100%;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+}
+.music-box .album .infos {
+  background-color: rgba(70, 50, 57, 0.3);
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+}
+.music-box .album .infos .song {
+  padding: 10px;
+  color: #c6ad94;
+  letter-spacing: 0.5px;
+}
+.music-box .album .infos .song span,
+.music-box .album .infos .song small {
+  display: block;
+}
+.music-box .dashboard {
+  margin-top: 15px;
+}
+.music-box .dashboard .list {
+  position: relative;
+  transition-duration: 0.3s;
+  background-color: #eee;
+  right: 0;
+}
+.music-box .dashboard .list .list-btn {
+  z-index: 2;
+  background-color: #ffba49;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  right: 5px;
+  top: -44px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  transition-delay: 0.9s;
+}
+.music-box .dashboard .list .list-btn span {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 28px;
+  height: 1px;
+  background-color: #463239;
+  position: relative;
+  transition: width 0.3s 0.3s, background-color 0.3s 0.6s;
+  transition-timing-function: linear;
+}
+.music-box .dashboard .list .list-btn span::before,
+.music-box .dashboard .list .list-btn span::after {
+  background-color: #463239;
+  content: "";
+  width: 28px;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition-timing-function: linear;
+  transition: width 0.3s 0.3s, margin 0.3s 0.6s, transform 0.3s 0.3s;
+}
+.music-box .dashboard .list .list-btn span::before {
+  margin-top: 6px;
+}
+.music-box .dashboard .list .list-btn span::after {
+  margin-top: -6px;
+}
+.music-box .dashboard .list.active .list-btn {
+  top: -322px;
+  transition: top 0.3s 0.6s;
+}
+.music-box .dashboard .list.active .list-btn span {
+  background-color: transparent;
+  width: 34px;
+  transition: width 0.3s, background-color 0.3s;
+}
+.music-box .dashboard .list.active .list-btn span::before,
+.music-box .dashboard .list.active .list-btn span::after {
+  margin: 0;
+  width: 34px;
+  transition: width 0.3s, margin 0.3s, transform 0.3s 0.3s;
+}
+.music-box .dashboard .list.active .list-btn span::before {
+  transform: rotate(225deg);
+}
+.music-box .dashboard .list.active .list-btn span::after {
+  transform: rotate(315deg);
+}
+.music-box .dashboard .player .time {
+  color: #c6ad94;
+}
+.music-box .dashboard .player .time-rail {
+  height: 1px;
+  position: relative;
+  padding: 15px 0;
+  overflow: hidden;
+}
+.music-box .dashboard .player .time-rail .thumb,
+.music-box .dashboard .player .time-rail .track {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.music-box .dashboard .player .time-rail .thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffba49;
+  z-index: 1;
+  left: 30%;
+  transition: 0.3s;
+}
+.music-box .dashboard .player .time-rail .thumb:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+.music-box .dashboard .player .time-rail .thumb::before {
+  content: "";
+  width: 500px;
+  height: 1px;
+  background-color: #ffba49;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+.music-box .dashboard .player .time-rail .track {
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #c6ad94;
+}
+.music-box .dashboard .player .time-rail input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  overflow: hidden;
+  background: none;
+}
+.music-box
+  .dashboard
+  .player
+  .time-rail
+  input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffba49;
+}
+.music-box .dashboard .action-button {
+  text-align: center;
+}
+.music-box .dashboard .action-button a {
+  cursor: pointer;
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  margin: 3px;
+  line-height: 44px;
+  color: #c6ad94;
+  transition-duration: 0.3s;
+}
+.music-box .dashboard .action-button a:hover {
+  color: #ffba49;
+}
+.music-box .dashboard .action-button a:hover.play-pause {
+  border-color: #ffba49;
+}
+.music-box .dashboard .action-button a.play-pause {
+  border-radius: 50%;
+  border: 1px solid #c6ad94;
+  font-size: 1.5em;
+  width: 54px;
+  height: 54px;
+  line-height: 54px;
+}
+.music-box .dashboard .action-button a.play-pause.active {
+  border-color: #ffba49;
+}
+.music-box .dashboard .action-button a.play-pause.active i::before {
+  content: "";
+  margin-left: 5px;
+}
+.music-box .dashboard .action-button a.active {
+  color: #ffba49;
+}
+.music-box .lists {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #463239;
+  transform: translateX(-100%);
+  transition: 0.3s 0s;
+}
+.music-box .lists.active {
+  transform: translateX(0);
+  transition: 0.3s 0.9s;
+}
+.music-box .lists .label {
+  font-size: 2em;
+  padding: 8px 15px;
+  height: 60px;
+  box-sizing: border-box;
+  color: #ffba49;
+}
+.music-box .lists ul {
+  padding-left: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  height: calc(100% - 60px);
+  position: absolute;
+  overflow-y: auto;
+  background-color: #c6ad94;
+}
+.music-box .lists ul::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+.music-box .lists ul::-webkit-scrollbar-track {
+  background-color: #463239;
+}
+.music-box .lists ul::-webkit-scrollbar-thumb {
+  background-color: #ffba49;
+  border-radius: 3px;
+}
+.music-box .lists ul li {
+  cursor: pointer;
+  padding: 5px 15px;
+  transition-duration: 0.3s;
+}
+.music-box .lists ul li span,
+.music-box .lists ul li em {
+  display: inline-block;
+}
+.music-box .lists ul li span small {
+  display: block;
+}
+.music-box .lists ul li em {
+  float: right;
+  top: 0;
+  font-style: normal;
+  font-size: 12px;
+  margin-top: 12px;
+}
+.music-box .lists ul li:nth-of-type(odd) {
+  background-color: rgba(70, 50, 57, 0.1);
+}
+.music-box .lists ul li:hover {
+  background-color: rgba(70, 50, 57, 0.3);
+}
