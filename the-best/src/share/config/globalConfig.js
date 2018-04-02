@@ -48,10 +48,10 @@ export const application = [
     {
         show: false,
         id: 'musicPlayer',
-        class: 'video-camera',
+        class: 'sound',
         status: 'normal',
-        width: 400,
-        height: 600
+        width: 352,
+        height: 552
     }
 ]
 
@@ -113,4 +113,49 @@ export const videoList = [
         title: '英雄联盟视频',
         src: '4.avi'
     }
+]
+
+export const musicList = [
+    {
+        file: "assets/music/01.mp3",
+        thumb: "assets/image/01.jpg",
+        trackName: "Dusk",
+        trackArtist: "Tobu & Syndec",
+        trackAlbum: "Single"
+      },
+      {
+        file: "assets/music/02.mp3",
+        thumb: "assets/image/02.jpg",
+        trackName: "Blank",
+        trackArtist: "Disfigure",
+        trackAlbum: "Single"
+      },
+      {
+        file: "assets/music/03.mp3",
+        thumb: "assets/image/03.jpg",
+        trackName: "Fade",
+        trackArtist: "Alan Walker",
+        trackAlbum: "Single"
+      },
+      {
+        file: "assets/music/04.mp3",
+        thumb: "assets/image/04.jpg",
+        trackName: "11",
+        trackArtist: "Tobu & Syndec",
+        trackAlbum: "Single"
+      },
+      {
+        file: "assets/music/05.mp3",
+        thumb: "assets/image/05.jpg",
+        trackName: "22",
+        trackArtist: "Disfigure",
+        trackAlbum: "Single"
+      },
+      {
+        file: "assets/music/06.mp3",
+        thumb: "assets/image/06.jpg",
+        trackName: "33",
+        trackArtist: "Alan Walker",
+        trackAlbum: "Single"
+      }
 ]

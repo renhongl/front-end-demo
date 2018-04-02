@@ -52,7 +52,7 @@ export default class Footer extends Component{
         }
         const minDialogs = this.getMinDialogs().map( (v, k) => (
             <Tooltip title={lang[language][v.id.toUpperCase()]} key={k}>
-                <span className='btn' onClick={() => restoreDialog(v.id)}>
+                <span className='icon' onClick={() => restoreDialog(v.id)}>
                     <Icon type={v.class}/>
                 </span>
             </Tooltip>
@@ -60,13 +60,13 @@ export default class Footer extends Component{
         return (
             <footer className='footer' style={style}>
                 <div className='left' style={style}>
-                    <Tooltip title={lang[language]['APPLICATION']}><span className='btn'><Icon type="home" onClick={toggleStore} style={color}/></span></Tooltip>
+                    <Tooltip title={lang[language]['APPLICATION']}><span className='icon'><Icon type="home" onClick={toggleStore} style={color}/></span></Tooltip>
                     {minDialogs}
                 </div>
                 <div className='right' style={style}>
-                    <Tooltip title={lang[language]['SETTING']}><span className='btn'><Icon type="setting" onClick={toggleSetting} style={color}/></span></Tooltip>
+                    <Tooltip title={lang[language]['SETTING']}><span className='icon'><Icon type="setting" onClick={toggleSetting} style={color}/></span></Tooltip>
                     <Tooltip title={this.getTimeStr()} >
-                        <span className='btn time' onClick={toggleAwesomeClock} style={color}>
+                        <span className='icon time' onClick={toggleAwesomeClock} style={color}>
                             {this.getTimeStr()}
                         </span>
                     </Tooltip>
