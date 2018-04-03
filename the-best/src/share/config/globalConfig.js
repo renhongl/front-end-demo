@@ -14,8 +14,7 @@ export const switchImage = ['1.jpg', '1.jpg', '1.jpg', '1.jpg', '1.jpg', '1.jpg'
 export const application = [
     {
         show: false,
-        id: 'baiduMap',
-        src: 'https://map.baidu.com/',
+        id: 'leafletMap',
         class: 'dribbble-square',
         status: 'normal'
     },
