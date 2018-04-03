@@ -158,3 +158,8 @@ export const musicList = [
         trackAlbum: "Single"
       }
 ]
+
+export const loginMd5 = {
+    userName: 'a48c907d946aaa208077635b3ed3dc2f',
+    password: '298923c8190045e91288b430794814c4'
+}
