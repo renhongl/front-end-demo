@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'dev' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.4
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info lifecycle redux-demo2@1.0.0~predev: redux-demo2@1.0.0
+6 silly lifecycle redux-demo2@1.0.0~predev: no script for predev, continuing
+7 info lifecycle redux-demo2@1.0.0~dev: redux-demo2@1.0.0
+8 verbose lifecycle redux-demo2@1.0.0~dev: unsafe-perm in lifecycle true
+9 verbose lifecycle redux-demo2@1.0.0~dev: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;D:\temporary\front-end-demo\redux-demo2\node_modules\.bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\renhongl\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Security Innovation\SI TSS\bin;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\TortoiseSVN\bin;C:\Program Files\nodejs;C:\Program Files\MySQL\MySQL Utilities 1.6;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\MongoDB\Server\3.4\bin;D:\downloads\phantomjs-2.1.1-windows\phantomjs-2.1.1-windows\bin;C:\adb;C:\Program Files\Git\cmd;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe;C:\Program Files\PuTTY;D:\tools\nginx;C:\Users\renhongl\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Users\renhongl\AppData\Local\Programs\Python\Python36-32;C:\Program Files\Microsoft VS Code\bin;C:\Users\renhongl\AppData\Roaming\npm;C:\Users\renhongl\AppData\Local\Programs\Fiddler;C:\Users\renhongl\AppData\Local\GitHubDesktop\bin
+10 verbose lifecycle redux-demo2@1.0.0~dev: CWD: D:\temporary\front-end-demo\redux-demo2
+11 silly lifecycle redux-demo2@1.0.0~dev: Args: [ '/d /s /c',
+11 silly lifecycle   'webpack-dev-server --open --config webpack.dev.js' ]
+12 silly lifecycle redux-demo2@1.0.0~dev: Returned: code: 3221225786  signal: null
+13 info lifecycle redux-demo2@1.0.0~dev: Failed to exec dev script
+14 verbose stack Error: redux-demo2@1.0.0 dev: `webpack-dev-server --open --config webpack.dev.js`
+14 verbose stack Exit status 3221225786
+14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:920:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
+15 verbose pkgid redux-demo2@1.0.0
+16 verbose cwd D:\temporary\front-end-demo\redux-demo2
+17 error Windows_NT 6.1.7601
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "dev"
+19 error node v6.11.4
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error redux-demo2@1.0.0 dev: `webpack-dev-server --open --config webpack.dev.js`
+22 error Exit status 3221225786
+23 error Failed at the redux-demo2@1.0.0 dev script 'webpack-dev-server --open --config webpack.dev.js'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the redux-demo2 package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     webpack-dev-server --open --config webpack.dev.js
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs redux-demo2
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls redux-demo2
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

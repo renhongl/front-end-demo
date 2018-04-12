@@ -1,0 +1,37 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'dev' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.4
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info lifecycle webpack-react-less@1.0.0~predev: webpack-react-less@1.0.0
+6 silly lifecycle webpack-react-less@1.0.0~predev: no script for predev, continuing
+7 info lifecycle webpack-react-less@1.0.0~dev: webpack-react-less@1.0.0
+8 verbose lifecycle webpack-react-less@1.0.0~dev: unsafe-perm in lifecycle true
+9 verbose lifecycle webpack-react-less@1.0.0~dev: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;D:\temporary\front-end-demo\flux-demo\node_modules\.bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\renhongl\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Security Innovation\SI TSS\bin;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\TortoiseSVN\bin;C:\Program Files\nodejs;C:\Program Files\MySQL\MySQL Utilities 1.6;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\MongoDB\Server\3.4\bin;D:\downloads\phantomjs-2.1.1-windows\phantomjs-2.1.1-windows\bin;C:\adb;C:\Program Files\Git\cmd;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe;C:\Program Files\PuTTY;D:\tools\nginx;C:\Users\renhongl\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Users\renhongl\AppData\Local\Programs\Python\Python36-32;C:\Program Files\Microsoft VS Code\bin;C:\Users\renhongl\AppData\Roaming\npm;C:\Users\renhongl\AppData\Local\Programs\Fiddler;C:\Users\renhongl\AppData\Local\GitHubDesktop\bin
+10 verbose lifecycle webpack-react-less@1.0.0~dev: CWD: D:\temporary\front-end-demo\flux-demo
+11 silly lifecycle webpack-react-less@1.0.0~dev: Args: [ '/d /s /c',
+11 silly lifecycle   'webpack-dev-server --open --config webpack.dev.js' ]
+12 verbose stack Error: kill ENOSYS
+12 verbose stack     at Object.exports._errnoException (util.js:1020:11)
+12 verbose stack     at process.kill (internal/process.js:191:18)
+12 verbose stack     at process.listener (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:86:15)
+12 verbose stack     at emitNone (events.js:91:20)
+12 verbose stack     at process.emit (events.js:185:7)
+12 verbose stack     at processEmit (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+12 verbose stack     at processEmit (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+12 verbose stack     at Signal.wrap.onsignal (internal/process.js:217:44)
+13 verbose cwd D:\temporary\front-end-demo\flux-demo
+14 error Windows_NT 6.1.7601
+15 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "dev"
+16 error node v6.11.4
+17 error npm  v3.10.10
+18 error code ENOSYS
+19 error errno ENOSYS
+20 error syscall kill
+21 error kill ENOSYS
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]
