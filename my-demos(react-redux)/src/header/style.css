@@ -1,0 +1,41 @@
+
+
+.header{
+  background: #404040 !important;
+}
+
+.header ul{
+  display: flex;
+  flex-direction: row-reverse;
+  background: #404040;
+  color: #fff;
+}
+
+.header li {
+}
+
+.logo{
+        width: 150px;
+    height: 50px;
+    margin-top: 10px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    margin-left: -35px;
+    /* line-height: 41px; */
+    display: flex;
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 17px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}

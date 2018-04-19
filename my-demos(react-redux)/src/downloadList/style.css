@@ -1,0 +1,31 @@
+.download-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.custom-image img {
+    display: block;
+}
+
+.custom-card {
+    padding: 10px 16px;
+}
+
+.custom-card p {
+    color: #999;
+}
+
+.download-list-container .ant-card {
+    padding: 10px;
+    margin: 10px;
+    width: 35%;
+}
+
+.download-icon {
+    margin-left: 10px;
+    font-weight: bold;
+}

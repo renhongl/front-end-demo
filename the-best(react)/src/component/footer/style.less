@@ -1,0 +1,51 @@
+
+
+@import "../../share/style/global.less";
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    transition: all .5s;
+    z-index: 100;
+
+    .left{
+        height: 100%;
+        display: flex;
+        width: 50%;
+        justify-content: flex-start;
+        align-items: center;
+        // padding-left: 10px;
+        float: left;
+    }
+
+    .right{
+        height: 100%;
+        display: flex;
+        width: 50%;
+        justify-content: flex-end;
+        align-items: center;
+        // padding-right: 10px;
+        float: left;
+    }
+
+    .icon{
+        width: 30px;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+        transition: all .5s;
+        &:hover{
+            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+    .icon.time{
+        width: 70px;
+        text-align: center;
+    }
+
+}

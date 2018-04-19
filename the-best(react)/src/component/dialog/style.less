@@ -1,0 +1,65 @@
+
+
+.dialog{
+    position: fixed;
+    overflow:auto;
+    resize:both;
+    transition: transform .5s;
+
+    .dialog-header{
+        height: 30px;
+        line-height: 30px;
+        padding-left: 15px;
+        font-weight: bold;
+        transition: all .5s;
+        float: left;
+        z-index: 500;
+        position: absolute;
+        width: 100%;
+        &:hover .dialog-close{
+            // color: #fff !important;
+            opacity: 1;
+        }
+
+        .dialog-close{
+            float: right;
+            width: 30px;
+            text-align: center;
+            // color: #fff !important;
+            opacity: 0;
+            transition: all .5s;
+            &:hover{
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .dialog-content{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        // padding: 5px;
+    }
+}
+
+.dialog.show{
+    // display: block;
+    transform: scale(1, 1);
+}
+
+.dialog.hide{
+    // display: none;
+    transform: scale(0, 0);
+}
+
+.dialog.show[status="min"] {
+    // display: none;
+    transform: scale(0, 0);
+}
+
+.dialog.show[status="normal"] {
+    // display: block;
+    transform: scale(1, 1);
+}

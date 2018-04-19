@@ -1,0 +1,100 @@
+  .mr-menu{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .mr-menu-left{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mr-menu-left .cover{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #e0e0e0;
+    border-right: 3px solid #e85b74;
+    opacity: 0.5;
+    box-sizing: border-box;
+    transition: top .5s ease-in-out;
+    z-index: -1;
+  }
+
+  .mr-menu-left .cover{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #e85b744f;
+    border-right: 3px solid #e85b74;
+    opacity: 0.5;
+    box-sizing: border-box;
+    transition: top .5s ease-in-out;
+    z-index: -1;
+  }
+
+  .mr-menu-left li{
+      width: 98%;
+      height: 50px;
+      list-style-type: none;
+      position: relative;
+      overflow: hidden;
+  }
+  
+  .mr-menu-left a{
+      display: inline-block;
+    height: 100%;
+    text-decoration: none;
+    width: 100%;
+    margin: 0; 
+    color: grey;
+    padding: 0;
+    line-height: 50px;
+    padding-left: 15%;
+    margin-top: 2px;
+    box-sizing: border-box;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 15%;
+  }
+  
+  .mr-menu-left a:hover{
+    color: #e85b74;
+    cursor: pointer;
+  }
+  
+  .mr-menu-left .active{
+      color: #e85b74 !important;
+  }
+
+  .mr-menu-left .click{
+    content: "";
+    left: 50%;
+    top: 50%;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    /* animation: mr-menu-click .5s; */
+    /* animation-fill-mode: forwards; */
+    /* opacity: 0.2; */
+    border-radius: 50%;
+    /* opacity: 0.7; */
+    pointer-events: none;
+  }
+  
+  /* @keyframes mr-menu-click{
+    to{
+      width: 100px;
+      height: 100px;
+      opacity: 0;
+    }
+  } */

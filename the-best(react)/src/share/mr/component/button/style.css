@@ -1,0 +1,113 @@
+.mr-button-default{
+	background: grey;
+	border: none;
+	padding: 10px;
+	outline: none;
+	position: relative;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.mr-button-default:hover{
+    background: #b3afaf;
+}
+
+
+.mr-button-error{
+	background: #e85b74;
+	border: none;
+	padding: 10px;
+	outline: none;
+	position: relative;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.mr-button-error:hover{
+    background: #f07b90;
+}
+
+.mr-button-infor{
+	background: #177DE6;
+	border: none;
+	padding: 10px;
+	outline: none;
+	position: relative;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.mr-button-infor:hover{
+    background: rgb(91, 164, 239);
+}
+
+.mr-button-warning{
+	background: rgb(231, 174, 15);
+	border: none;
+	padding: 10px;
+	outline: none;
+	position: relative;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.mr-button-warning:hover{
+    background: rgb(239, 202, 104);
+}
+
+.mr-button-success{
+	background: #00B300;
+	border: none;
+	padding: 10px;
+	outline: none;
+	position: relative;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.mr-button-success:hover{
+    background: rgb(90, 212, 90);
+}
+
+.mr-button-click{
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	background: #fff;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	/* animation: mr-button-click .5s; */
+	/* animation-fill-mode: forwards; */
+	/* opacity: 0.2; */
+	border-radius: 50%;
+	/* opacity: 0.7; */
+	pointer-events: none;
+}
+
+/* @keyframes mr-button-click{
+	to{
+		width: 100px;
+		height: 100px;
+		opacity: 0;
+	}
+} */
