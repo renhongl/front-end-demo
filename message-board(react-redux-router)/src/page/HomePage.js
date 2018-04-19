@@ -6,6 +6,7 @@ import { View as CreateMessage } from "../component/createMessage";
 import { Login } from '../component/userInfor';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { View as Dashboard } from '../component/dashboard';
 
 const styles = {
   tabsContainer: {
@@ -21,6 +22,9 @@ const styles = {
     padding: 0,
     overflow: "hidden",
     height: "100%"
+  },
+  userLogo: {
+    borderRadius: '50% !important'
   }
 };
 
@@ -60,7 +64,7 @@ class HomePage extends React.Component {
         >
           <Tab icon={<i className="material-icons">home</i>} value={0} />
           <Tab icon={<i className="material-icons">add</i>} value={1} />
-          <Tab icon={this.props.userInfor.src ? <img src={this.props.userInfor.src} style={styles.userLogo}/> : <i className="material-icons">account_circle</i>} value={2} />
+          <Tab icon={this.props.userInfor.src ? <img src={this.props.userInfor.src} width='30' height='30'style={styles.userLogo}/> : <i className="material-icons">account_circle</i>} value={2} />
         </Tabs>
         <SwipeableViews
           index={this.state.slideIndex}
@@ -74,7 +78,7 @@ class HomePage extends React.Component {
             <CreateMessage goHome={this.goHome} goLogin={this.goLogin}/>
           </div>
           <div style={styles.slide}>
-            <Login />
+            {this.props.userInfor.userName ? <Dashboard userName={this.props.userInfor.userName}/> : <Login />}
           </div>
         </SwipeableViews>
       </div>
