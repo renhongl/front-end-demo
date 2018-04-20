@@ -7,6 +7,7 @@ import { Login } from '../component/userInfor';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { View as Dashboard } from '../component/dashboard';
+import Avatar from 'material-ui/Avatar';
 
 const styles = {
   tabsContainer: {
@@ -23,9 +24,6 @@ const styles = {
     overflow: "hidden",
     height: "100%"
   },
-  userLogo: {
-    borderRadius: '50% !important'
-  }
 };
 
 class HomePage extends React.Component {
@@ -55,6 +53,7 @@ class HomePage extends React.Component {
   }
 
   render() {
+    const {src, userName } = this.props.userInfor;
     return (
       <div style={styles.tabsContainer}>
         <Tabs
@@ -63,8 +62,8 @@ class HomePage extends React.Component {
           style={styles.tabs}
         >
           <Tab icon={<i className="material-icons">home</i>} value={0} />
-          <Tab icon={<i className="material-icons">add</i>} value={1} />
-          <Tab icon={this.props.userInfor.src ? <img src={this.props.userInfor.src} width='30' height='30'style={styles.userLogo}/> : <i className="material-icons">account_circle</i>} value={2} />
+          <Tab icon={<i className="material-icons">create</i>} value={1} />
+          <Tab icon={src ? <Avatar src={src} size={30}/> : <i className="material-icons">account_circle</i>} value={2} />
         </Tabs>
         <SwipeableViews
           index={this.state.slideIndex}
@@ -78,7 +77,7 @@ class HomePage extends React.Component {
             <CreateMessage goHome={this.goHome} goLogin={this.goLogin}/>
           </div>
           <div style={styles.slide}>
-            {this.props.userInfor.userName ? <Dashboard userName={this.props.userInfor.userName}/> : <Login />}
+            {userName ? <Dashboard userName={userName}/> : <Login />}
           </div>
         </SwipeableViews>
       </div>
@@ -93,3 +92,6 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(HomePage);
+
+
+
