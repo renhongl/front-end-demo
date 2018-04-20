@@ -5,9 +5,20 @@
 import { CommentListComponent } from './CommentListComponent';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state) => {
+const getCommentListByMessageId = (commentList, messageId) => {
+	let ret = [];
+	for (let [key, comment] of commentList.entries()) {
+		if (comment.messageId === messageId) {
+			ret.push(comment);	
+		}
+	}
+	return ret;
+}
+
+
+const mapStateToProps = (state, ownProps) => {
 	return {
-		commentList: state.commentList
+		commentList: getCommentListByMessageId(state.commentList, ownProps.id)
 	}
 }
 

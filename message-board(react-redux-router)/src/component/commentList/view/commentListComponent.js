@@ -1,7 +1,12 @@
 import React from 'react';
 
-export const CommentListComponent = (props) => {
-	return {
-		<div>Comment List Item</div>
-	}
+export const CommentListComponent = ( {commentList}) => {
+	const list = commentList.map((v, k) => {
+		return (
+			<div key={k}>{v.content}</div>
+		)
+	})
+	return (
+		<div>{list}</div>
+	)
 }

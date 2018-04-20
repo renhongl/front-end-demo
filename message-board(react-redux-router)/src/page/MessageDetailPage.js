@@ -4,7 +4,7 @@ import { View as MessageDetail } from "../component/messageDetail";
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { View as CommentList } from '../component/commentList';
 
 class MessageDetailPage extends Component {
   constructor(props) {
@@ -15,7 +15,11 @@ class MessageDetailPage extends Component {
   }
 
   render() {
-    return <MessageDetail id={this.state.id} />;
+    return (<div>
+		  <MessageDetail id={this.state.id} />
+	    	  <CommentList id={this.state.id}/>
+	    </div>
+	    )
   }
 }
 
