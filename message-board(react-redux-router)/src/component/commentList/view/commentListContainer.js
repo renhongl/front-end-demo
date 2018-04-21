@@ -2,7 +2,7 @@
 
 
 
-import { CommentListComponent } from './CommentListComponent';
+import { CommentListComponent } from './commentListComponent';
 import { connect } from 'react-redux';
 
 const getCommentListByMessageId = (commentList, messageId) => {
