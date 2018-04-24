@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom';
 
 const styles = {
   container: {
-    height: '100%',
   },
   card: {
     height: "100%"
