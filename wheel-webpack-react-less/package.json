@@ -34,8 +34,6 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "antd": "^3.1.4",
-    "lrh-message": "^1.1.0",
-    "mr-ui": "0.0.0"
+    
   }
 }
