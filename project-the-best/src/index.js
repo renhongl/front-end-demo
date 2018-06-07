@@ -15,7 +15,7 @@ class App extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            loggedIn: false
+            loggedIn: true
         }
     }
 
@@ -35,14 +35,14 @@ class App extends Component{
         return (
             <Router>
             <div className='home'>
-            <Route exact path='/home' component={Home}></Route>
-            <Route exact path="/" render={() => (
+            <Route exact path='/' component={Home}></Route>
+            {/* <Route exact path="/" render={() => (
                 this.state.loggedIn ? (
                     <Redirect to="/home"/>
                 ) : (
                     <Login login={this.login}/>
                 )
-            )}/>
+            )}/> */}
             </div>
         </Router>
         )

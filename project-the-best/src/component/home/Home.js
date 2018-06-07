@@ -248,14 +248,14 @@ export default class Home extends Component {
         return (
             <div className='home'>
                 {urlDialog}
-                <Dialog
+                {/* <Dialog
                     config={this.state}
                     closeDialog={this.closeDialog}
                     minDialog={this.minDialog}
                     options={this.state.leafletMap}
                 >
                     <LeafletMap options={this.state.leafletMap} config={this.state}/>
-                </Dialog>
+                </Dialog> */}
                 <Dialog
                     config={this.state}
                     closeDialog={this.closeDialog}
