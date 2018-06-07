@@ -5,7 +5,6 @@
 
 class Observer{
     constructor() {
-        console.log('new Observer')
         this.topicMapping = {};
         this.publishStore = {};
     }

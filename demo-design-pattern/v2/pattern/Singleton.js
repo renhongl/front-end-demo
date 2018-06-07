@@ -8,7 +8,6 @@
 export class SingletonDOM{
     constructor() {
         this.createDOM = new CreateDOM;
-        console.log('new SingletonDOM');
     }
 
     create() {
@@ -20,20 +19,12 @@ export class SingletonDOM{
 }
 
 export class CreateDOM{
-    constructor() {
-        console.log('new CreateDOM');
-    }
-
-    create() {
-        return document.createElement('div');
+    create(type) {
+        return document.createElement(type || 'div');
     }
 }
 
 export class CreateButton{
-    constructor() {
-        console.log('new CreateButton');
-    }
-
     create() {
         return document.createElement('button');
     }
@@ -44,7 +35,6 @@ export class CreateButton{
 export class GetSingleton{
     constructor(ClassName) {
         this.obj = new ClassName();
-        console.log('new GetSingleton');
     }
 
     create() {
