@@ -13,13 +13,7 @@ export const switchImage = ['1.jpg', '1.jpg', '1.jpg', '1.jpg', '1.jpg', '1.jpg'
 
 export const application = [
     {
-        show: false,
-        id: 'leafletMap',
-        class: 'dribbble-square',
-        status: 'normal'
-    },
-    {
-        show: false,
+        show: true,
         id: 'myBlob',
         src: 'https://renhongl.github.io/',
         class: 'github',
@@ -34,8 +28,16 @@ export const application = [
     },
     {
         show: false,
-        id: 'article',
-        class: 'file-text',
+        id: 'ailiao',
+        src: 'http://tumogu.cn:3000/',
+        class: 'smile-o',
+        status: 'normal'
+    },
+    {
+        show: false,
+        id: 'mySpace',
+        src: 'http://tumogu.cn:4000/',
+        class: 'smile-o',
         status: 'normal'
     },
     {
@@ -45,7 +47,7 @@ export const application = [
         status: 'normal'
     },
     {
-        show: false,
+        show: true,
         id: 'musicPlayer',
         class: 'sound',
         status: 'normal',
@@ -61,7 +63,7 @@ export const defaultSetting = {
     autoPlay: false,
     opacity: 0,
     showSetting: false,
-    showStore: false,
+    showStore: true,
     switchBg: false,
     language: 0,
     showAwesomeClock: false,

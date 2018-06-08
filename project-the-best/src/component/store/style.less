@@ -5,8 +5,8 @@
 
 .store{
     position: fixed;
-    z-index: 100;
-    left: 50%;
+    z-index: 1;
+    left: 50px;
     top: 50%;
     transition: .5s;
     transform: translate(-50%, -50%);
@@ -14,7 +14,9 @@
     display: flex;
     margin-top: -30px;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
+    background-color: none;
 
     .iconSpan{
         width: 50px;
@@ -37,8 +39,9 @@
 }
 
 .store.show{
-    width: 100%;
+    width: 100px;
     height: 100%;
+    background-color: transparent !important;
 }
 
 .store.hide{

@@ -14,7 +14,7 @@ export default class Store extends Component{
     showDialog = (e) => {
         let name = e.currentTarget.getAttribute('dialog');
         this.props.showDialog(name);
-        this.props.toggleStore();
+        // this.props.toggleStore();
     }
 
     render() {
@@ -28,7 +28,7 @@ export default class Store extends Component{
             color: fontColor,
         }
         const appList = application.map( (v, k) => (
-            <Tooltip title={lang[language][v.id.toUpperCase()]} key={k}>
+            <Tooltip title={lang[language][v.id.toUpperCase()]} key={k} placement="right">
                 <span dialog={v.id} className='iconSpan' onClick={this.showDialog} style={color}>
                     <Icon type={v.class}/>
                 </span>

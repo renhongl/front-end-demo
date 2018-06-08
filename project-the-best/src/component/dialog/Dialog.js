@@ -39,8 +39,8 @@ export default class Dialog extends Component{
         const { config, options } = this.props;
         const { backgroundColor, opacity, fontColor, language } = config;
         const { show, id, status, width, height, left, top } = options;
-        const w = width || window.innerWidth * 0.5;
-        const h = height || window.innerHeight * 0.7;
+        const w = width || window.innerWidth * 0.9;
+        const h = height || window.innerHeight * 0.9;
         const style = {
             backgroundColor: `rgba(${backgroundColor},${opacity})`,
             color: fontColor,
