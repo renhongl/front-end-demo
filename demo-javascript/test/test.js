@@ -1,6 +1,6 @@
 
 
-const BasicTypeTool = require('./basic-type-tool');
+const BasicTypeTool = require('../basic-type-tool');
 
 console.log(BasicTypeTool.isEven(16));
 
