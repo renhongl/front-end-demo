@@ -4,6 +4,7 @@ import Observer from './pattern/Observer.js';
 import { CreateDOM, CreateButton, SingletonDOM, GetSingleton } from './pattern/Singleton.js';
 import { GetBonus } from './pattern/Strategy.js'; 
 import { LoadImage, LoadImageProxy, LoadData, LoadDataProxy } from './pattern/Proxy.js';
+import ReduceFrequency from './pattern/ReduceFrequency.js';
 
 export default class Index{
     constructor() {
@@ -17,17 +18,27 @@ export default class Index{
         this.loadImageProxy = new LoadImageProxy();
         this.loadData = new LoadData();
         this.loadDataProxy = new LoadDataProxy();
+        this.reduceFrequency = new ReduceFrequency();
         this.testMapping = {
             observer: this._testObserver.bind(this),
             singleton: this._testSingleton.bind(this),
             strategy: this._testStrategy.bind(this),
             proxy: this._testProxy.bind(this),
+            frequency: this._testReduceFrequency.bind(this),
         }
     }
 
     test(type) {
         this.testMapping[type]();
         return this;
+    }
+
+    _testReduceFrequency() {
+        let dom = this.createDOM.create('input');
+        document.body.appendChild(dom);
+        this.reduceFrequency.inputControl(dom);
+        this.reduceFrequency.mouseMoveControl();
+        this.reduceFrequency.renderDomControl();
     }
 
     _testProxy() {

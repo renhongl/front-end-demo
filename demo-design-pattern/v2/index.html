@@ -4,12 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            overflow-wrap: break-word;
+            width: 90%;
+            height: 90%;
+        }
+        body span{
+            border: 1px solid grey;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
     <title>设计模式</title>
 </head>
 <body>
     <script type="module">
         import Index from './index.js';
-        new Index().test('proxy').test('strategy');
+        new Index().test('frequency').test('strategy');
     </script>
 </body>
 </html>
