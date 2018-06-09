@@ -33,13 +33,13 @@ export const application = [
         class: 'smile-o',
         status: 'normal'
     },
-    {
-        show: false,
-        id: 'mySpace',
-        src: 'http://tumogu.cn:4000/',
-        class: 'smile-o',
-        status: 'normal'
-    },
+    // {
+    //     show: false,
+    //     id: 'mySpace',
+    //     src: 'http://tumogu.cn:4000/',
+    //     class: 'smile-o',
+    //     status: 'normal'
+    // },
     {
         show: false,
         id: 'videoPlayer',
