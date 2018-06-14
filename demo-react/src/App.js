@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import TodoListComp from './todoList/TodoList';
-import TodoFilterComp from './todoFilter/TodoFilter'
+import {TodoListComp} from './todoList';
+import {TodoFilterComp} from './todoFilter'
+import {AddTodoComp} from './addTodo'
+import {WeatherListComp} from './weatherList'
+import {DatetimeComp} from './datetime'
 
 class App extends Component {
   constructor(props) {
@@ -64,12 +67,28 @@ class App extends Component {
     return newList;
   }
 
+  addTodo = (value) => {
+    let newTodo = {
+      id: this.state.todoList.length,
+      text: value,
+      complete: false
+    }
+    let newTodoList = [...this.state.todoList];
+    newTodoList.push(newTodo);
+    this.setState({
+      todoList: newTodoList
+    });
+  } 
+
   render() {
     const todoList = this.filterList([...this.state.todoList]);
     return (
       <div className="App">
+        <DatetimeComp/>
+        <WeatherListComp />
         <TodoFilterComp changeFilter={this.changeFilter} filter={this.state.filter}/>
         <TodoListComp list={todoList} toggleComplete={this.toggleComplete}/>
+        <AddTodoComp addTodo={this.addTodo}/>
       </div>
     );
   }
