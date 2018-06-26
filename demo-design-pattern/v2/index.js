@@ -5,6 +5,8 @@ import { CreateDOM, CreateButton, SingletonDOM, GetSingleton } from './pattern/S
 import { GetBonus } from './pattern/Strategy.js'; 
 import { LoadImage, LoadImageProxy, LoadData, LoadDataProxy } from './pattern/Proxy.js';
 import ReduceFrequency from './pattern/ReduceFrequency.js';
+import { Adapter } from './pattern/Adapter.js';
+import { Flyweight } from './pattern/Flyweight.js';
 
 export default class Index{
     constructor() {
@@ -19,18 +21,52 @@ export default class Index{
         this.loadData = new LoadData();
         this.loadDataProxy = new LoadDataProxy();
         this.reduceFrequency = new ReduceFrequency();
+        this.adapter = new Adapter();
+        this.flyweight = new Flyweight();
         this.testMapping = {
             observer: this._testObserver.bind(this),
             singleton: this._testSingleton.bind(this),
             strategy: this._testStrategy.bind(this),
             proxy: this._testProxy.bind(this),
             frequency: this._testReduceFrequency.bind(this),
+            adapter: this._testAdapter.bind(this),
+            flyweight: this._testFlyweight.bind(this),
         }
     }
 
     test(type) {
         this.testMapping[type]();
         return this;
+    }
+
+    _testFlyweight() {
+        let divArr = [];
+        let container = document.getElementById('flyweight-test-div-container');
+        document.getElementById('flyweight-test-btn').addEventListener('click', () => {
+            let num = document.getElementById('flyweight-test-input').value;
+            removeDiv();
+            renderDiv(Number(num));
+        });
+        const removeDiv = () => {
+            for (let i = 0, len = divArr.length; i < len; i++) {
+                this.flyweight.removeDiv(divArr.pop(), container);
+            }
+        }
+        const renderDiv = (num) => {
+            for (let i = 0; i < num; i++) {
+                let div = this.flyweight.createDiv(i, container);
+                divArr.push(div);
+            }
+        }
+    }
+
+    _testAdapter() {
+        render(this.adapter.getSingaporeCityData);
+        render(this.adapter.getFullSingaporeCityData);
+        render(this.adapter.dataAdapter(this.adapter.getFullSingaporeCityData));
+        function render(fn) {
+            console.log(JSON.stringify(fn()));
+        }
     }
 
     _testReduceFrequency() {
