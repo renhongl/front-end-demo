@@ -1,0 +1,19 @@
+
+
+
+
+export const UPDATE_WEATHER = 'UPDATE_WEATHER';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
