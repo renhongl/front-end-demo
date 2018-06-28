@@ -17,6 +17,7 @@ export const updateWeather = (data) => {
 export const fetchWeather = (city) => {
     return dispatch => {
         let url = 'https://www.sojson.com/open/api/weather/json.shtml?city=' + city;
+        dispatch(updateWeather(null));
         axios.get(url).then(result => {
             dispatch(updateWeather(result.data));
         })

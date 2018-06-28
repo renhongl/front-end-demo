@@ -7,6 +7,7 @@ import { LoadImage, LoadImageProxy, LoadData, LoadDataProxy } from './pattern/Pr
 import ReduceFrequency from './pattern/ReduceFrequency.js';
 import { Adapter } from './pattern/Adapter.js';
 import { Flyweight } from './pattern/Flyweight.js';
+import Control from './pattern/State.js';
 
 export default class Index{
     constructor() {
@@ -23,6 +24,7 @@ export default class Index{
         this.reduceFrequency = new ReduceFrequency();
         this.adapter = new Adapter();
         this.flyweight = new Flyweight();
+        this.control = new Control();
         this.testMapping = {
             observer: this._testObserver.bind(this),
             singleton: this._testSingleton.bind(this),
@@ -31,12 +33,30 @@ export default class Index{
             frequency: this._testReduceFrequency.bind(this),
             adapter: this._testAdapter.bind(this),
             flyweight: this._testFlyweight.bind(this),
+            state: this._testState.bind(this),
         }
     }
 
     test(type) {
         this.testMapping[type]();
         return this;
+    }
+
+    _testState() {
+        let button = document.createElement('button');
+        button.innerText = 'Play';
+        document.body.appendChild(button);
+        let stop = document.createElement('button');
+        stop.innerText = 'stop';
+        document.body.appendChild(stop);
+
+        button.addEventListener('click', () => {
+            this.control.currentState.btnWasPressed(button);
+        });
+        
+        stop.addEventListener('click', () => {
+            this.control.currentState.stopWasPressed(button);
+        });
     }
 
     _testFlyweight() {
