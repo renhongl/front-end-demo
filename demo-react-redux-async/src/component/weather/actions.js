@@ -20,7 +20,9 @@ export const fetchWeather = (city) => {
         dispatch(updateWeather(null));
         axios.get(url).then(result => {
             dispatch(updateWeather(result.data));
-        })
+        }).catch(e => {
+            console.log(e);
+        }) 
     }
 }
 

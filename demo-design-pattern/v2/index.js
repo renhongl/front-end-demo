@@ -8,6 +8,7 @@ import ReduceFrequency from './pattern/ReduceFrequency.js';
 import { Adapter } from './pattern/Adapter.js';
 import { Flyweight } from './pattern/Flyweight.js';
 import Control from './pattern/State.js';
+import { Player, PlayerMediator } from './pattern/Mediator.js';
 
 export default class Index{
     constructor() {
@@ -25,6 +26,8 @@ export default class Index{
         this.adapter = new Adapter();
         this.flyweight = new Flyweight();
         this.control = new Control();
+        this.Player = Player;
+        this.playerMediator = new PlayerMediator();
         this.testMapping = {
             observer: this._testObserver.bind(this),
             singleton: this._testSingleton.bind(this),
@@ -34,12 +37,23 @@ export default class Index{
             adapter: this._testAdapter.bind(this),
             flyweight: this._testFlyweight.bind(this),
             state: this._testState.bind(this),
+            director: this._testDirector.bind(this),
         }
     }
 
     test(type) {
         this.testMapping[type]();
         return this;
+    }
+
+    _testDirector() {
+        let a1 = new this.Player('红队001', 'red', this.playerMediator);
+        let a2 = new this.Player('红队002', 'red', this.playerMediator);
+        let b1 = new this.Player('蓝队001', 'blue', this.playerMediator);
+        let b2 = new this.Player('蓝队002', 'blue', this.playerMediator);
+
+        a1.die();
+        a2.remove();
     }
 
     _testState() {
