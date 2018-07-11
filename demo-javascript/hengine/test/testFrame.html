@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        max frame: <span id="maxf"></span><br/>
+        min frame: <span id="minf"></span><br/>
+        current frame: <span id="currf"></span><br/>
+
+    </div>
+    <script src="../src/hevent.js"></script>
+    <script src="../src/hsys.js"></script>
+    <script src="../src/happ.js"></script>
+    <script>
+        let g = new Game();
+        g.addEventListener(new AppEventLisener({
+            afterRender: function() {
+                document.getElementById('maxf').innerText = FrameState.maxFrame;
+                document.getElementById('minf').innerText = FrameState.minFrame;
+                document.getElementById('currf').innerText = FrameState.currTime;
+            }
+        }));
+
+        g.run(-1);
+    </script>
+</body>
+</html>
