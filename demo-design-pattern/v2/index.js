@@ -9,6 +9,9 @@ import { Adapter } from './pattern/Adapter.js';
 import { Flyweight } from './pattern/Flyweight.js';
 import Control from './pattern/State.js';
 import { Player, PlayerMediator } from './pattern/Mediator.js';
+import { LoginButton } from './pattern/Command.js';
+import { Vip5, Vip3, Vip1 } from './pattern/Chain.js';
+import { RenderDiv, renderDom } from './pattern/Template.js';
 
 export default class Index{
     constructor() {
@@ -28,6 +31,13 @@ export default class Index{
         this.control = new Control();
         this.Player = Player;
         this.playerMediator = new PlayerMediator();
+        this.loginButton = new LoginButton();
+        this.vip1 = new Vip1();
+        this.vip3 = new Vip3();
+        this.vip5 = new Vip5();
+        this.renderDom = renderDom;
+        
+
         this.testMapping = {
             observer: this._testObserver.bind(this),
             singleton: this._testSingleton.bind(this),
@@ -38,12 +48,83 @@ export default class Index{
             flyweight: this._testFlyweight.bind(this),
             state: this._testState.bind(this),
             director: this._testDirector.bind(this),
+            command: this._testCommand.bind(this),
+            decorator: this._testDecorator.bind(this),
+            chain: this._testChain.bind(this),
+            template: this._testTemplate.bind(this),
         }
     }
 
     test(type) {
         this.testMapping[type]();
         return this;
+    }
+
+    _testTemplate() {
+        //way 1
+        // let renderDiv = new RenderDiv();
+        // renderDiv.createDom();
+        // renderDiv.configStyle();
+        // renderDiv.appendToParent();
+
+        //way2
+        let Render = this.renderDom({
+            createDom() {
+                console.log('create div');
+            }
+        });
+        let render = new Render();
+        render.createDom();
+        render.configStyle();
+        render.appendToParent();
+    }
+
+    _testChain() {
+        this.vip5.setNextChain(this.vip3);
+        this.vip3.setNextChain(this.vip1);
+
+        this.vip5.getDiscount(1000, 5);
+        this.vip5.getDiscount(1000, 3);
+        this.vip5.getDiscount(1000, 1);
+    }
+
+    _testDecorator() {
+        Function.prototype.before = function(beforeFn) {
+            let self = this;
+            return function() {
+                beforeFn.apply(this, arguments);
+                self.apply(this, arguments);
+            }
+        }
+        
+        Function.prototype.after = function(afterFn) {
+            let self = this;
+            return function() {
+                self.apply(this, arguments);
+                afterFn.apply(this, arguments);
+            }
+        }
+
+        let login = function (str) {
+            console.log('login: ' + str);
+        }
+
+        login = login.before(function(str) {
+            console.log('before login: ' + str);
+        });
+
+        login = login.after(function(str) {
+            console.log('after login: '+ str);
+        });
+
+        login('test');
+    }
+
+    _testCommand() {
+        this.loginButton.renderLoginCommand.excute(this.loginButton);
+        setTimeout(() => {
+            this.loginButton.renderLoginCommand.undo();
+        }, 3000);
     }
 
     _testDirector() {
